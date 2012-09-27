@@ -5,7 +5,8 @@
   %span= post.created_at
   - if @show_topic
     %span= post.topic.name
-  .post_preview= post.preview
-  .read_more= link_to "Read more", post_path(post)
+  .post_preview.container.brdashb
+    != post.preview
+    .read_more= link_to "Read more", post_path(post)
   = render :partial => "tags/tag_list", :locals => {:post => post}
 

@@ -10,7 +10,15 @@ class Post < ActiveRecord::Base
 
   before_save :prepare_preview
 
+  def preview
+    super || preview_by_length
+  end
+
 protected
+  def preview_by_length
+    self.preview_count > 0 ? self.body[0..self.preview_count] : body
+  end
+
   def self.by_all_tags(tags)
     self.tagged_with(tags, :match_all => true)
   end
