@@ -1,0 +1,6 @@
+.tag_cloud
+  - tag_cloud(cloud.first(15).shuffle, %w(css1 css2 css3 css4 css5 css6)) do |tag, css_class|
+    = link_to tag.name, index_by_tags_posts_path(:tags => [tag.name]), :class => css_class
+.tag_list
+  - cloud.offset(15).each do |tag|
+    = link_to tag.name, index_by_tags_posts_path(:tags => [tag.name])

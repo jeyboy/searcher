@@ -1,0 +1,7 @@
+.container.bgw
+  %h4.post_title= "#{@post.name} #{@post.created_at}"
+  .post_body= @post.body
+  = render :partial => "tags/tag_list", :locals => {:post => @post}
+
+  .controls
+    = link_to "Edit", edit_post_path(@post)

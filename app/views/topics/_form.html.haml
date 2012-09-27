@@ -1,0 +1,29 @@
+:javascript
+  $(document).ready(function() {
+    $('#new_topic').submit(function() {
+      topicSubmitProc();
+      return false;
+    });
+  });
+
+  function topicSubmitProc() {
+    $.ajax({
+      url: "#{topics_path}",
+      type: 'POST',
+      data: $('#new_topic').serialize(),
+      success: function(data) {
+        if (data.status) {
+          $('#topics').append('<option value="' + data.id + '" selected="selected">' + data.name + '</option>');
+          $('#topics').trigger('change');
+          $('.new_topic').addClass('hidden');
+        }
+      }
+    });
+  }
+
+= form_for :topic, :url => topics_path, :html => {:method => :post, :id => 'new_topic', :class => 'brdashb container' } do |f|
+  = f.hidden_field :category_id
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit :create

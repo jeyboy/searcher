@@ -1,0 +1,12 @@
+.categories
+  - @categories.each do |category|
+    .category.container.bgw
+      %span.title
+        = image_tag category.avatar
+        = link_to category.name, category
+        %span.fr
+          #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
+
+.paginate.container.bgw.wa.fl
+  = paginate @categories
+.cb

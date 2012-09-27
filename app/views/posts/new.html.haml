@@ -1,0 +1,65 @@
+:javascript
+  $(document).ready(function () {
+    $('#categories').change(function() {
+      $('.new_category').addClass('hidden');
+      var category_id = $(this).val();
+      if (category_id.length == 0)
+        $('.topics, .post_block').hide();
+      else
+        $.ajax({
+          url: '/categories/' + category_id + '/topics',
+          success: function(data) {
+            $('#topics').html(data.data);
+            $('.topics').show();
+            $('#topic_category_id').val(category_id);
+            if (data.data.length > 0)
+              $('#topics').trigger('change');
+          }
+        });
+    });
+
+    $('#topics').change(function() {
+      $('.new_topic').addClass('hidden');
+      var topic_id = $(this).val();
+      $('#post_topic_id').val(topic_id);
+
+      if (topic_id.length == 0)
+        $('.post_block').hide();
+      else
+        $('.post_block').show();
+    });
+  });
+
+.container.bgw.fl
+  = label_tag :category
+  = collection_select :category, :category_id, @categories, :id, :name, { :include_blank => true }, :id => :categories
+
+  = link_to image_tag("buttons/add.png", :class => "vam", :size => "20x20"), "#", :onclick => "$('.new_category').toggleClass('hidden'); return false;"
+  .new_category.hidden
+    = render :partial => "categories/form"
+
+.container.topics.hidden.bgw.fl
+  = label_tag :topic
+  = collection_select :topic, :topic_id, @topics || [], :id, :name, {}, :id => :topics
+  = link_to image_tag("buttons/add.png", :class => "vam", :size => "20x20"), "#", :onclick => "$('.new_topic').toggleClass('hidden'); return false;"
+  .new_topic.hidden
+    = render :partial => "topics/form"
+
+.fl.container.w18.bgw.post_block.hidden.wa
+  = render :partial => "tags/form"
+.cb
+
+.post_block.hidden
+  .container.bgw
+    = form_for @post do |form|
+      = form.hidden_field :topic_id
+      = form.label :title
+      = form.text_field :name
+
+      %br
+      = form.label :body
+      %br
+      = form.text_area :body, :class => "tinymce"
+
+      %br
+      = form.submit :create

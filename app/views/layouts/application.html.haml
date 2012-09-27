@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %title Searcher
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "main/application"
+    = csrf_meta_tags
+  %body
+    #body_wrapper
+      #header
+        #controls.bgw.container
+          = link_to image_tag("logo.png", :size => "100x100", :class => "fl"), '/'
+          %ul.fl
+            %li= link_to "Add post", new_post_path
+            %li= link_to "Last added", relevant_posts_path
+            %li= link_to "Categories", categories_path
+          #search.fr
+            = form_for :search, :url => search_posts_path do |f|
+              = f.text_field :search
+              = f.submit '>>'
+          .cb
+      #content.container.brdashw
+        = yield
+    #footer.bgw.container
+      .m0a.w60
+        .m0a.w30
+          = "Created by craaaaaaazy (O_o)"
+          = Time.now.year
+
+:javascript
+  $(document).ready(function() {
+    $('input, select').addClass("ui-state-default ui-combobox-input ui-widget ui-widget-content ui-corner-left ui-corner-right");
+    //$('select').parent().css({'background': 'url(new_arrow.png) no-repeat right #ddd;' });
+  });

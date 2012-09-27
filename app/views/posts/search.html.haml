@@ -1,0 +1,5 @@
+- if @posts.empty?
+  %h2.container.bgw= "No results for \"#{@criterion}\""
+- else
+  %h2.container.bgw= "Results for \"#{@criterion}\""
+  = render :template => "posts/index"

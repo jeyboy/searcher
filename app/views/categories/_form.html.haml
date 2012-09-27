@@ -1,0 +1,32 @@
+:javascript
+  $(document).ready(function() {
+    $('#new_category').submit(function() {
+      categorySubmitProc();
+      return false;
+    });
+  });
+
+  function categorySubmitProc() {
+    $.ajax({
+      url: "#{categories_path}",
+      type: 'POST',
+      data: $('#new_category').serialize(),
+      success: function(data) {
+        if (data.status) {
+          $('#categories').append('<option value="' + data.id + '" selected="selected">' + data.name + '</option>');
+          $('.topics').show();
+          //$('#categories').trigger('change');
+          $('.new_category').addClass('hidden');
+        }
+      }
+    });
+  }
+
+= form_for :category, :url => categories_path, :html => { :method => :post, :multipart => true, :id => 'new_category', :class => 'brdashb container'} do |f|
+  = f.label :logo
+  = f.file_field :avatar
+  %br
+  = f.label :title
+  = f.text_field :name
+
+  = f.submit :create

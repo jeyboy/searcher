@@ -1,0 +1,29 @@
+:javascript
+  var tag_count = 0;
+  var tag_html = '#{escape_javascript(render(:partial => "tags/tag", :locals => {:tag_name => "%1"} ))}'
+
+  $(document).ready(function() {
+    $("#tagger").combobox();
+    $('.ui-autocomplete-input').keydown(function(event) {
+      if(event.keyCode == '13') {
+        var elem = $(this);
+        addTag(elem.val());
+        elem.val('');
+      }
+    });
+  });
+
+  function addTag(name) {
+    $('<input type="hidden" name="tag[' + tag_count++ + ']" value="' + name + '"/>').appendTo('#new_post');
+    $('#tags_block').append(tag_html.replace(/%1/, name));
+    appendOptionIfNotExist('#tagger', name);
+  }
+
+#tags_controls.fl
+  %label Tags
+  %p.sub Press 'Enter' for add tag
+  %select#tagger
+    != prepare_opts(@tags)
+
+#tags_block.fl
+.cb
