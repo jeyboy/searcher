@@ -1,9 +1,15 @@
 :javascript
   function loadTopics(category_id) {
+    var elem = $('#category_'+category_id);
+    if (elem.hasClass('open')) {
+      elem.toggle();
+      return false;
+    }
+
     $.ajax({
       url: '/categories/' + category_id + '/topics',
       success: function(data) {
-        $('#category_'+category_id).html(data.data);
+        $('#category_'+category_id).addClass('open').html(data.data);
       }
     });
   }
