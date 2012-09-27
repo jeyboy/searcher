@@ -15,7 +15,7 @@
             %li= link_to "Last added", relevant_posts_path
             %li= link_to "Categories", categories_path
           #search.fr
-            = form_for :search, :url => search_posts_path do |f|
+            = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
               = f.text_field :search
               = f.submit '>>'
           .cb

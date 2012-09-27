@@ -62,7 +62,7 @@ Searcher::Application.routes.draw do
   resources :posts do
     get :relevant, :on => :collection
     get :index_by_tags, :on => :collection
-    post :search, :on => :collection
+    get :search, :on => :collection
 
     post :delete_tag, :on => :member
     get :related, :on => :member
