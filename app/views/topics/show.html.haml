@@ -2,6 +2,4 @@
 
 #posts
   = render @posts
-.paginate.container.bgw.wa.fl
-  = paginate @posts
-.cb
+  = render :partial => "shared/paginate", :locals => {:objects => @posts}

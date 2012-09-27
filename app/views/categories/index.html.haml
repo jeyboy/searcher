@@ -1,12 +1,26 @@
+:javascript
+  function loadTopics(category_id) {
+    $.ajax({
+      url: '/categories/' + category_id + '/topics',
+      success: function(data) {
+        $('#category_'+category_id).html(data.data);
+      }
+    });
+  }
+
 .categories
   - @categories.each do |category|
     .category.container.bgw
       %span.title
         = image_tag category.avatar
-        = link_to category.name, category
+        - if category.topics_count > 0
+          = link_to category.name, "#", :onclick => "loadTopics('#{category.id}'); return false;"
+        - else
+          #{category.name}
         %span.fr
           #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
+        .cb
+        - if category.topics_count > 0
+          %ul[category]
 
-.paginate.container.bgw.wa.fl
-  = paginate @categories
-.cb
+  = render :partial => "shared/paginate", :locals => {:objects => @categories}

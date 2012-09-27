@@ -33,12 +33,27 @@ class CategoriesController < ApplicationController
   end
 
   def topics
-    render :json => { :data => Category.cached_topics(params[:id].to_i) }
+    if (params[:cached].present?)
+      render :json => {:data => Category.cached_topics(params[:id].to_i) }
+    else
+      @category = Category.includes(:topics).find_by_id(params[:id])
+      render :json => {:data => help.prepare_list(@category.topics).join}
+      topic_path
+    end
   end
 
 private
   def preinit
     @category = Category.find_by_id(params[:id])
     redirect_to :root, :alert => "Access denied" if @category.nil?
+  end
+
+  def help
+    Helper.instance
+  end
+
+  class Helper
+    include Singleton
+    include CategoriesHelper
   end
 end

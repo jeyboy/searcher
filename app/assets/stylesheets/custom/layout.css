@@ -41,9 +41,14 @@ body { background-image: url(/assets/background.png); }
     font-weight: bold;
 }
 
-.tag a {
+.tag a,.paginate a  {
     text-decoration: none;
     color: white;
+}
+
+.paginate .page.current{
+    color: red;
+    font-weight: bold;
 }
 
 .sub {
