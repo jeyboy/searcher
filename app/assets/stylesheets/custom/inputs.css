@@ -10,6 +10,16 @@
      display: block;
  }
 
-#header li {
+#header li, .categories li {
     list-style-image: url(/assets/ruby_list_mark.png);
 }
+
+.categories li {
+    background-color: #555555;
+}
+
+ .categories li a {
+     font-weight: bold;
+     color: white;
+     text-decoration: none;
+ }
