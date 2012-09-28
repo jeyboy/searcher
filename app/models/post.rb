@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   before_save :prepare_preview
 
   def body
-    Syntaxer.prepare_html(super)
+    Syntaxer.prepare_html(super.dup)
   end
 
   def preview
@@ -21,7 +21,8 @@ class Post < ActiveRecord::Base
 
 protected
   def preview_by_length
-    self.preview_count > 0 ? self.body[0..self.preview_count] : body
+    #self.preview_count > 0 ? self.body[0..self.preview_count] : body
+    body
   end
 
   def self.by_all_tags(tags)
