@@ -1,4 +1,4 @@
 .container.bgw
   = render :partial => "posts/post_header", :locals => {:post => @post}
-  .post_body.container.brdashb!= @post.body
+  .post_body.container.brdashb.bgp!= @post.body
   = render :partial => "tags/tag_list", :locals => {:post => @post}
