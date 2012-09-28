@@ -1,12 +1,7 @@
 %div.container.bgw[post]
-  -#.avatar
-  -#  = link_to image_tag post.topic.category.avatar, category_path(post.topic_id)
-  %h4.post_title= post.name
-  %span= post.created_at
-  - if @show_topic
-    %span= post.topic.name
+  = render :partial => "post_header", :locals => {:post => post, :topic_name => post.topic.name}
   .post_preview.container.brdashb
     != post.preview
-    .read_more= link_to "Read more", post_path(post)
+  .read_more= link_to "Read more", post_path(post)
   = render :partial => "tags/tag_list", :locals => {:post => post}
 

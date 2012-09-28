@@ -54,6 +54,14 @@ body { background-image: url(/assets/background.png); }
     font-size: 0.8em;
 }
 
+.post_title {
+    padding: 0 20px 0 0;
+}
+
+.controls {
+    padding: 5px;
+}
+
 /*tag cloud*/
     .css1 { font-size: 0.4em; color: #ff0000; }
     .css2 { font-size: 0.8em; color: #ffaf0f; }
