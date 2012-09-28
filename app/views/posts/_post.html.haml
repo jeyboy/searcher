@@ -1,5 +1,5 @@
 %div.container.bgw[post]
-  = render :partial => "post_header", :locals => {:post => post, :topic_name => post.topic.name}
+  = render :partial => "posts/post_header", :locals => {:post => post, :topic_name => post.topic.name}
   .post_preview.container.brdashb
     != post.preview
   .read_more= link_to "Read more", post_path(post)

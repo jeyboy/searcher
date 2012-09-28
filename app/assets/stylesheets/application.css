@@ -12,9 +12,9 @@
  *= require_tree .
   */
 
-.oh { overflow: hidden;}
+.oh { overflow: hidden ;}
 .db { display :block; }
-.hidden { display: none; }
+.hidden { display: none !important; }
 
 .fl { float: left; }
 .fr { float: right; }
@@ -37,7 +37,9 @@
 .m0a { margin: 0 auto; }
 .wa { width: auto; }
 
-.bgw {background-color: #e0ffff;}
+.tac {text-align: center;}
+.cw { color:white; }
+.bgw {background-color: #aaa;}
 .brdashw { border: 2px dashed white; }
 .brdashb { border: 2px dashed black; }
 
