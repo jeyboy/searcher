@@ -30,10 +30,9 @@ class PostsController < ApplicationController
 
   def update
     @post.topic_id = params[:post].delete(:topic_id)
-    @post.attributes.merge!(params[:post])
     @post.tag_list << params[:tag].map(&:last) unless params[:tag].blank?
 
-    if @post.save
+    if @post.update_attributes(params[:post])
       redirect_to topic_path(@post.topic_id)
     else
       render :action => :edit
