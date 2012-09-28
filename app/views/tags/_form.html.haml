@@ -7,8 +7,11 @@
     $('.ui-autocomplete-input').keydown(function(event) {
       if(event.keyCode == '13') {
         var elem = $(this);
-        addTag(elem.val());
-        elem.val('');
+        var val = elem.val().replace(/[^\w|\-|а-яА-Я]/g,"");
+        if (val.length > 0) {
+          addTag(val);
+          elem.val('');
+        }
       }
     });
   });

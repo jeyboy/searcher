@@ -1,4 +1,4 @@
-%span.tag
+%p.tag.fl
   = link_to tag_name, index_by_tags_posts_path(:tags => [tag_name]), :class => "tag_name"
   %span
     = link_to image_tag('buttons/close.png', :size => "22x22", :class => "vam"), "#", :onclick => "deleteTag(this); return false;", :rel => (post_id rescue nil)

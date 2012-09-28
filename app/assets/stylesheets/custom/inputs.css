@@ -5,10 +5,10 @@
     /*max-width:99.5%;*/
 /*}*/
 
- div[mce_name="code"], code {
-     border: 2px solid black;
-     display: block;
- }
+ /*div[mce_name="code"], code {*/
+     /*border: 2px solid black;*/
+     /*display: block;*/
+ /*}*/
 
 #header li, .categories li {
     list-style-image: url(/assets/ruby_list_mark.png);
@@ -22,4 +22,9 @@
      font-weight: bold;
      color: white;
      text-decoration: none;
+ }
+
+ #tags_block {
+     padding-left: 40px;
+     width: 85%;
  }

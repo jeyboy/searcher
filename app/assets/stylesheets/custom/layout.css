@@ -36,7 +36,6 @@ body { background-image: url(/assets/background.png); }
     border-radius: 8px;
     padding: 3px;
     margin: 2px;
-    line-height: 2em;
     background-image: url(/assets/tag_background.png);
     font-weight: bold;
 }
