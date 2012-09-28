@@ -14,8 +14,7 @@
       success: function(data) {
         if (data.status) {
           $('#categories').append('<option value="' + data.id + '" selected="selected">' + data.name + '</option>');
-          $('.topics').show();
-          //$('#categories').trigger('change');
+          $('#categories').trigger('change');
           $('.new_category').addClass('hidden');
         }
       }

@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   include Previewer
+  require "syntaxer"
 
   acts_as_taggable_on :tags
   attr_accessible :name, :body
@@ -9,6 +10,10 @@ class Post < ActiveRecord::Base
   default_scope order("created_at DESC")
 
   before_save :prepare_preview
+
+  def body
+    Syntaxer.prepare_html(super)
+  end
 
   def preview
     super || preview_by_length

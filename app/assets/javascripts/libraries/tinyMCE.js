@@ -37,17 +37,20 @@ $(document).ready(function () {
 //            staffid : "991234"
 //        },
 
-        extended_valid_elements : "code",
-        custom_elements: "code",
-        setup : function(ed) {
-            ed.addButton('code', {
-                title : 'Code snippet',
-//                image : 'img/example.gif',
-                onclick : function() {
-                    ed.focus();
-                    ed.selection.setContent('<code>' + ed.selection.getContent() + '</code>'); } });
+        extended_valid_elements : "ruby, haml, css, html, json, javascript, sql, yaml, erb, xml"
 
-                }
+
+//        extended_valid_elements : "code",
+//        custom_elements: "code",
+//        setup : function(ed) {
+//            ed.addButton('code', {
+//                title : 'Code snippet',
+////                image : 'img/example.gif',
+//                onclick : function() {
+//                    ed.focus();
+//                    ed.selection.setContent('<code>' + ed.selection.getContent() + '</code>'); } });
+//
+//                }
 
         //width: '100%',
         //height: '80%'
