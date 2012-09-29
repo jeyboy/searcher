@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'coderay'
 
-gem 'tinymce-rails'
-
 gem 'acts-as-taggable-on', '~> 2.3.1'
 
 gem 'haml-rails'

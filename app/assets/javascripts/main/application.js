@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require ../libraries/ui-darkness/jquery-ui-1.8.24.custom.min.js
 //= require ../libraries/ui-darkness/autoselect
-//= require ../libraries/tinyMCE.js
 //= require_tree .
 
 
