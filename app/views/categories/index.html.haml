@@ -1,4 +1,27 @@
 :javascript
+  $(function() {
+    var icons = {
+      header: "ui-icon-circle-arrow-e",
+      headerSelected: "ui-icon-circle-arrow-s"
+    };
+    var acc_settings = {
+                          //icons: icons
+                          icons:false,
+                          active: false,
+                          autoHeight: false,
+                          changestart:function(event, ui) {
+                            var obj_id = ui.newHeader.find('a').attr('href');
+                            if (obj_id.length > 0) {
+                              loadTopics(obj_id);
+                              $('.categories').accordion('resize');
+                              ui.newHeader.find('a').attr('href', '');
+                            }
+                          }
+                       };
+
+    $( ".categories" ).accordion(acc_settings);
+  });
+
   function loadTopics(category_id) {
     var elem = $('#category_'+category_id);
     if (elem.hasClass('open')) {
@@ -16,17 +39,17 @@
 
 .categories
   - @categories.each do |category|
-    .category.container.bgw
+
+    %h3
       %span.title
-        = image_tag category.avatar
-        - if category.topics_count > 0
-          = link_to category.name, "#", :onclick => "loadTopics('#{category.id}'); return false;"
-        - else
-          #{category.name}
-        %span.fr
+        %span.fl
+          = image_tag category.avatar
+          - if category.topics_count > 0
+            = link_to category.name, "#{category.id}"
+          - else
+            #{category.name}
+        %span.controls.fr
           #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
         .cb
-        - if category.topics_count > 0
-          %ul[category]
-
-  = render :partial => "shared/paginate", :locals => {:objects => @categories}
+    %div
+      %ul[category]

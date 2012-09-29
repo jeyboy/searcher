@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :preinit, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @categories = paging(Category)
+    @categories = Category.all
   end
 
   def show
