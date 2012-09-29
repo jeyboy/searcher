@@ -5,8 +5,9 @@ class Syntaxer
 
   def self.prepare_html(text)
     LANGUAGES.each do |lang|
-      text.gsub!(/#{"<#{lang.to_s}>(.*?)<\/#{lang.to_s}>"}/mix) do |v|
-        v = v.gsub(/#{"<(#{lang.to_s}|\/#{lang.to_s})>"}/, "").gsub(/<br[^>]*\/>/, "\r\n")
+      req_lang = ":#{lang}"
+      text.gsub!(/#{"<#{req_lang}>(.*?)<\/#{req_lang}>"}/mix) do |v|
+        v = v.gsub(/#{"<(#{req_lang}|\/#{req_lang})>"}/, "").gsub(/<br[^>]*\/>/, "\r\n")
         CodeRay.scan(v, lang).div(:line_numbers => :table)
       end
     end
