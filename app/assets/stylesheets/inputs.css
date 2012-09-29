@@ -1,9 +1,10 @@
- /*table.mceLayout, textarea {*/
-    /*width:99.5%;*/
-    /*height:300px;*/
-    /*max-height:500px;*/
-    /*max-width:99.5%;*/
-/*}*/
+textarea {
+    width:99%;
+    height:300px;
+    max-height:500px;
+    min-width:99%;
+    max-width:99%;
+}
 
  /*div[mce_name="code"], code {*/
      /*border: 2px solid black;*/
