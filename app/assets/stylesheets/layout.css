@@ -26,14 +26,23 @@ body { background-image: url(/assets/background.png); }
 }
 
 .container {
-    border-radius: 10px;
+    -moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari, Chrome */
+    -khtml-border-radius: 10px; /* KHTML */
+    border-radius: 10px; /* CSS3 */
+
     padding: 4px;
     margin: 8px 4px;
+    overflow: auto;
 }
 
 .tag {
+    -moz-border-radius: 8px; /* Firefox */
+    -webkit-border-radius: 8px; /* Safari, Chrome */
+    -khtml-border-radius: 8px; /* KHTML */
+    border-radius: 8px; /* CSS3 */
+
     border: 1px solid black;
-    border-radius: 8px;
     padding: 3px;
     margin: 2px;
     background-image: url(/assets/tag_background.png);
@@ -61,6 +70,19 @@ body { background-image: url(/assets/background.png); }
 .controls {
     padding: 5px;
 }
+
+.CodeRay {
+    -moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari, Chrome */
+    -khtml-border-radius: 10px; /* KHTML */
+    border-radius: 10px; /* CSS3 */
+
+    /*background-image: url(/assets/code_background.jpg);*/
+    background-color: white;
+    padding: 6px;
+    margin: 0 auto;
+}
+
 
 /*tag cloud*/
     .css1 { font-size: 0.4em; color: #ff0000; }

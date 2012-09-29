@@ -68,6 +68,10 @@ class PostsController < ApplicationController
     @posts = paging(Post.search(:name_or_body_contains => (@criterion = params[:search][:search])).relation)
   end
 
+  def preprocess
+    render :text => Post.prepare_content(params[:content])
+  end
+
 protected
   def init_vars
     @categories = Category.all

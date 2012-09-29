@@ -16,7 +16,12 @@ var mySettings = {
     previewTemplatePath:    '/assets/libraries/markitup/templates/preview.html',
     previewAutoRefresh: true,
     previewParser: function(content) {
-        return "<div style='border: 1px black;'>" + content + "</div>";
+        return $.ajax({
+            type: 'POST',
+            url: '/posts/preprocess',
+            data: {'content': content},
+            async: false
+        }).responseText;
     },
     markupSet:  [
         {name:'Paragraph', key:'P', openWith:'<p>', closeWith:'</p>' },
@@ -46,7 +51,7 @@ var mySettings = {
         {separator:'---------------' },
         {name:'html', openWith:'<:html>', closeWith:'</:html>' },
         {name:'css', openWith:'<:css>', closeWith:'</:css>' },
-        {name:'javascript', openWith:'<:js>', closeWith:'</:js>' },
+        {name:'javascript', openWith:'<:javascript>', closeWith:'</:javascript>' },
         {name:'sql', openWith:'<:sql>', closeWith:'</:sql>' },
         {separator:'---------------' },
         {name:'json', openWith:'<:json>', closeWith:'</:json>' },

@@ -12,13 +12,17 @@ class Post < ActiveRecord::Base
   before_save :prepare_preview
 
   def body
-    Syntaxer.prepare_html(super.dup)
+    Post.prepare_content(super)
   end
 
   def preview
     super || preview_by_length
   end
 
+
+  def self.prepare_content(val)
+    Syntaxer.prepare_html(val.dup)
+  end
 protected
   def preview_by_length
     #self.preview_count > 0 ? self.body[0..self.preview_count] : body
