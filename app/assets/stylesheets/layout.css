@@ -83,6 +83,11 @@ body { background-image: url(/assets/background.png); }
     margin: 0 auto;
 }
 
+.lang_sign {
+    width: 20px;
+    margin: 0 auto;
+}
+
 
 /*tag cloud*/
     .css1 { font-size: 0.4em; color: #ff0000; }

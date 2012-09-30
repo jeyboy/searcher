@@ -17,7 +17,8 @@
   });
 
   function addTag(name) {
-    $('<input type="hidden" name="tag[' + tag_count++ + ']" value="' + name + '"/>').appendTo('.post_form');
+    //$('input[rel="tag"][value="'+name+'"]')
+    $('<input rel="tag" type="hidden" name="tag[' + tag_count++ + ']" value="' + name + '"/>').appendTo('.post_form');
     $('#tags_block').append(tag_html.replace(/%1/, name));
     appendOptionIfNotExist('#tagger', name);
   }

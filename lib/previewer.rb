@@ -3,22 +3,46 @@ module Previewer
   mattr_accessor :max_length
 
   def self.included(base)
-    self.max_length=150
+    self.max_length=25
     base.extend(ClassMethods)
   end
 
   def prepare_preview
+    return if self.body.length < max_length
+
     doc = Nokogiri::HTML(self.body)
-    counter = max_length
-    #doc.css('*') do |elem|
-    #counter -= elem.html
-    #end
-    self.preview_count = counter
+    self.preview = html_iterator_wrapper(doc.css('body'))
   end
 
   module ClassMethods
     def rebuild
 
     end
+  end
+
+private
+  def html_iterator_wrapper(block)
+    html_iterator(block)
+    block.inner_html
+  end
+
+  def html_iterator(block, counter = 0, lock = false)
+    block.children().each do |child|
+      if lock
+        child.remove
+      else
+        if child.text?
+          counter += (child_content = child.content).length
+          if counter > max_length
+            len = child_content.index("\n", (child_content.length - (counter - max_length))) || (child_content.length - 1 - (counter - max_length))
+            (child.content = child_content[0..(len + 1)] + "...")
+          end
+        else
+          counter, lock = html_iterator(child, counter, lock) unless ['a'].include?(child.node_name)
+          lock = counter > max_length
+        end
+      end
+    end
+    [counter, lock]
   end
 end

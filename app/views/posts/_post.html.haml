@@ -1,7 +1,7 @@
 %div.container.bgw[post]
   = render :partial => "posts/post_header", :locals => {:post => post, :topic_name => post.topic.name}
   .post_preview.container.brdashb.bgp
-    != post.preview
+    != post.pretty_preview
   .read_more= link_to "Read more", post_path(post)
   = render :partial => "tags/tag_list", :locals => {:post => post}
 

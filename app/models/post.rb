@@ -11,8 +11,12 @@ class Post < ActiveRecord::Base
 
   before_save :prepare_preview
 
-  def body
-    Post.prepare_content(super)
+  def pretty_body
+    Post.prepare_content(self.body)
+  end
+
+  def pretty_preview
+    Post.prepare_content(preview)
   end
 
   def preview
@@ -25,8 +29,7 @@ class Post < ActiveRecord::Base
   end
 protected
   def preview_by_length
-    #self.preview_count > 0 ? self.body[0..self.preview_count] : body
-    body
+    self.preview_count > 0 ? self.body[0..self.preview_count] : body
   end
 
   def self.by_all_tags(tags)
