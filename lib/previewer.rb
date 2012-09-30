@@ -8,6 +8,7 @@ module Previewer
   end
 
   def prepare_preview
+    self.body.gsub!(/>\r\n/, ">")
     return if self.body.length < max_length
 
     doc = Nokogiri::HTML(self.body)
