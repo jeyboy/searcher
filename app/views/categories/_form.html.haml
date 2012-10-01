@@ -22,10 +22,10 @@
   }
 
 = form_for :category, :url => categories_path, :html => { :method => :post, :multipart => true, :id => 'new_category', :class => 'brdashb container'} do |f|
-  = f.label :logo
-  = f.file_field :avatar
-  %br
   = f.label :title
   = f.text_field :name
+  %br
+  = f.label :logo
+  = f.file_field :avatar
 
   = f.submit :create
