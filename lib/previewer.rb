@@ -3,7 +3,7 @@ module Previewer
   mattr_accessor :max_length
 
   def self.included(base)
-    self.max_length=25
+    self.max_length=150
     base.extend(ClassMethods)
   end
 

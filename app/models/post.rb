@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
   end
 protected
   def preview_by_length
-    self.preview_count > 0 ? self.body[0..self.preview_count] : body
+    self.preview_count.to_i > 0 ? self.body[0..self.preview_count] : body
   end
 
   def self.by_all_tags(tags)
