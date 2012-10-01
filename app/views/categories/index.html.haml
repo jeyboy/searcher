@@ -1,20 +1,15 @@
 :javascript
   $(function() {
-    var acc_settings = {
-                          icons:false,
-                          active: false,
-                          autoHeight: false,
-                          changestart:function(event, ui) {
-                            var obj_id = ui.newHeader.find('a').attr('href');
-                            if (obj_id.length > 0) {
-                              loadTopics(obj_id);
-                              $('.categories').accordion('resize');
-                              ui.newHeader.find('a').attr('href', '');
-                            }
-                          }
-                       };
+    $('.categories').collapse({toggle: false});
 
-    $( ".categories" ).accordion(acc_settings);
+    $('.categories').on('show', function (data) {
+      var obj_id = $(data.target).attr('rel');
+      if (obj_id.length > 0) {
+        loadTopics(obj_id);
+        //$('.categories').collapse({toggle: false});
+        $(data.target).attr('rel', '');
+      }
+    })
   });
 
   function loadTopics(category_id) {
@@ -27,26 +22,34 @@
     $.ajax({
       url: '/categories/' + category_id + '/topics',
       success: function(data) {
-        $('#category_'+category_id).addClass('open').html(data.data);
+        $('#category_'+category_id).addClass('open').find("ul").html(data.data);
       }
     });
   }
 
 .categories
   - @categories.each do |category|
+    .accordion-group
+      .accordion-heading
+        %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => ".categories", :href => "#category_#{category.id}"}
+          = category.name
 
-    %h3
-      %span.title
-        %span.fl
-          - if category.topics_count > 0
-            = image_tag category.avatar, :class => "fl"
-            %span.fl
-              = link_to category.name, "#{category.id}"
-            .cb
-          - else
-            #{category.name}
-        %span.controls.fr
-          #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
-        .cb
-    %div
-      %ul[category]
+      %div[category]{:rel => "#{category.id}"}
+        %ul
+
+
+    -#%h3
+    -#  %span.title
+    -#    %span.fl
+    -#      - if category.topics_count > 0
+    -#        = image_tag category.avatar, :class => "fl"
+    -#        %span.fl
+    -#          = link_to category.name, "#{category.id}", "data-toggle" => "collapse", "data-parent" => "categories"
+    -#        .cb
+    -#      - else
+    -#        #{category.name}
+    -#    %span.controls.fr
+    -#      #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
+    -#    .cb
+    -#%div
+    -#  %ul[category]
