@@ -2,14 +2,15 @@
   $(function() {
     $('.categories').collapse({toggle: false});
 
-    $('.categories').on('show', function (data) {
-      var obj_id = $(data.target).attr('rel');
+    $(".categories a").on("click", function(event){
+      var obj_id = $(this).attr('rel');
       if (obj_id.length > 0) {
         loadTopics(obj_id);
-        //$('.categories').collapse({toggle: false});
-        $(data.target).attr('rel', '');
+        $(this).attr('rel', '');
       }
-    })
+
+      event.preventDefault();
+    });
   });
 
   function loadTopics(category_id) {
@@ -21,6 +22,7 @@
 
     $.ajax({
       url: '/categories/' + category_id + '/topics',
+      async: false,
       success: function(data) {
         $('#category_'+category_id).addClass('open').find("ul").html(data.data);
       }
@@ -31,10 +33,10 @@
   - @categories.each do |category|
     .accordion-group
       .accordion-heading
-        %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => ".categories", :href => "#category_#{category.id}"}
+        %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => ".categories", :href => "#category_#{category.id}", :rel => "#{category.id}"}
           = category.name
 
-      %div[category]{:rel => "#{category.id}"}
+      %div[category]
         %ul
 
 
