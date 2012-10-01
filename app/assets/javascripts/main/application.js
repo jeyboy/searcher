@@ -15,6 +15,8 @@
 //= require ../libraries/ui-darkness/jquery-ui-1.8.24.custom.min.js
 //= require ../libraries/ui-darkness/autoselect
 //= require ../libraries/markitup/inclusion.js
+//= require ../libraries/bootstrap/bootstrap.min.js
+
 //= require_tree .
 
 
