@@ -74,4 +74,4 @@
       = form.text_area :body
 
       %br
-      = form.submit :create
+      = form.submit @post.persisted? ? "Update" : "Create"
