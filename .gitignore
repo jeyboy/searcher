@@ -16,7 +16,6 @@
 
 .idea/
 Gemfile.lock
-Rakefile
 config.ru
 doc/
 test/
