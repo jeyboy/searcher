@@ -3,8 +3,7 @@
   var tag_html = '#{escape_javascript(render(:partial => "tags/tag", :locals => {:tag_name => "%1"} ))}'
 
   $(document).ready(function() {
-    $("#tagger").combobox();
-    $('.ui-autocomplete-input').keydown(function(event) {
+    $('#tagger').keydown(function(event) {
       if(event.keyCode == '13') {
         var elem = $(this);
         var val = elem.val().replace(/[^\w|\-|а-яА-Я]/g,"");
@@ -26,8 +25,7 @@
 #tags_controls.fl
   %label Tags
   %p.sub Press 'Enter' for add tag
-  %select#tagger
-    != prepare_opts(@tags)
+  %input#tagger{"data-source" => "#{@tags.inspect}", :type => "text", "data-provide" => "typeahead" }
 
 #tags_block.fl
 .cb

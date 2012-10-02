@@ -36,7 +36,7 @@
     });
   });
 
-.container.bgw.fl
+.content_block.bgw.fl
   = label_tag :category
   = collection_select :category, :category_id, @categories, :id, :name, { :include_blank => true, :selected => @category_id }, :id => :categories
 
@@ -44,14 +44,14 @@
   .new_category.hidden
     = render :partial => "categories/form"
 
-.container.topics.bgw.fl{:class => hidden_class}
+.content_block.topics.bgw.fl{:class => hidden_class}
   = label_tag :topic
   = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id }, :id => :topics
   = link_to image_tag("buttons/add.png", :class => "vam", :size => "20x20"), "#", :onclick => "$('.new_topic').toggleClass('hidden'); return false;"
   .new_topic.hidden
     = render :partial => "topics/form"
 
-.fl.container.bgw.post_block.w99{:class => hidden_class}
+.fl.content_block.bgw.post_block.w99{:class => hidden_class}
   = render :partial => "tags/form"
 
   - if @post.persisted? && !@post.tag_list.blank?
@@ -62,7 +62,7 @@
 .cb
 
 .post_block{:class => hidden_class}
-  .container.bgw
+  .content_block.bgw
     = form_for @post, prepare_form_params(@post) do |form|
       = form.hidden_field :topic_id
       = form.label :title

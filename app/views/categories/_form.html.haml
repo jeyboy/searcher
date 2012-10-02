@@ -21,7 +21,7 @@
     });
   }
 
-= form_for :category, :url => categories_path, :html => { :method => :post, :multipart => true, :id => 'new_category', :class => 'brdashb container'} do |f|
+= form_for :category, :url => categories_path, :html => { :method => :post, :multipart => true, :id => 'new_category', :class => 'content_block'} do |f|
   = f.label :title
   = f.text_field :name
   %br

@@ -6,11 +6,6 @@ textarea {
     max-width:99%;
 }
 
- /*div[mce_name="code"], code {*/
-     /*border: 2px solid black;*/
-     /*display: block;*/
- /*}*/
-
 #header li, .categories li {
     list-style-image: url(/assets/ruby_list_mark.png);
 }

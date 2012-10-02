@@ -25,7 +25,7 @@ body { background-color: #ffffff; }
     line-height: 30px;
 }
 
-.container {
+.content_block {
     -moz-border-radius: 10px; /* Firefox */
     -webkit-border-radius: 10px; /* Safari, Chrome */
     -khtml-border-radius: 10px; /* KHTML */
@@ -33,7 +33,6 @@ body { background-color: #ffffff; }
 
     padding: 4px;
     margin: 8px 4px;
-    overflow: auto;
 }
 
 .tag {

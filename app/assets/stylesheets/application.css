@@ -13,6 +13,7 @@
   */
 
 .oh { overflow: hidden ;}
+.oa { overflow: auto; }
 .db { display :block; }
 .hidden { display: none !important; }
 
@@ -40,10 +41,8 @@
 .tac {text-align: center;}
 .cw { color:white; }
 
-.bgw {background-color: #aaa;}
-.bgp {background-color: #e6e6fa;}
+.bgw {background-color: lightgray;}
 
-.brdashw { border: 2px solid white; }
 .brdashb { border: 2px solid black; }
 
 .vam { vertical-align: middle; }
