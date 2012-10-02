@@ -9,8 +9,8 @@ class Syntaxer
       text.gsub!(/#{"<#{req_lang}>(.*?)<\/#{req_lang}>"}/mix) do |v|
         v = v.gsub(/#{"<(#{req_lang}|\/#{req_lang})>"}/, "").gsub(/<br[^>]*\/>/, "\r\n")
 
-        "<div class='lang_sign'><img src='/assets/markitup/sets/default/images/#{lang}.png' alt='#{lang}'/></div>" +
-        CodeRay.scan(v, lang).div(:line_numbers => :table)
+        "<div class='content_block'><div class='lang_sign'><img src='/assets/markitup/sets/default/images/#{lang}.png' alt='#{lang}'/></div>" +
+        CodeRay.scan(v, lang).div(:line_numbers => :table) + "</div>"
       end
     end
     text

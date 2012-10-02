@@ -22,6 +22,15 @@ textarea {
      font-weight: bold;
  }
 
+.categories ul {
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-heading .accordion-toggle {
+    padding: 0 15px !important;
+}
+
  #tags_block {
      padding-left: 10px;
      width: 85%;
