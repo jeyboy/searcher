@@ -6,21 +6,27 @@ textarea {
     max-width:99%;
 }
 
-#header li, .categories li {
+#header li {
     list-style-image: url(/assets/ruby_list_mark.png);
 }
 
 .categories li {
-    background-color: #555555;
+    list-style: none;
+    border-bottom: 2px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    width: 95%;
 }
-
  .categories li a {
      font-weight: bold;
-     color: white;
-     text-decoration: none;
  }
 
  #tags_block {
-     padding-left: 40px;
+     padding-left: 10px;
      width: 85%;
  }
+
+.btn-primary a{
+    color:#fff!important;
+}

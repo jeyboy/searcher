@@ -8,7 +8,7 @@
   %body
     #body_wrapper
       #header
-        #controls.bgw.content_block
+        #controls.bg.content_block
           = link_to image_tag("logo_small.png", :size => "100x100", :class => "fl"), '/'
           %ul.fl
             %li= link_to "Add post", new_post_path
@@ -17,11 +17,11 @@
           #search.fr
             = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
               = f.text_field :search
-              = f.submit '>>'
+              = f.submit '>>', :class => 'btn'
           .cb
       #content.content_block
         = yield
-    #footer.bgw.content_block
+    #footer.bg.content_block
       .m0a.w60
         .m0a.w30
           = "Created by craaaaaaazy (O_o)"

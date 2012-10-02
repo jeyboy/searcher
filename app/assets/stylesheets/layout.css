@@ -1,7 +1,8 @@
 body { background-color: #ffffff; }
 
-#header {
-
+#header ul {
+    padding: 8px 40px;
+    margin: inherit;
 }
 
 #logo {
@@ -66,27 +67,9 @@ body { background-color: #ffffff; }
     padding: 0 20px 0 0;
 }
 
-.controls {
+.controls, .lang_sign {
     padding: 5px;
 }
-
-.CodeRay {
-    -moz-border-radius: 10px; /* Firefox */
-    -webkit-border-radius: 10px; /* Safari, Chrome */
-    -khtml-border-radius: 10px; /* KHTML */
-    border-radius: 10px; /* CSS3 */
-
-    /*background-image: url(/assets/code_background.jpg);*/
-    background-color: white;
-    padding: 6px;
-    margin: 0 auto;
-}
-
-.lang_sign {
-    width: 20px;
-    margin: 0 auto;
-}
-
 
 /*tag cloud*/
     .css1 { font-size: 0.4em; color: #ff0000; }

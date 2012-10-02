@@ -1,7 +1,7 @@
-%div.content_block.bgw[post]
+%div.content_block.bg[post]
   = render :partial => "posts/post_header", :locals => {:post => post, :topic_name => post.topic.name}
   .content_block
     != post.pretty_preview
-  .read_more= link_to "Read more", post_path(post)
+  .read_more.btn.btn-primary= link_to "Read more", post_path(post)
   = render :partial => "tags/tag_list", :locals => {:post => post}
 
