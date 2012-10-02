@@ -41,5 +41,8 @@
 .cw { color:white; }
 
 .bg {background-color: gainsboro;}
+.wbg {background-color: white;}
+.abg {background-color: azure;}
+.bbg {background-color: lightblue;}
 
 .vam { vertical-align: middle; }
