@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def show
-    @cloud = Post.tag_counts_on(:tags)
+    @cloud = Post.cloud
   end
 end

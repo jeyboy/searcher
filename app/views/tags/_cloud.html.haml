@@ -1,6 +1,19 @@
-.tag_cloud
-  - tag_cloud(cloud.first(15).shuffle, %w(css1 css2 css3 css4 css5 css6)) do |tag, css_class|
-    = link_to tag.name, index_by_tags_posts_path(:tags => [tag.name]), :class => css_class
-.tag_list
-  - cloud.offset(15).each do |tag|
-    = link_to tag.name, index_by_tags_posts_path(:tags => [tag.name])
+:javascript
+  $(window).ready(function() {init();});
+
+  function init() {
+    var clouder = document.getElementById('clouder');
+
+    clouder.style.position = "fixed";
+    clouder.style.overflow = "hidden";
+
+    window.clouder = new Clouder({
+        container: clouder,
+        tags: new Array(#{cloud}),
+        callback: function(id) {
+          $.ajax({ url: "/posts/index_by_tags.js?tags%5B%5D=" + id });
+        }
+    });
+  }
+
+#clouder{:style => "width:29%; height:300px;"}

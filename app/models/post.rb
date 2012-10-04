@@ -47,4 +47,11 @@ protected
   def self.all_tags()
     ActsAsTaggableOn::Tag.all.map(&:name)
   end
+
+  def self.cloud()
+    temp = ActsAsTaggableOn::Tagging.joins(:tag).select("tags.name as name, tag_id as id").group(["tag_id", "tags.name"]).count
+    max = temp.first.last.to_f
+    temp = temp.map {|k, v| {:id => k.last, :text => k.last, :weight => v/max}}
+    temp.map {|k| "{#{k.map {|o| "#{o.first}:'#{o.last}'" }.join(',')}}"}.join(',')
+  end
 end

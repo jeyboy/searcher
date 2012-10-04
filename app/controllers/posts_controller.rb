@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_filter :preinit, :only => [:related, :destroy, :edit, :update, :show, :delete_tag]
   before_filter :init_vars, :only => [:new, :edit]
+  respond_to :html, :js
 
   def show
   end
@@ -56,7 +57,10 @@ class PostsController < ApplicationController
 
   def index_by_tags
     @posts = paging(Post.includes(:topic).by_one_of_the_tags(params[:tags]))
-    render :action => :index
+    respond_with do |mime|
+      mime.html { render :action => :index }
+      mime.js   { render :action => :index }
+    end
   end
 
   def delete_tag

@@ -12,10 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ../libraries/ui-darkness/jquery-ui-1.8.24.custom.min.js
-//= require ../libraries/ui-darkness/autoselect
 //= require ../libraries/markitup/inclusion.js
 //= require ../libraries/bootstrap/inclusion.js
+//= require ../libraries/cloud-min.js
 
 //= require_tree .
 
