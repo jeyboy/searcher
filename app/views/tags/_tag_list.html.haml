@@ -1,4 +1,4 @@
 .post_tag_list
   - post.tag_list.each do |tag|
-    = render :partial => "tags/tag", :locals => {:tag_name => tag, :post_id => post.id}
+    = render :partial => "tags/tag", :locals => {:tag_name => tag, :post_id => post.id, :controls => (controls rescue false)}
   .cb

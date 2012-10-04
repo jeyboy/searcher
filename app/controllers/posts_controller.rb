@@ -59,7 +59,10 @@ class PostsController < ApplicationController
     @posts = paging(Post.includes(:topic).by_one_of_the_tags(params[:tags]))
     respond_with do |mime|
       mime.html { render :action => :index }
-      mime.js   { render :action => :index }
+      mime.js   do
+        @remote = true
+        render :action => :index
+      end
     end
   end
 

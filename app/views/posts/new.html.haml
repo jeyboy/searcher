@@ -58,7 +58,7 @@
     %br
     .exist_tags
       = label_tag :already_exist
-      = render :partial => "tags/tag_list", :locals => {:post => @post}
+      = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true}
 .cb
 
 .post_block{:class => hidden_class}

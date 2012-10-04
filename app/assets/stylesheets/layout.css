@@ -59,6 +59,8 @@ html, body {
     margin: 2px;
     background-image: url(/assets/tag_background.png);
     font-weight: bold;
+    min-width: 30px;
+    text-align: center;
 }
 
 .tag a,.paginate a  {

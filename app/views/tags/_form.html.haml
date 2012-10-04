@@ -1,6 +1,6 @@
 :javascript
   var tag_count = 0;
-  var tag_html = '#{escape_javascript(render(:partial => "tags/tag", :locals => {:tag_name => "%1"} ))}'
+  var tag_html = '#{escape_javascript(render(:partial => "tags/tag", :locals => {:tag_name => "%1", :controls => true} ))}'
 
   $(document).ready(function() {
     $('#tagger').keydown(function(event) {
