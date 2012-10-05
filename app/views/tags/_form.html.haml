@@ -1,6 +1,7 @@
 :javascript
   var tag_count = 0;
   var tag_html = '#{escape_javascript(render(:partial => "tags/tag", :locals => {:tag_name => "%1", :controls => true} ))}'
+  var tags_list = #{@tags.inspect};
 
   $(document).ready(function() {
     $('#tagger').keydown(function(event) {
@@ -8,24 +9,31 @@
         var elem = $(this);
         var val = elem.val().replace(/[^\w|\-|а-яА-Я]/g,"");
         if (val.length > 0) {
-          addTag(val);
+          addTag(val.toLowerCase());
           elem.val('');
         }
       }
-    });
+    }).typeahead({ source: tags_list });
   });
 
   function addTag(name) {
-    //$('input[rel="tag"][value="'+name+'"]')
-    $('<input rel="tag" type="hidden" name="tag[' + tag_count++ + ']" value="' + name + '"/>').appendTo('.post_form');
-    $('#tags_block').append(tag_html.replace(/%1/, name));
-    appendOptionIfNotExist('#tagger', name);
+    var contain;
+
+    if (contain = ($.inArray(name, tags_list) == -1)) {
+      tags_list.push(name);
+      $('#tagger').typeahead({ source: tags_list });
+    }
+    console.log(contain);
+    if (contain || $('[type="hidden"][rel="tag"][value="' + name + '"]').length == 0) {
+      $('<input rel="tag" type="hidden" name="tag[' + tag_count++ + ']" value="' + name + '"/>').appendTo('.post_form');
+      $('#tags_block').append(tag_html.replace(/%1/, name));
+    }
   }
 
 #tags_controls.fl
   %label Tags
   %p.sub Press 'Enter' for add tag
-  %input#tagger{"data-source" => "#{@tags.inspect}", :type => "text", "data-provide" => "typeahead" }
+  %input#tagger{ :type => "text" }
 
 #tags_block.fl
 .cb
