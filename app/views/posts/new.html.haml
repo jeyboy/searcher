@@ -51,14 +51,14 @@
   .new_topic.hidden
     = render :partial => "topics/form"
 
-.fl.content_block.bg.post_block.w99{:class => hidden_class}
+.fl.content_block.bg.post_block.wa{:class => hidden_class}
   = render :partial => "tags/form"
 
   - if @post.persisted? && !@post.tag_list.blank?
     %br
     .exist_tags
       = label_tag :already_exist
-      = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true}
+      = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
 .cb
 
 .post_block{:class => hidden_class}

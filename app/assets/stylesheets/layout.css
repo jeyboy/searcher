@@ -63,7 +63,7 @@ html, body {
     text-align: center;
 }
 
-.tag a,.paginate a  {
+.tag a,.paginate a, .tag span  {
     text-decoration: none;
     color: white;
 }

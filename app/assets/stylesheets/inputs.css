@@ -33,7 +33,7 @@ textarea {
 
  #tags_block {
      padding-left: 10px;
-     width: 85%;
+     max-width: 85%;
  }
 
 .btn-primary a{
