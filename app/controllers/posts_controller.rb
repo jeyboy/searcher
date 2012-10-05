@@ -46,8 +46,7 @@ class PostsController < ApplicationController
   end
 
   def relevant
-    @posts = paging(Post.includes(:topic))
-    render :action => :index
+    @posts = Post.includes(:topic)
   end
 
   def related

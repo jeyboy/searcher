@@ -1,5 +1,5 @@
 %div.content_block.bg[post]
-  = render :partial => "posts/post_header", :locals => {:post => post, :topic_name => post.topic.name}
+  = render :partial => "posts/post_header", :locals => {:post => post, :show_topic => true}
   .content_block
     != post.pretty_preview
   .read_more.btn.btn-primary.fr= link_to "Read more", post_path(post)

@@ -1,11 +1,12 @@
 -#.avatar
 -#  = link_to image_tag post.topic.category.avatar, category_path(post.topic_id)
-- if (defined?(topic_name))
-  %p= topic_name
 .title.fl
-  %h1.post_title.fl= link_to post.name, post
-  %p.fl= post.created_at
-  .cb
+  %h1.post_title= link_to post.name, post
+  %span
+    = link_to post.topic.name, post.topic
+    *****
+    = post.created_at
+
 .controls.fr
   = link_to edit_post_path(post) do
     = image_tag "buttons/edit.png"
