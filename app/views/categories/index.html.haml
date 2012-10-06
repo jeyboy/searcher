@@ -34,7 +34,7 @@
     .accordion-group
       .accordion-heading
         %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => ".categories", :href => "#category_#{category.id}", :rel => "#{category.topics_count > 0 ? category.id : ''}"}
-          = image_tag category.avatar, :class => "fl"
+          = image_tag category.avatar.url, :class => "fl"
           %span.fl
             %h3
               = category.name

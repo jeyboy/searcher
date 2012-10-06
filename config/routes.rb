@@ -1,4 +1,6 @@
 Searcher::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   root :to => 'main#show'
 
   resource :main

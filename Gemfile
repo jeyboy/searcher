@@ -9,6 +9,9 @@ gem 'haml-rails'
 gem 'nokogiri'
 
 gem 'kaminari'
+gem 'ckeditor'
+
+gem 'paperclip'
 
 gem 'meta_search'
 # Bundle edge Rails instead:

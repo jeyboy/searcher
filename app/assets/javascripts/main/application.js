@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ../libraries/markitup/inclusion.js
 //= require ../libraries/bootstrap/inclusion.js
 //= require ../libraries/cloud-min.js
+//= require ckeditor/init
 
 //= require_tree .
 

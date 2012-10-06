@@ -70,5 +70,5 @@
 
       %br
       = form.label :body
-      = form.text_area :body
+      = form.cktext_area :body, :toolbar => "Easy" #'Full'
       = form.submit @post.persisted? ? "Update" : "Create", :class => "btn"

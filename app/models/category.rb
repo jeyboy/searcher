@@ -1,12 +1,13 @@
 class Category < ActiveRecord::Base
   attr_accessible :avatar, :name
+  has_attached_file :avatar,
+                    :styles => { :medium => "80x80>", :thumb => "40x40>" },
+                    :default_url => '/assets/category_default_:style.png',
+                    :default_style => :medium
+
   has_many :topics, :dependent => :destroy
 
   validates :name, :presence => true, :length => { :within => 1..512 }, :uniqueness => { :case_sensitive => false }
-
-  def avatar
-    super || "/assets/category_default_small.png"
-  end
 
   def self.init_rails_cache
     Category.includes(:topics).all.each_with_object({}) do |cat, ret|

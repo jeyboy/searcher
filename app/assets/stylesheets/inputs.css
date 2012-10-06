@@ -1,6 +1,5 @@
-textarea {
+textarea, #cke_post_body {
     width:99%;
-    height:300px;
     max-height:500px;
     min-width:99%;
     max-width:99%;
