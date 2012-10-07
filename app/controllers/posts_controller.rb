@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @post = topic.posts.build(params[:post])
     @post.tag_list = params[:tag].map(&:last) unless params[:tag].blank?
     if (@post.save)
-      redirect_to topic_path(@post.topic_id)
+      redirect_to relevant_posts_path
     else
       render :action => :new
     end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post.tag_list << params[:tag].map(&:last) unless params[:tag].blank?
 
     if @post.update_attributes(params[:post])
-      redirect_to topic_path(@post.topic_id)
+      redirect_to relevant_posts_path
     else
       render :action => :edit
     end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to topic_path(@post.topic_id)
+    redirect_to relevant_posts_path
   end
 
   def relevant

@@ -4,15 +4,13 @@ class Syntaxer
   require 'coderay'
 
   def self.prepare_html(text)
-    LANGUAGES.each do |lang|
-      req_lang = ":#{lang}"
-      text.gsub!(/#{"<#{req_lang}>(.*?)<\/#{req_lang}>"}/mix) do |v|
-        v = v.gsub(/#{"<(#{req_lang}|\/#{req_lang})>"}/, "").gsub(/<br[^>]*\/>/, "\r\n")
-
-        "<div class='oa'><div class='lang_sign'><img src='/assets/markitup/sets/default/images/#{lang}.png' alt='#{lang}'/></div>" +
-        CodeRay.scan(v, lang).div(:line_numbers => :table) + "</div>"
-      end
+    text.gsub(/<code.*?>(.*?)<\/code>/) do |res|
+      lang = res[/<code\s*class="(?<lang>\w*)_code"/,1]
+      if LANGUAGES.include?(lang.to_sym)
+        res = CGI::unescapeHTML(res.gsub(/<(code.*?|\/code)>/, "").gsub(/<br.*?>/, "\r\n").gsub(/&nbsp;/, "  "))
+        "<div class='oa'><div class='lang_sign'><img src='/assets/languages/#{lang}.png' alt='#{lang}'/></div>" +
+            CodeRay.scan(res, lang).div(:line_numbers => :table) + "</div>"
+      end || res
     end
-    text
   end
 end
