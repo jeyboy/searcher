@@ -1,4 +1,6 @@
 Searcher::Application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
+
   root :to => 'main#show'
 
   resource :main

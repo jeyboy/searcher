@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ../libraries/markitup/inclusion.js
+//= require redactor-rails
 //= require ../libraries/bootstrap/inclusion.js
 //= require ../libraries/cloud-min.js
 

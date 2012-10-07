@@ -70,5 +70,5 @@
 
       %br
       = form.label :body
-      = form.text_area :body
+      = form.text_area :body, :class => "redactor", :rows => 40
       = form.submit @post.persisted? ? "Update" : "Create", :class => "btn"
