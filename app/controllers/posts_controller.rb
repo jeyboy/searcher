@@ -19,13 +19,16 @@ class PostsController < ApplicationController
 
   def create
     topic = Topic.find_by_id(params[:post].delete(:topic_id))
-    (redirect_to(topics_path, :alert => "Topic not find") and return) unless topic
-    @post = topic.posts.build(params[:post])
-    @post.tag_list = params[:tag].map(&:last) unless params[:tag].blank?
-    if (@post.save)
-      redirect_to relevant_posts_path
+    unless topic
+      redirect_to(new_post_path, :alert => "Topic not find") unless topic
     else
-      render :action => :new
+      @post = topic.posts.build(params[:post])
+      @post.tag_list = params[:tag].map(&:last) unless params[:tag].blank?
+      if (@post.save)
+        redirect_to relevant_posts_path
+      else
+        render :action => :new
+      end
     end
   end
 
