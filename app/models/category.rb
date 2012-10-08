@@ -1,11 +1,12 @@
 class Category < ActiveRecord::Base
   attr_accessible :avatar, :name
+  mount_uploader :avatar, AvatarUploader
   has_many :topics, :dependent => :destroy
 
   validates :name, :presence => true, :length => { :within => 1..512 }, :uniqueness => { :case_sensitive => false }
 
-  def avatar
-    super || "/assets/category_default_small.png"
+  def thumb
+    self.avatar_url(:thumb)
   end
 
   def self.init_rails_cache

@@ -15,7 +15,7 @@
 //= require redactor-rails
 //= require ../libraries/bootstrap/inclusion.js
 //= require ../libraries/cloud-min.js
-
+//= require ../libraries/cursor.js
 //= require_tree .
 
 
