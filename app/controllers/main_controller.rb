@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def show
-    @cloud = Post.cloud
+    @cloud = Post.cloud_as_js
   end
 end

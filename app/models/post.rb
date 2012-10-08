@@ -48,10 +48,13 @@ protected
     ActsAsTaggableOn::Tag.all.map(&:name)
   end
 
-  def self.cloud()
-    temp = ActsAsTaggableOn::Tagging.joins(:tag).select("tags.name as name, tag_id as id").group(["tag_id", "tags.name"]).count
+  def self.cloud_as_relation
+    ActsAsTaggableOn::Tagging.joins(:tag).select("tags.name as name, tag_id as id").group(["tag_id", "tags.name"]).count
+  end
+
+  def self.cloud_as_js
+    return "" if (temp = self.cloud_as_relation).empty?
     max = temp.first.last.to_f
-    temp = temp.map {|k, v| {:id => k.last, :text => k.last, :weight => v/max}}
-    temp.map {|k| "{#{k.map {|o| "#{o.first}:'#{o.last}'" }.join(',')}}"}.join(',')
+    temp.map {|k, v| "{id:'#{k.last}',text:'#{k.last}',weight:'#{v/max}'}"}.join(',')
   end
 end
