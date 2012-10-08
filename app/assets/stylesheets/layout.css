@@ -63,14 +63,6 @@ html, body {
     text-align: center;
 }
 
-#clouder{
-    border: 1px solid silver;
-    -moz-border-radius: 128px; /* Firefox */
-    -webkit-border-radius: 128px; /* Safari, Chrome */
-    -khtml-border-radius: 128px; /* KHTML */
-    border-radius: 128px; /* CSS3 */
-}
-
 .tag a,.paginate a, .tag span  {
     text-decoration: none;
     color: white;

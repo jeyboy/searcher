@@ -21,8 +21,8 @@ $(document).ready(
           "css":"style.css",
           "fixed": true,
           "wym": true,
-          "buttonsAdd": ['|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'javascript_code',
-                         'json_code', 'xml_code', 'yaml_code', 'sql_code'],
+          "buttonsAdd": ['|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'coffeescript', 'javascript_code',
+                         'json_code', 'xml_code', 'yaml_code', 'sql_code', 'bash'],
           "buttonsCustom": {
             "ruby_code": {
               "title": 'Ruby block',
@@ -62,6 +62,14 @@ $(document).ready(
             },
             "sql_code": {
               "title": 'SQL block',
+              "callback": language_callback
+            },
+            "bash": {
+              "title": 'Bash block',
+              "callback": language_callback
+            },
+            "coffeescript": {
+              "title": 'CoffeeScript block',
               "callback": language_callback
             }
           }

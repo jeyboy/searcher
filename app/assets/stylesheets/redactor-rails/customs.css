@@ -37,3 +37,11 @@ body .redactor_toolbar li a.redactor_btn_xml_code {
 body .redactor_toolbar li a.redactor_btn_yaml_code {
     background: url(/assets/languages/yaml.png) center center no-repeat;
 }
+
+body .redactor_toolbar li a.redactor_btn_bash {
+    background: url(/assets/languages/bash.png) center center no-repeat;
+}
+
+body .redactor_toolbar li a.redactor_btn_coffeescript {
+    background: url(/assets/languages/coffee.png) center center no-repeat;
+}
