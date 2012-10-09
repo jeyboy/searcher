@@ -5,8 +5,8 @@
 function deleteTag(elem) {
     elem = $(elem);
     var root = $(elem.closest('.tag'));
+    var tag_name = root.find('.tag_name').html();
     if ((rel = elem.prop('rel')).length > 0) {
-        var tag_name = root.find('.tag_name').html();
         $.ajax({
             type: 'POST',
             url: "/posts/" + rel + "/delete_tag",
@@ -17,5 +17,8 @@ function deleteTag(elem) {
             }
         });
     }
-    else root.remove();
+    else {
+        root.remove();
+        $(':hidden[rel="tag"]').filter(function(){ return $(this).val() === tag_name;}).remove();
+    }
 }
