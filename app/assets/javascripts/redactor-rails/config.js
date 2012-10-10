@@ -10,8 +10,16 @@ $(document).ready(
       function language_callback(obj, event, key)
       {
           var selected = obj.$el.getSelected();
+          if (selected.length == 0)
+            selected = "&nbsp;";
           obj.$el.insertHtml("<code class='" + key + "'>" + selected + "</code>");
 //          move cursor inner tag
+      }
+
+      function clean_text_callback(obj, event, key) {
+          var html = obj.getSelectedHtml();
+          html = html.replace(/(<([^>]+)>)/ig,"");
+          obj.insertHtml(html);
       }
 
       $('.redactor').redactor(
@@ -21,9 +29,14 @@ $(document).ready(
           "css":"style.css",
           "fixed": true,
           "wym": true,
-          "buttonsAdd": ['|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'coffeescript', 'javascript_code',
+          "focus": true,
+          "buttonsAdd": ['|', 'clean_text', '|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'coffeescript', 'javascript_code',
                          'json_code', 'xml_code', 'yaml_code', 'sql_code', 'bash'],
           "buttonsCustom": {
+            "clean_text": {
+              "title": 'Clean selection formatting',
+              "callback": clean_text_callback
+            },
             "ruby_code": {
               "title": 'Ruby block',
               "callback": language_callback
