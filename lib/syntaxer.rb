@@ -18,7 +18,7 @@ class Syntaxer
             CodeRay.scan(res, lang).div(:line_numbers => :table)
           end || "<pre class='fl'>#{res}</pre>")}
         </div>
-        <div class='cb'/>
+        <div class='cb'></div>
       MAIN
 
     end
