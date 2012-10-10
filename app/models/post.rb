@@ -16,22 +16,21 @@ class Post < ActiveRecord::Base
   end
 
   def pretty_preview
-    Post.prepare_content(preview)
+    Post.prepare_content(get_preview)
   end
-
-  def preview
-    super || preview_by_length
-  end
-
 
   def self.prepare_content(val)
     Syntaxer.prepare_html(val.dup)
   end
-protected
-  def preview_by_length
-    self.preview_count.to_i > 0 ? self.body[0..self.preview_count] : body
+
+  def has_preview?
+    preview.present?
   end
 
+  def get_preview
+    preview || body
+  end
+protected
   def self.by_all_tags(tags)
     self.tagged_with(tags, :match_all => true)
   end

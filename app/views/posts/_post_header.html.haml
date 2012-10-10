@@ -1,7 +1,7 @@
 -#.avatar
 -#  = link_to image_tag post.topic.category.avatar, category_path(post.topic_id)
 .title.fl
-  %h1.post_title= link_to post.name, post
+  %h1.post_title= link_to_if post.has_preview?, post.name, post
   %span
     = link_to post.topic.name, post.topic
     *****
