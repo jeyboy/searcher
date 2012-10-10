@@ -8,6 +8,7 @@ html, body {
 }
 #page {
     min-height: 99%;
+    min-width: 300px;
     height: auto !important;
     height: 99%;
 }
