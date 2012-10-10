@@ -44,20 +44,3 @@
 
       %div[category]
         %ul
-
-
-    -#%h3
-    -#  %span.title
-    -#    %span.fl
-    -#      - if category.topics_count > 0
-    -#        = image_tag category.avatar, :class => "fl"
-    -#        %span.fl
-    -#          = link_to category.name, "#{category.id}", "data-toggle" => "collapse", "data-parent" => "categories"
-    -#        .cb
-    -#      - else
-    -#        #{category.name}
-    -#    %span.controls.fr
-    -#      #{category.topics_count > 0 ? pluralize(category.topics_count, "topic") : "empty"}
-    -#    .cb
-    -#%div
-    -#  %ul[category]

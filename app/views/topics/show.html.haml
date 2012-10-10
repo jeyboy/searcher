@@ -1,8 +1,4 @@
-:javascript
-  $(document).ready(function() {
-    //hljs.initHighlightingOnLoad();\
-    $('code').each(function(i, e) {hljs.highlightBlock(e)});
-  });
+= render :partial => "shared/highlight"
 
 %h2.bg.content_block.cw.tac.topic_title= @topic.name
 

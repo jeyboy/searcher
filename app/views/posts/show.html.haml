@@ -1,3 +1,5 @@
+= render :partial => "shared/highlight"
+
 .content_block.bg
   = render :partial => "posts/post_header", :locals => {:post => @post}
   .content_block!= @post.pretty_body

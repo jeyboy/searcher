@@ -5,7 +5,7 @@
   %span
     = link_to post.topic.name, post.topic
     *****
-    = post.created_at
+    = "#{time_ago_in_words(post.created_at)} ago"
 
 .controls.fr
   = link_to edit_post_path(post) do
