@@ -63,10 +63,16 @@ html, body {
     text-align: center;
 }
 
+.tag a:hover {
+    color: black !important;
+}
+
 .tag a,.paginate a, .tag span  {
     text-decoration: none;
     color: white;
 }
+
+
 
 .paginate .page.current{
     color: red;
