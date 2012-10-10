@@ -5,7 +5,7 @@ class Syntaxer
 
   def self.prepare_html(text)
     text.gsub(/<code.*?>(.*?)<\/code>/mix) do |res|
-      lang = res[/<code\s*class="(?<lang>\w*)"/,1].split("_code").first
+      lang = res[/<code\s*class="(?<lang>\w*)"/,1].to_s.split("_code").first
 
       <<-MAIN
         <div class='oa'>
