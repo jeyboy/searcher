@@ -4,7 +4,7 @@ class Topic < ActiveRecord::Base
   belongs_to :category, :counter_cache => true
   has_many :posts, :dependent => :destroy
 
-  validates :name, :uniqueness => true
+  validates :name, :presence => true, :length => { :within => 1..512 }, :uniqueness => { :case_sensitive => false }
 
   before_validation :prepare_name
 

@@ -22,6 +22,11 @@ $(document).ready(
           obj.insertHtml(html);
       }
 
+      function raw_code_callback(obj, event, key) {
+          var selected = obj.$el.getSelected();
+          obj.$el.insertHtml("<pre>" + selected + "</pre>");
+      }
+
       $('.redactor').redactor(
         { "imageUpload":"/redactor_rails/pictures?" + params,
           "imageGetJson":"/redactor_rails/pictures",
@@ -30,9 +35,13 @@ $(document).ready(
           "fixed": true,
           "wym": true,
           "focus": true,
-          "buttonsAdd": ['|', 'clean_text', '|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'coffeescript', 'javascript_code',
+          "buttonsAdd": ['|', 'clean_text', '|', 'raw_code', '|', 'ruby_code', 'erb_code', 'haml_code', 'html_code', 'css_code', 'coffeescript', 'javascript_code',
                          'json_code', 'xml_code', 'yaml_code', 'sql_code', 'bash'],
           "buttonsCustom": {
+            "raw_code": {
+              "title": 'Raw code block',
+              "callback": raw_code_callback
+            },
             "clean_text": {
               "title": 'Clean selection formatting',
               "callback": clean_text_callback

@@ -11,6 +11,9 @@ class Post < ActiveRecord::Base
 
   before_save :prepare_preview
 
+  validates :name, :presence => true, :length => { :within => 1..512 }, :uniqueness => { :case_sensitive => false }
+  validates :body, :presence => true
+
   def pretty_body
     Post.prepare_content(self.body)
   end

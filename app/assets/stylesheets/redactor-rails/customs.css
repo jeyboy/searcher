@@ -42,6 +42,10 @@ body .redactor_toolbar li a.redactor_btn_bash {
     background: url(/assets/languages/bash.png) center center no-repeat;
 }
 
+body .redactor_toolbar li a.redactor_btn_raw_code {
+    background: url(/assets/languages/code.png) center center no-repeat;
+}
+
 body .redactor_toolbar li a.redactor_btn_coffeescript {
     background: url(/assets/languages/coffeescript.png) center center no-repeat;
 }
