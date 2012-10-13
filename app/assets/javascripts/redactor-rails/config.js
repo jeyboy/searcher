@@ -30,6 +30,7 @@ $(document).ready(
       $('.redactor').redactor(
         { "imageUpload":"/redactor_rails/pictures?" + params,
           "imageGetJson":"/redactor_rails/pictures",
+          "fileUpload": "/redactor_rails/pictures?" + params,
           "path":"/assets/redactor-rails",
           "css":"style.css",
           "fixed": true,
