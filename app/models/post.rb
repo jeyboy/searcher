@@ -47,7 +47,7 @@ protected
   end
 
   def self.all_tags()
-    ActsAsTaggableOn::Tag.all.map(&:name)
+    ActsAsTaggableOn::Tag.all.sort.map(&:name)
   end
 
   def self.cloud_as_relation

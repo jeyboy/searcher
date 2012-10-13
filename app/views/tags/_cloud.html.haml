@@ -10,10 +10,8 @@
     window.clouder = new Clouder({
         container: clouder,
         tags: new Array(#{cloud}),
-        callback: function(id) {
-          $.ajax({ url: "/posts/index_by_tags.js?tags%5B%5D=" + id });
-        }
+        callback: loadByTag
     });
   }
 
-#clouder{:style => "width:29%; height:300px;"}
+#clouder{:style => "width:28%; height:28%;"}

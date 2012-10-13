@@ -27,6 +27,7 @@ class PostsController < ApplicationController
       if (@post.save)
         redirect_to relevant_posts_path
       else
+        init_vars
         render :action => :new
       end
     end
@@ -48,8 +49,13 @@ class PostsController < ApplicationController
     redirect_to relevant_posts_path
   end
 
-  def relevant
+  def relevant_mini
     @posts = Post.includes(:topic)
+  end
+
+  def relevant
+    @posts = paging(Post, 20)
+    render :action => :index
   end
 
   def related

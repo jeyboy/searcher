@@ -1,0 +1,16 @@
+:javascript
+  $(document).ready(function() {
+    $('.tag a, .ltag a').on("click", function() {
+      loadByTag($(this).text());
+      return false;
+    })
+  });
+
+.navbar-inner.oa.fl.w14
+  - @tag_list.each do |tag|
+    .ltag
+      = link_to tag, "#"
+
+.db.fl.w80{:style => "padding-left: 20px"}
+  #page_content.db.w100
+.cb

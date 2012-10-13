@@ -16,37 +16,23 @@ html, body {
     padding-bottom: 30px;
 }
 #footer {
-    line-height: 30px;
+    line-height: 40px;
     margin-top: -30px;
 }
 
 
 
 #header ul {
-    padding: 8px 40px;
+    padding: 12px 40px 6px;
     margin: inherit;
 }
 
-#logo {
-
-}
-
-#controls {
-
+#search {
+    padding: 14px;
 }
 
 #content {
     min-height: 100%;
-}
-
-.content_block {
-    -moz-border-radius: 10px; /* Firefox */
-    -webkit-border-radius: 10px; /* Safari, Chrome */
-    -khtml-border-radius: 10px; /* KHTML */
-    border-radius: 10px; /* CSS3 */
-
-    padding: 4px;
-    margin: 8px 4px;
 }
 
 .tag {
@@ -55,13 +41,13 @@ html, body {
     -khtml-border-radius: 8px; /* KHTML */
     border-radius: 8px; /* CSS3 */
 
-    border: 1px solid black;
-    padding: 3px;
-    margin: 2px;
+    padding: 2px 4px;
+    margin: 4px;
     background-image: url(/assets/tag_background.png);
     font-weight: bold;
     min-width: 30px;
     text-align: center;
+    color: white;
 }
 
 .tag a:hover {
@@ -73,6 +59,10 @@ html, body {
     color: white;
 }
 
+.post {
+    padding: 5px 10px;
+    margin: 10px;
+}
 
 
 .paginate .page.current{

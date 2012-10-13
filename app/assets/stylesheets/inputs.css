@@ -4,8 +4,9 @@ textarea, .redactor_box {
     max-width:99%;
 }
 
-#header li {
-    list-style-image: url(/assets/ruby_list_mark.png);
+li.mark {
+    background: url(/assets/ruby_list_mark.png) no-repeat left 6px;
+    padding: 0 10px 0 10px;
 }
 
 .categories li {

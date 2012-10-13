@@ -1,4 +1,4 @@
-/*
+    /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -26,10 +26,13 @@
     padding: 0;
 }
 
+.w11 { width: 10.999%; }
+.w14 { width: 13.999%; }
 .w18 { width: 17.999%; }
 .w25 { width: 24.999%; }
 .w30 { width: 29.999%; }
 .w60 { width: 59.999%; }
+.w65 { width: 64.999%; }
 .w70 { width: 69.999%; }
 .w75 { width: 74.999%; }
 .w80 { width: 79.999%; }
@@ -38,6 +41,7 @@
 .w99 { width: 98.999%; }
 .w100 { width: 99.999%; }
 
+.p0 { padding: 0 !important}
 .m0a { margin: 0 auto; }
 .wa { width: auto; }
 

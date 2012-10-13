@@ -1,10 +1,15 @@
 Searcher::Application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
 
-  root :to => 'main#show'
+  root :to => 'main#cloud'
 
-  resource :main
+  resource :main, :only => [] do
+    match "cloud" => "main#cloud"
+    match "show"  => "main#list"
+  end
+
   resources :posts do
+    get :relevant_mini, :on => :collection
     get :relevant, :on => :collection
     get :index_by_tags, :on => :collection
     get :search, :on => :collection

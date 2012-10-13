@@ -22,3 +22,7 @@ function deleteTag(elem) {
         $(':hidden[rel="tag"]').filter(function(){ return $(this).val() === tag_name;}).remove();
     }
 }
+
+function loadByTag(tag) {
+    $.ajax({ url: "/posts/index_by_tags.js?tags%5B%5D=" + tag });
+}

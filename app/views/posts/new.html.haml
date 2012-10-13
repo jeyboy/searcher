@@ -36,39 +36,40 @@
     });
   });
 
-.content_block.bg.fl
-  = label_tag :category
-  = collection_select :category, :category_id, @categories, :id, :name, { :include_blank => true, :selected => @category_id }, :id => :categories
+.navbar-inner
+  .navbar-inner.bg.fl
+    = label_tag :category
+    = collection_select :category, :category_id, @categories, :id, :name, { :include_blank => true, :selected => @category_id }, :id => :categories
 
-  = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_category').toggleClass('hidden'); return false;"
-  .new_category.hidden
-    = render :partial => "categories/form"
+    = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_category').toggleClass('hidden'); return false;"
+    .new_category.hidden
+      = render :partial => "categories/form"
 
-.content_block.topics.bg.fl{:class => hidden_class}
-  = label_tag :topic
-  = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id }, :id => :topics
-  = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_topic').toggleClass('hidden'); return false;"
-  .new_topic.hidden
-    = render :partial => "topics/form"
+  .navbar-inner.topics.bg.fl{:class => hidden_class}
+    = label_tag :topic
+    = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id }, :id => :topics
+    = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_topic').toggleClass('hidden'); return false;"
+    .new_topic.hidden
+      = render :partial => "topics/form"
 
-.fl.content_block.bg.post_block.wa{:class => hidden_class}
-  = render :partial => "tags/form"
+  .fl.navbar-inner.bg.post_block.wa{:class => hidden_class}
+    = render :partial => "tags/form"
 
-  - if @post.persisted? && !@post.tag_list.blank?
-    %br
-    .exist_tags
-      = label_tag :already_exist
-      = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
-.cb
-
-.post_block{:class => hidden_class}
-  .content_block.bg
-    = form_for @post, prepare_form_params(@post) do |form|
-      = form.hidden_field :topic_id
-      = form.label :title
-      = form.text_field :name, :class => "w98"
-
+    - if @post.persisted? && !@post.tag_list.blank?
       %br
-      = form.label :body
-      = form.text_area :body, :class => "redactor", :rows => 40
-      = form.submit @post.persisted? ? "Update" : "Create", :class => "btn"
+      .exist_tags
+        = label_tag :already_exist
+        = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
+  .cb
+
+  .post_block{:class => hidden_class}
+    .navbar-inner.p0.bg
+      = form_for @post, prepare_form_params(@post) do |form|
+        = form.hidden_field :topic_id
+        = form.label :title
+        = form.text_field :name, :class => "w98"
+
+        %br
+        = form.label :body
+        = form.text_area :body, :class => "redactor", :rows => 40
+        = form.submit @post.persisted? ? "Update" : "Create", :class => "btn"
