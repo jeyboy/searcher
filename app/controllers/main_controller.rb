@@ -4,6 +4,8 @@ class MainController < ApplicationController
   end
 
   def list
-    @tag_list = Post.all_tags
+    @tag_list = Post.all_tags.sort
+    @count = @tag_list.count
+    @tag_list = @tag_list.group_by {|t| t.first}
   end
 end
