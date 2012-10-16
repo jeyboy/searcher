@@ -38,7 +38,6 @@ class CategoriesController < ApplicationController
     else
       @category = Category.includes(:topics).find_by_id(params[:id])
       render :json => {:data => help.prepare_list(@category.topics).join}
-      topic_path
     end
   end
 

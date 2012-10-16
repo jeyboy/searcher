@@ -4,11 +4,13 @@ module CategoriesHelper
 
   def prepare_list(topics)
     topics.map do |topic|
-      "<li class='content_block #{cycle("wbg", "abg", "bbg")}'>
-      <span>#{link_to "#{topic.name}", Rails.application.routes.url_helpers.topic_path(topic)}</span>
-      <span class='fr'>#{pluralize(topic.posts_count, 'post')}</span>
-      <span class='cb'>
-      </li>"
+      <<-EOF
+        <li class='content_block #{cycle("wbg", "abg", "bbg")}'>
+          <span>#{link_to "#{topic.name}", Rails.application.routes.url_helpers.topic_path(topic)}</span>
+          <span class='fr'>#{pluralize(topic.posts_count, 'post')}</span>
+          <span class='cb'>
+        </li>
+      EOF
     end
   end
 end

@@ -5,7 +5,6 @@ class MainController < ApplicationController
 
   def list
     @tag_list = Post.all_tags.sort
-    @count = @tag_list.count
-    @tag_list = @tag_list.group_by {|t| t.first}
+    @tags_count, @tag_list = @tag_list.count, @tag_list.group_by(&:first)
   end
 end

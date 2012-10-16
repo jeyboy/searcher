@@ -54,3 +54,13 @@
 .bbg {background-color: lightblue;}
 
 .vam { vertical-align: middle; }
+
+/*clearfix*/
+    .group:before, .group:after {
+        content: "";
+        display: table;
+    }
+
+    .group:after { clear:both;}
+
+    .group { zoom: 1;} /*IE 6&7 fix*/
