@@ -12,6 +12,7 @@
             %li{tabindex: -1}= link_to "Cloud", cloud_main_path
             %li.divider
             %li{tabindex: -1}= link_to "List", main_path
+
         %li.dropdown.mark
           = link_to "#", "data-toggle" => "dropdown", :class => "dropdown-toggle", :role => "button" do
             Posts
@@ -21,6 +22,8 @@
             %li.divider
             %li{tabindex: -1}= link_to "Index by title", relevant_mini_posts_path
             %li{tabindex: -1}= link_to "Index by preview", relevant_posts_path
+            %li.divider
+            %li{tabindex: -1}= link_to "Trash", trash_posts_path
         %li.mark
           = link_to "Categories", categories_path, role: "navigation"
 

@@ -8,6 +8,5 @@
     = "#{time_ago_in_words(post.created_at)} ago"
 
 .controls.fr
-  = link_to edit_post_path(post) do
-    = image_tag "buttons/edit.png"
+  = render :partial => "posts/post_controls", :locals => {:post => post}
 .cb

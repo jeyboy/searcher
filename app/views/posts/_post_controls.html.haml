@@ -1,0 +1,8 @@
+= link_to edit_post_path(post) do
+  = image_tag "buttons/edit.png"
+- if post.trash
+  = link_to from_trash_post_path(post, :format => :js), :remote => true do
+    = image_tag "buttons/untrash.png"
+- else
+  = link_to to_trash_post_path(post, :format => :js), :remote => true, :confirm => "Are you sure?" do
+    = image_tag "buttons/trash.png"

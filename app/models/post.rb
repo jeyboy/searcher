@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :topic, :counter_cache => true
 
-  default_scope order("created_at DESC")
+  default_scope where(:trash => false).order("created_at DESC")
+  scope :trash, unscoped.where(:trash => true)
 
   before_save :prepare_preview
 

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :preinit, :only => [:related, :destroy, :edit, :update, :show, :delete_tag]
+  before_filter :preinit, :only => [:related, :destroy, :edit, :update, :show, :delete_tag, :to_trash]
   before_filter :init_vars, :only => [:new, :edit]
   respond_to :html, :js
 
@@ -58,6 +58,11 @@ class PostsController < ApplicationController
     render :action => :index
   end
 
+  def trash
+    @posts = paging(Post.trash, 20)
+    render :action => :index
+  end
+
   def related
     @posts = paging(@post.includes(:topic).find_related_tags)
     render :action => :index
@@ -85,6 +90,23 @@ class PostsController < ApplicationController
 
   def preprocess
     render :text => Post.prepare_content(params[:content])
+  end
+
+  def to_trash
+    @post.trash = true
+    @post.save
+    respond_with do |mime|
+      mime.js {render :nothing => true}
+    end
+  end
+
+  def from_trash
+    @post = Post.unscoped.find_by_id(params[:id])
+    @post.trash = false
+    @post.save
+    respond_with do |mime|
+      mime.js {render :nothing => true}
+    end
   end
 
 protected
