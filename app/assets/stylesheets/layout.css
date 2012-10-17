@@ -16,7 +16,7 @@ html, body {
     padding-bottom: 30px;
 }
 #footer {
-    line-height: 40px;
+    line-height: 30px;
     margin-top: -30px;
 }
 
@@ -35,36 +35,6 @@ html, body {
     min-height: 100%;
 }
 
-.tag {
-    -moz-border-radius: 8px; /* Firefox */
-    -webkit-border-radius: 8px; /* Safari, Chrome */
-    -khtml-border-radius: 8px; /* KHTML */
-    border-radius: 8px; /* CSS3 */
-
-    padding: 2px 4px;
-    margin: 4px;
-    background-image: url(/assets/tag_background.png);
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
-    color: white;
-}
-
-.tag a:hover {
-    color: black !important;
-}
-
-.tag a,.paginate a, .tag span  {
-    text-decoration: none;
-    color: white;
-}
-
-.post {
-    padding: 10px;
-    margin: 10px;
-}
-
-
 .paginate .page.current{
     color: red;
     font-weight: bold;
@@ -74,10 +44,55 @@ html, body {
     font-size: 0.8em;
 }
 
-.post_title {
-    padding: 0 20px 0 0;
-}
-
 .controls, .lang_sign {
     padding: 5px;
 }
+
+
+/*tag*/
+
+    .tag {
+        -moz-border-radius: 8px; /* Firefox */
+        -webkit-border-radius: 8px; /* Safari, Chrome */
+        -khtml-border-radius: 8px; /* KHTML */
+        border-radius: 8px; /* CSS3 */
+
+        padding: 2px 4px;
+        margin: 4px;
+        background-image: url(tag_background.png);
+        font-weight: bold;
+        min-width: 30px;
+        text-align: center;
+        color: white;
+    }
+
+    .tag a:hover {
+        color: black !important;
+    }
+
+    .tag a,.paginate a, .tag span  {
+        text-decoration: none;
+        color: white;
+    }
+
+/*post*/
+    .date {
+        background: url("date.png") no-repeat;
+        text-align: center;
+        width: 50px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .day { font-size: 16px; color:white;}
+    .month {font-size: 14px;}
+    .year {font-size: 12px;}
+
+.post {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .post_title {
+        padding: 0 20px 0 0;
+    }
