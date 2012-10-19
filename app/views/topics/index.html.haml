@@ -1,0 +1,7 @@
+.navbar-inner
+  = render :partial => "shared/paginate", :locals => {:objects => @topics, :remote => @remote || false}
+  .topics
+    - @topics.each do |topic|
+      .topic
+        = link_to topic.name, topic
+  = render :partial => "shared/paginate", :locals => {:objects => @topics, :remote => @remote || false}

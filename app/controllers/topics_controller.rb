@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_filter :preinit, :only => [:edit, :update, :show]
 
   def index
-
+    @topics = paging(Topic, 50)
   end
 
   def show

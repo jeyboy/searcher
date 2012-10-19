@@ -15,14 +15,13 @@
         if (data.status) {
           $('#topics').append('<option value="' + data.id + '" selected="selected">' + data.name + '</option>');
           $('#topics').trigger('change');
-          $('.new_topic').addClass('hidden');
+          $('.new_topic').hide();
         }
       }
     });
   }
 
 = form_for :topic, :url => topics_path, :html => {:method => :post, :id => 'new_topic', :class => 'content_block' } do |f|
-  = f.hidden_field :category_id
   = f.label :name
   = f.text_field :name
 

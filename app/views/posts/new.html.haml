@@ -1,58 +1,28 @@
-- hidden_class = @post.persisted? ? "" : "hidden"
+- hidden_style = @post.persisted? ? "" : "display:none;"
 
 :javascript
   $(document).ready(function () {
-    $('#categories').change(function() {
-      $('.new_category').addClass('hidden');
-      var category_id = $(this).val();
-      if (category_id.length == 0)
-        $('.topics, .post_block').addClass('hidden');
-      else
-        $.ajax({
-          url: '/categories/' + category_id + '/topics',
-          data: {'cached': '1'},
-          success: function(data) {
-            $('#topics').html(data.data);
-            $('.topics').removeClass('hidden');
-            $('#topic_category_id').val(category_id);
-
-            if (data.data.length > 0)
-              $('#topics').trigger('change');
-            else
-              $('.post_block').addClass('hidden');
-          }
-        });
-    });
-
     $('#topics').change(function() {
-      $('.new_topic').addClass('hidden');
+      $('.new_topic').hide();
       var topic_id = $(this).val();
       $('#post_topic_id').val(topic_id);
 
       if (topic_id.length == 0)
-        $('.post_block').addClass('hidden');
+        $('.post_block').hide();
       else
-        $('.post_block').removeClass('hidden');
+        $('.post_block').show();
     });
   });
 
 .navbar-inner
-  .navbar-inner.bg.fl
-    = label_tag :category
-    = collection_select :category, :category_id, @categories, :id, :name, { :include_blank => true, :selected => @category_id }, :id => :categories
-
-    = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_category').toggleClass('hidden'); return false;"
-    .new_category.hidden
-      = render :partial => "categories/form"
-
-  .navbar-inner.topics.bg.fl{:class => hidden_class}
+  .navbar-inner.topics.bg.fl
     = label_tag :topic
-    = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id }, :id => :topics
-    = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_topic').toggleClass('hidden'); return false;"
-    .new_topic.hidden
+    = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id, :include_blank => true }, :id => :topics
+    = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_topic').toggle(); return false;"
+    .new_topic{:style => "display:none;"}
       = render :partial => "topics/form"
 
-  .fl.navbar-inner.bg.post_block.wa{:class => hidden_class}
+  .fl.navbar-inner.bg.post_block.wa{:style => hidden_style}
     = render :partial => "tags/form"
 
     - if @post.persisted? && !@post.tag_list.blank?
@@ -62,7 +32,7 @@
         = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
   .cb
 
-  .post_block{:class => hidden_class}
+  .post_block{:style => hidden_style}
     .navbar-inner.p0.bg
       = form_for @post, prepare_form_params(@post) do |form|
         = form.hidden_field :topic_id

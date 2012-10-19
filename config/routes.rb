@@ -22,8 +22,5 @@ Searcher::Application.routes.draw do
     get :related, :on => :member
   end
   resources :topics, :except => :destroy
-  resources :categories do
-    get :topics, :on => :member
-  end
   resources :tags, :only => :index
 end

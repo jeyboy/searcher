@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007184939) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.string   "avatar"
-    t.integer  "topics_count", :default => 0
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121018233336) do
 
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"
@@ -27,8 +19,9 @@ ActiveRecord::Schema.define(:version => 20121007184939) do
     t.text     "body"
     t.integer  "preview_count"
     t.text     "preview"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "trash",         :default => false
   end
 
   create_table "redactor_assets", :force => true do |t|

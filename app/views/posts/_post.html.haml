@@ -3,8 +3,6 @@
   .content_block
     != post.pretty_preview
 
-  - if post.has_preview?
-    .read_more.btn.btn-primary.fl= link_to "Read more", post_path(post)
-  .w90{:class => post.has_preview? ? "fr" : ""}= render :partial => "tags/tag_list", :locals => {:post => post}
+  %div= render :partial => "tags/tag_list", :locals => {:post => post}
   .cb
 

@@ -11,9 +11,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    category = @post.topic.category
-    @category_id = category.id
-    @topics = category.topics
     render :action => :new
   end
 
@@ -96,7 +93,7 @@ class PostsController < ApplicationController
     @post.trash = true
     @post.save
     respond_with do |mime|
-      mime.js {render :nothing => true}
+      mime.js {render :js => "$('#post_#{@post.id}').remove();"}
     end
   end
 
@@ -105,14 +102,14 @@ class PostsController < ApplicationController
     @post.trash = false
     @post.save
     respond_with do |mime|
-      mime.js {render :nothing => true}
+      mime.js {render :js => "$('#post_#{@post.id}').remove();"}
     end
   end
 
 protected
   def init_vars
-    @categories = Category.all
     @tags = Post.all_tags
+    @topics = Topic.all
   end
 
   def preinit
