@@ -1,6 +1,6 @@
 = render :partial => "shared/highlight"
 
-%h2.bg.content_block.cw.tac.topic_title= @topic.name
+%h2= @topic.name
 
 #posts
   = render :partial => "shared/paginate", :locals => {:objects => @posts}

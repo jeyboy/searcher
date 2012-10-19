@@ -1,4 +1,4 @@
-.navbar-inner
+.bar
   = render :partial => "shared/paginate", :locals => {:objects => @topics, :remote => @remote || false}
   .topics
     - @topics.each do |topic|

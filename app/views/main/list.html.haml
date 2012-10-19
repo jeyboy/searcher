@@ -6,14 +6,13 @@
     })
   });
 
-.oa.fl.w14
+.oa.fl
   - @tag_list.each_pair do |letter, tags|
-    .navbar-inner
+    .bar
       %span.letter= letter.upcase
       - tags.each do |tag|
         .ltag
           = link_to tag, "#"
 
-.db.fl.w80
+.fl
   #page_content.db.w100
-.cb

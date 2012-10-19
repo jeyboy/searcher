@@ -8,13 +8,10 @@
   %body
     #page
       #wrap
-        #header
-          = render :partial => "layouts/navigation"
-
-        #content.content_block
+        = render :partial => "layouts/navigation"
+        .bar
           = yield
-    #footer.navbar-inner
-      .m0a.w60
-        .m0a.w30
-          = "Created by craaaaaaazy (O_o)"
-          = Time.now.year
+
+    #footer.bar
+      = "Created by craaaaaaazy (O_o)"
+      = Time.now.year

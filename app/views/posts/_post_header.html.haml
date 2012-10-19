@@ -2,11 +2,10 @@
   .day= post.created_at.day
   .month= post.created_at.month
   .year= post.created_at.year
-.title.fl
-  %h1.post_title= link_to_if post.has_preview?, post.name, post
+.fl
+  %h1= link_to_if post.has_preview?, post.name, post
   %span
     = link_to post.topic.name, post.topic
 
 .controls.fr
   = render :partial => "posts/post_controls", :locals => {:post => post}
-.cb

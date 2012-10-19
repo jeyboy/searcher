@@ -1,8 +1,7 @@
-%div.navbar-inner.bg.post[post]
+.bar.post[post]
   = render :partial => "posts/post_header", :locals => {:post => post, :show_topic => true}
-  .content_block
+  %div
     != post.pretty_preview
 
   %div= render :partial => "tags/tag_list", :locals => {:post => post}
-  .cb
 

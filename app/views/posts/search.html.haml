@@ -1,6 +1,6 @@
 = render :partial => "shared/highlight"
 - if @posts.empty?
-  %h2.content_block.bg= "No results for \"#{@criterion}\""
+  %h2= "No results for \"#{@criterion}\""
 - else
-  %h2.content_block.bg= "Results for \"#{@criterion}\""
+  %h2= "Results for \"#{@criterion}\""
   = render :template => "posts/index"

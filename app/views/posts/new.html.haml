@@ -14,15 +14,15 @@
     });
   });
 
-.navbar-inner
-  .navbar-inner.topics.bg.fl
+.bar
+  .bar.topics.fl
     = label_tag :topic
     = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id, :include_blank => true }, :id => :topics
     = link_to image_tag("buttons/add.png", :class => "vam btn", :size => "20x20"), "#", :onclick => "$('.new_topic').toggle(); return false;"
     .new_topic{:style => "display:none;"}
       = render :partial => "topics/form"
 
-  .fl.navbar-inner.bg.post_block.wa{:style => hidden_style}
+  .fl.bar.post_block.wa{:style => hidden_style}
     = render :partial => "tags/form"
 
     - if @post.persisted? && !@post.tag_list.blank?
@@ -30,14 +30,13 @@
       .exist_tags
         = label_tag :already_exist
         = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
-  .cb
 
   .post_block{:style => hidden_style}
-    .navbar-inner.p0.bg
+    .bar
       = form_for @post, prepare_form_params(@post) do |form|
         = form.hidden_field :topic_id
         = form.label :title
-        = form.text_field :name, :class => "w98"
+        = form.text_field :name
 
         %br
         = form.label :body

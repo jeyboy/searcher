@@ -13,54 +13,12 @@
  *= require_tree .
   */
 
-.oh { overflow: hidden ;}
-.oa { overflow: auto ;}
-.db { display :block; }
-.hidden { display: none !important; }
+.oh { overflow: hidden; }
+.oa { overflow: auto; }
+.db { display:  block; }
+.dn { display:  none; }
 
-.fl { float: left; }
-.fr { float: right; }
-.cb {
-    clear: both;
-    margin: 0;
-    padding: 0;
-}
+.center { margin: 0 auto; }
 
-.w11 { width: 10.999%; }
-.w14 { width: 13.999%; }
-.w18 { width: 17.999%; }
-.w25 { width: 24.999%; }
-.w30 { width: 29.999%; }
-.w60 { width: 59.999%; }
-.w65 { width: 64.999%; }
-.w70 { width: 69.999%; }
-.w75 { width: 74.999%; }
-.w80 { width: 79.999%; }
-.w90 { width: 89.999%; }
-.w98 { width: 97.999%; }
-.w99 { width: 98.999%; }
-.w100 { width: 99.999%; }
-
-.p0 { padding: 0 !important}
-.m0a { margin: 0 auto; }
-.wa { width: auto; }
-
-.tac {text-align: center;}
-.cw { color:white; }
-
-.bg {background-color: gainsboro;}
-.wbg {background-color: white;}
-.abg {background-color: azure;}
-.bbg {background-color: lightblue;}
-
-.vam { vertical-align: middle; }
-
-/*clearfix*/
-    .group:before, .group:after {
-        content: "";
-        display: table;
-    }
-
-    .group:after { clear:both;}
-
-    .group { zoom: 1;} /*IE 6&7 fix*/
+.fl { float:    left; }
+.fr { float:    right; }

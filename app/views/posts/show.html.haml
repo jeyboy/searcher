@@ -1,6 +1,6 @@
 = render :partial => "shared/highlight"
 
-.content_block.bg
+%div
   = render :partial => "posts/post_header", :locals => {:post => @post}
-  .content_block!= @post.pretty_body
+  %div!= @post.pretty_body
   = render :partial => "tags/tag_list", :locals => {:post => @post}
