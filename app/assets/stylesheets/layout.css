@@ -16,6 +16,7 @@ html, body {
 }
 #wrap {
     padding-bottom: 30px;
+    height: 99%;
 }
 #footer {
     line-height: 30px;
@@ -46,3 +47,11 @@ li.mark {
 
 .vtiny { margin-top: 20px; margin-bottom: 20px;}
 .htiny { margin-left:20px; margin-right: 20px;}
+
+/*page with cloud*/
+.cloud {width:29.8%;}
+
+/*page with list*/
+.list {width:14.9%;}
+
+.list span { margin-left: 48%;}

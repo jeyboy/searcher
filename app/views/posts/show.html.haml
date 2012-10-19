@@ -1,6 +1,6 @@
 = render :partial => "shared/highlight"
 
-%div
+.htiny
   = render :partial => "posts/post_header", :locals => {:post => @post}
-  %div!= @post.pretty_body
+  .vtiny!= @post.pretty_body
   = render :partial => "tags/tag_list", :locals => {:post => @post}

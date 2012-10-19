@@ -1,4 +1,4 @@
-.gr
+%div
   - post.tag_list.each do |tag|
     = render :partial => "tags/tag",
         :locals => { :tag_name => tag,
@@ -6,3 +6,4 @@
                      :controls => (controls rescue false),
                      :as_text => (as_text rescue false),
                    }
+.cb

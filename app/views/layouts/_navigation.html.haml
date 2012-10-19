@@ -1,4 +1,4 @@
-.bar.navi.gr
+.bar.navi
   = link_to image_tag("logo_small.png", :size => "60x60", :class => "fl"), '/'
   .navi-inner
     %ul
@@ -22,10 +22,11 @@
           %li{tabindex: -1}= link_to "Index by preview", relevant_posts_path
           %li.divider
           %li{tabindex: -1}= link_to "Trash", trash_posts_path
-      %li.inline.mark.gr
+      %li.inline.mark
         = link_to "Topics", topics_path, role: "navigation"
 
     #search.pull-right
       = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
         = f.text_field :search
         = f.submit '>>', :class => 'btn'
+  .cb

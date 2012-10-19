@@ -14,7 +14,7 @@
     });
   });
 
-.bar
+.vtiny.htiny
   .bar.topics.fl
     = label_tag :topic
     = collection_select :topic, :topic_id, @topics || [], :id, :name, { :selected => @post.topic_id, :include_blank => true }, :id => :topics
@@ -22,7 +22,7 @@
     .new_topic{:style => "display:none;"}
       = render :partial => "topics/form"
 
-  .fl.bar.post_block.wa{:style => hidden_style}
+  .fl.bar.post_block{:style => hidden_style}
     = render :partial => "tags/form"
 
     - if @post.persisted? && !@post.tag_list.blank?
@@ -31,6 +31,7 @@
         = label_tag :already_exist
         = render :partial => "tags/tag_list", :locals => {:post => @post, :controls => true, :as_text => true}
 
+  .cb
   .post_block{:style => hidden_style}
     .bar
       = form_for @post, prepare_form_params(@post) do |form|

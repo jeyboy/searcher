@@ -1,18 +1,18 @@
 :javascript
   $(document).ready(function() {
-    $('.tag a, .ltag a').on("click", function() {
+    $('.tag a, .ltag a').live("click", function(e) {
       loadByTag($(this).text());
       return false;
     })
   });
 
-.oa.fl
+.list.oa.vtiny.fl
   - @tag_list.each_pair do |letter, tags|
+    %span.letter= letter.upcase
     .bar
-      %span.letter= letter.upcase
       - tags.each do |tag|
         .ltag
           = link_to tag, "#"
 
-.fl
-  #page_content.db.w100
+#page_content.fl{:style => "width:85%;"}
+.cb
