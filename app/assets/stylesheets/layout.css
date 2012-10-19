@@ -1,3 +1,5 @@
+/*layout struct*/
+
 html, body {
     height: 99%;
     width: 100%;
@@ -21,3 +23,26 @@ html, body {
     height: 30px;
     text-align: center;
 }
+
+/*navigation*/
+
+.navi-inner { margin-left: 20px;}
+
+.navi ul {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.navi ul li {
+    line-height: 30px;
+}
+
+li.mark {
+    background: url(ruby_list_mark.png) no-repeat left center;
+    padding: 0 25px;
+}
+
+/*body*/
+
+.vtiny { margin-top: 20px; margin-bottom: 20px;}
+.htiny { margin-left:20px; margin-right: 20px;}

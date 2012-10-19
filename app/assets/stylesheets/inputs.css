@@ -4,15 +4,6 @@ textarea, .redactor_box {
     max-width:99%;
 }
 
-li.mark {
-    background: url(ruby_list_mark.png) no-repeat left 6px;
-    padding: 0 10px 0 10px;
-}
-
-.btn-primary a{
-    color:#fff!important;
-}
-
 .paginate .page.current{
     color: red;
     font-weight: bold;
@@ -71,11 +62,4 @@ li.mark {
 .month {font-size: 14px;}
 .year {font-size: 12px;}
 
-.post {
-    padding: 10px;
-    margin: 10px;
-}
-
-.post_title {
-    padding: 0 20px 0 0;
-}
+.post_title h1 {margin: 0;}

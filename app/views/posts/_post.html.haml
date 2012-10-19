@@ -1,6 +1,6 @@
-.bar.post[post]
-  = render :partial => "posts/post_header", :locals => {:post => post, :show_topic => true}
-  %div
+.bar.htiny.vtiny[post]
+  %div.gr= render :partial => "posts/post_header", :locals => {:post => post, :show_topic => true}
+  .vtiny
     != post.pretty_preview
 
   %div= render :partial => "tags/tag_list", :locals => {:post => post}

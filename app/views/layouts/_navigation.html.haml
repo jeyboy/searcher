@@ -1,31 +1,31 @@
-.bar
+.bar.navi.gr
   = link_to image_tag("logo_small.png", :size => "60x60", :class => "fl"), '/'
+  .navi-inner
+    %ul
+      %li.inline.dropdown.mark
+        = link_to "#", "data-toggle" => "dropdown", :class => "dropdown-toggle", :role => "button" do
+          Tags
+          %b.caret
+        %ul.dropdown-menu{"aria-labelledby" => "drop1"}
+          %li{tabindex: -1}= link_to "Cloud", cloud_main_path
+          %li.divider
+          %li{tabindex: -1}= link_to "List", main_path
 
-  %ul.nav{role: "navigation"}
-    %li.inline.dropdown.mark
-      = link_to "#", "data-toggle" => "dropdown", :class => "dropdown-toggle", :role => "button" do
-        Tags
-        %b.caret
-      %ul.dropdown-menu{"aria-labelledby" => "drop1", :role => "menu"}
-        %li{tabindex: -1}= link_to "Cloud", cloud_main_path
-        %li.divider
-        %li{tabindex: -1}= link_to "List", main_path
+      %li.inline.dropdown.mark
+        = link_to "#", "data-toggle" => "dropdown", :class => "dropdown-toggle", :role => "button" do
+          Posts
+          %b.caret
+        %ul.dropdown-menu{"aria-labelledby" => "drop1"}
+          %li{tabindex: -1}= link_to "Add post", new_post_path
+          %li.divider
+          %li{tabindex: -1}= link_to "Index by title", relevant_mini_posts_path
+          %li{tabindex: -1}= link_to "Index by preview", relevant_posts_path
+          %li.divider
+          %li{tabindex: -1}= link_to "Trash", trash_posts_path
+      %li.inline.mark.gr
+        = link_to "Topics", topics_path, role: "navigation"
 
-    %li.inline.dropdown.mark
-      = link_to "#", "data-toggle" => "dropdown", :class => "dropdown-toggle", :role => "button" do
-        Posts
-        %b.caret
-      %ul.dropdown-menu{"aria-labelledby" => "drop1", :role => "menu"}
-        %li{tabindex: -1}= link_to "Add post", new_post_path
-        %li.divider
-        %li{tabindex: -1}= link_to "Index by title", relevant_mini_posts_path
-        %li{tabindex: -1}= link_to "Index by preview", relevant_posts_path
-        %li.divider
-        %li{tabindex: -1}= link_to "Trash", trash_posts_path
-    %li.last_inline.mark
-      = link_to "Topics", topics_path, role: "navigation"
-
-  #search.pull-right.nav
-    = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
-      = f.text_field :search
-      = f.submit '>>', :class => 'btn'
+    #search.pull-right
+      = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
+        = f.text_field :search
+        = f.submit '>>', :class => 'btn'
