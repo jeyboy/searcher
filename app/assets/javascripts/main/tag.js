@@ -25,4 +25,5 @@ function deleteTag(elem) {
 
 function loadByTag(tag) {
     $.ajax({ url: "/posts/index_by_tags.js?tags%5B%5D=" + tag });
+    $(document).scrollTop(0);
 }

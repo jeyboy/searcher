@@ -3,7 +3,13 @@
     $('.tag a, .ltag a').live("click", function(e) {
       loadByTag($(this).text());
       return false;
-    })
+    });
+
+    var elem = (document.compatMode === "CSS1Compat") ?
+        document.documentElement :
+        document.body;
+    var height = elem.clientHeight - 170;
+    $('.list').css({height: height, position: 'fixed'});
   });
 
 .list.oa.vtiny.fl
@@ -14,5 +20,5 @@
         .ltag
           = link_to tag, "#"
 
-#page_content.fl{:style => "width:85%;"}
+#page_content.fl{:style => "width:85%; padding-left: 14.99%;"}
 .cb
