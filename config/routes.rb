@@ -1,6 +1,4 @@
 Searcher::Application.routes.draw do
-  mount RedactorRails::Engine => '/redactor_rails'
-
   root :to => 'main#cloud'
 
   resource :main, :only => [] do

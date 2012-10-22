@@ -10,10 +10,6 @@ gem 'nokogiri'
 
 gem 'kaminari'
 
-gem 'redactor-rails'
-gem "carrierwave"
-gem "mini_magick"
-
 gem 'meta_search'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

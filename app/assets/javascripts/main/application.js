@@ -12,10 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require redactor-rails
-//= require ../libraries/bootstrap/inclusion
-//= require ../libraries/cloud-min
-//= require ../libraries/highlight.pack
+//= require ../libraries
 //= require_tree .
 
 
