@@ -47,3 +47,18 @@ div.jHtmlArea .ToolBar ul li a.justifyright { background-position: -32px -32px;}
 div.jHtmlArea .ToolBar ul li a.increasefontsize { background-position: -48px -32px;}
 div.jHtmlArea .ToolBar ul li a.decreasefontsize { background-position: -64px -32px;}
 div.jHtmlArea .ToolBar ul li a.forecolor { background-position: -80px -32px;}
+
+div.jHtmlArea .ToolBar ul li a.code_blck { background: url(/assets/languages/code.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.bash_blck { background: url(/assets/languages/bash.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.coffeescript_blck { background: url(/assets/languages/coffeescript.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.css_blck { background: url(/assets/languages/css.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.erb_blck { background: url(/assets/languages/erb.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.haml_blck { background: url(/assets/languages/haml.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.javascript_blck { background: url(/assets/languages/javascript.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.json_blck { background: url(/assets/languages/json.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.ruby_blck { background: url(/assets/languages/ruby.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.sql_blck { background: url(/assets/languages/sql.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.xml_blck { background: url(/assets/languages/xml.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.html_blck { background: url(/assets/languages/html.png) no-repeat; }
+div.jHtmlArea .ToolBar ul li a.yaml_blck { background: url(/assets/languages/yaml.png) no-repeat; }
+

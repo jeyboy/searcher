@@ -4,7 +4,73 @@ $(function() {
             ["html", "|", "cut", "copy", "paste"],
             ["bold", "italic", "underline", "strikethrough", "|", "subscript", "superscript", "|", "indent", "outdent", "|", "justifyleft", "justifycenter", "justifyright", "|" ,"increasefontsize", "decreasefontsize"],
             ["p", "h1", "h2", "h3", "h4", "h5", "h6", "|", "orderedlist", "unorderedlist", "|", "link", "unlink", "image", "horizontalrule"],
-            []
+            [
+                {
+                    css: "code_blck",
+                    text: "Raw code block",
+                    action: function(btn) { this.pasteHTML("<code>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "bash_blck",
+                    text: "Bash code block",
+                    action: function(btn) { this.pasteHTML("<code class='bash'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "coffeescript_blck",
+                    text: "CoffeeScript code block",
+                    action: function(btn) { this.pasteHTML("<code class='coffescript'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "css_blck",
+                    text: "CSS code block",
+                    action: function(btn) { this.pasteHTML("<code class='css'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "erb_blck",
+                    text: "ERB code block",
+                    action: function(btn) { this.pasteHTML("<code class='erb'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "haml_blck",
+                    text: "HAML code block",
+                    action: function(btn) { this.pasteHTML("<code class='haml'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "javascript_blck",
+                    text: "Javascript code block",
+                    action: function(btn) { this.pasteHTML("<code class='javascript'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "json_blck",
+                    text: "JSON code block",
+                    action: function(btn) { this.pasteHTML("<code class='json'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "ruby_blck",
+                    text: "Ruby code block",
+                    action: function(btn) { this.pasteHTML("<code class='ruby'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "sql_blck",
+                    text: "SQL code block",
+                    action: function(btn) { this.pasteHTML("<code class='sql'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "xml_blck",
+                    text: "XML code block",
+                    action: function(btn) { this.pasteHTML("<code class='xml'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "html_blck",
+                    text: "HTML code block",
+                    action: function(btn) { this.pasteHTML("<code class='html'>" + this.getSelectedHTML() + "</code>"); }
+                },
+                {
+                    css: "yaml_blck",
+                    text: "YAML code block",
+                    action: function(btn) { this.pasteHTML("<code class='yaml'>" + this.getSelectedHTML() + "</code>"); }
+                }
+            ]
         ]
     });
 });

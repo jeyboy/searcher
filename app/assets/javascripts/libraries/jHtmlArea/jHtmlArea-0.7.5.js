@@ -372,7 +372,8 @@
                 t.updateTextArea();
             };
 
-            $(this.editor.body).click(fnTA).
+//            $(this.editor.body).click(fnTA).
+            $(this.editor).click(fnTA).
                 keyup(fnTA).
                 keydown(fnTA).
                 mousedown(fnTA).
