@@ -71,3 +71,8 @@ textarea, .redactor_box {
 
 .controls a:hover {text-decoration: none;}
 
+#post_name {
+    padding: 3px 0;
+    width: 100%;
+}
+
