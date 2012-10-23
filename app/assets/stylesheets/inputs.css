@@ -62,4 +62,12 @@ textarea, .redactor_box {
 .month {font-size: 14px;}
 .year {font-size: 12px;}
 
+.post_title {
+    width: 80%;
+    word-break: break-all;
+    word-wrap: break-word;
+}
 .post_title h1 {margin: 0;}
+
+.controls a:hover {text-decoration: none;}
+
