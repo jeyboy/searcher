@@ -51,12 +51,12 @@ class PostsController < ApplicationController
   end
 
   def relevant
-    @posts = paging(Post, 20)
+    @posts = paging(Post)
     render :action => :index
   end
 
   def trash
-    @posts = paging(Post.trash, 20)
+    @posts = paging(Post.trash)
     render :action => :index
   end
 
