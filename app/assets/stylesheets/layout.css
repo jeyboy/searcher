@@ -47,6 +47,9 @@ li.mark {
 
 .vtiny { margin-top: 20px; margin-bottom: 20px;}
 .htiny { margin-left:20px; margin-right: 20px;}
+.hltiny { margin-left:20px;}
+.hrtiny { margin-right: 20px;}
+
 
 /*page with cloud*/
 .cloud {width:29.8%;}
