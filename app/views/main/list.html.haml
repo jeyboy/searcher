@@ -12,13 +12,14 @@
     $('.list').css({height: height, position: 'fixed'});
   });
 
-.list.oa.fl
+.list.oa
   - @tag_list.each_pair do |letter, tags|
     %span.letter= letter.upcase
     .bar
       - tags.each do |tag|
         .ltag
-          = link_to tag, "#"
+          = link_to "#" do
+            .bar= tag
 
-#page_content.fl{:style => "width:85%; padding-left: 14.99%;"}
+#page_content.hltiny{:style => "width:85% - 20px; padding-left: 14.99%;"}
 .cb

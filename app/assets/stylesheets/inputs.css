@@ -75,3 +75,8 @@ textarea, .redactor_box {
     padding: 3px 0;
     width: 100%;
 }
+
+/*.post:gt(0) { margin-top: 15px; }*/
+.post { margin-top: 15px; }
+.post:first-child { margin-top: 0; }
+

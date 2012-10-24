@@ -5,10 +5,6 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "main/application"
     = csrf_meta_tags
-    :javascript
-      $(document).ready(function() {
-        $('.post:gt(0)').css({ 'margin-top': '15px'});
-      });
 
   %body
     #page
