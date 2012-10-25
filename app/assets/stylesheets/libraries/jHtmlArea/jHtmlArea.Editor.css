@@ -1,10 +1,20 @@
-﻿body 
+﻿iframe body
 {
-    /*background: #000;*/
-    /*color: #fff;*/
+    background: #666666;
     margin: 2px;
 }
 
 p {
-    border: 1px solid black;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E4E4E4 !important;
+    margin: 10px 0 !important;
+    padding: 10px !important;
+}
+
+p:before {
+    content: 'p';
+    font-size: 8pt;
+    left: -8px;
+    position: relative;
+    top: -14px;
 }

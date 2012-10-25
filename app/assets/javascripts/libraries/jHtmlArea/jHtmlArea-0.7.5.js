@@ -29,7 +29,7 @@
     jHtmlArea.fn = jHtmlArea.prototype = {
 
         // The current version of jHtmlArea being used
-        jhtmlarea: "0.7.5",
+        jhtmlarea: "0.7.6",
 
         init: function (elem, options) {
             if (elem.nodeName.toLowerCase() === "textarea") {
