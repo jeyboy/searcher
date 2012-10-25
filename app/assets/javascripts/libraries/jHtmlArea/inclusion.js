@@ -1,5 +1,6 @@
 $(function() {
     $(".redactor").htmlarea({
+        css: "/assets/libraries/jHtmlArea/jHtmlArea.Editor.css",
         toolbar: [
             ["html", "|", "cut", "copy", "paste"],
             ["bold", "italic", "underline", "strikethrough", "|", "subscript", "superscript", "|", "indent", "outdent", "|", "justifyleft", "justifycenter", "justifyright", "|" ,"increasefontsize", "decreasefontsize"],

@@ -4,3 +4,7 @@
     /*color: #fff;*/
     margin: 2px;
 }
+
+p {
+    border: 1px solid black;
+}
