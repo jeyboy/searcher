@@ -15,16 +15,16 @@ class Post < ActiveRecord::Base
   validates :name, :presence => true, :length => { :within => 1..512 }, :uniqueness => { :case_sensitive => false }
   validates :body, :presence => true
 
+  def prepare_content(val)
+    Syntaxer.prepare_html(val.dup)
+  end
+
   def pretty_body
-    Post.prepare_content(self.body)
+    prepare_content(self.body)
   end
 
   def pretty_preview
-    Post.prepare_content(get_preview)
-  end
-
-  def self.prepare_content(val)
-    Syntaxer.prepare_html(val.dup)
+    prepare_content(get_preview)
   end
 
   def has_preview?
@@ -51,12 +51,13 @@ protected
     ActsAsTaggableOn::Tag.all.sort.map(&:name)
   end
 
-  def self.cloud_as_relation
-    ActsAsTaggableOn::Tagging.joins(:tag).select("tags.name as name, tag_id as id").group(["tag_id", "tags.name"]).count
-  end
-
   def self.cloud_as_js
-    return "" if (temp = self.cloud_as_relation).empty?
+    return "" if (temp = ActsAsTaggableOn::Tagging
+                              .joins(:tag)
+                              .select("tags.name as name, tag_id as id")
+                              .group(["tag_id", "tags.name"])
+                              .count
+                  ).empty?
     max = temp.first.last.to_f
     temp.map {|k, v| "{id:'#{k.last}',text:'#{k.last}',weight:'#{v/max}'}"}.join(',')
   end
