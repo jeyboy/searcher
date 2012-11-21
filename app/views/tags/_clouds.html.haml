@@ -1,0 +1,25 @@
+- clouds.each_with_index do |cloud, i|
+  %div{:id => "clouder#{i}"}
+  - content_for :clouders do
+    :plain
+      var clouder = document.getElementById('clouder#{i}');
+
+      clouder.style.position = "absolute";
+      clouder.style.overflow = "hidden";
+      clouder.style.width = "100%";
+      clouder.style.height = "400px";
+      clouder.style.top = (parseFloat(clouder.style.height) * #{i}) + "px";
+
+      clouder = new Clouder({
+        container: clouder,
+        tags: new Array(#{cloud}),
+        callback: loadByTag
+      });
+
+
+:javascript
+  $(window).ready(function() {init();});
+
+  function init() {
+    #{yield :clouders}
+  }

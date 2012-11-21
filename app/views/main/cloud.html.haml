@@ -1,4 +1,13 @@
-.cloud.oa
-  = render :partial => "tags/cloud", :object => @cloud
+:javascript
+  $(document).ready(function() {
+    var elem = (document.compatMode === "CSS1Compat") ?
+        document.documentElement :
+        document.body;
+    var height = elem.clientHeight - 170;
+    $('#cloud').css({height: height, position: 'fixed'});
+  });
+
+#cloud.oa
+  = render :partial => "tags/clouds", :object => @clouds
 
 #page_content.hltiny{:style => "width:70% - 20px; padding-left: 29.99%;"}

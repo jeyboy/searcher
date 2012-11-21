@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def cloud
-    @cloud = Post.cloud_as_js
+    @clouds = Post.cloud_as_js
   end
 
   def list

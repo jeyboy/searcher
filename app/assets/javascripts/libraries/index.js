@@ -1,4 +1,4 @@
 //= require ./bootstrap
 //= require ./jHtmlArea
-//= require ./cloud-min
+//= require ./cloud
 //= require ./highlight.pack

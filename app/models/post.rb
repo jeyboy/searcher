@@ -52,13 +52,16 @@ protected
   end
 
   def self.cloud_as_js
-    return "" if (temp = ActsAsTaggableOn::Tagging
+    return [""] if (temp = ActsAsTaggableOn::Tagging
                               .joins(:tag)
                               .select("tags.name as name, tag_id as id")
                               .group(["tag_id", "tags.name"])
                               .count
                   ).empty?
     max = temp.first.last.to_f
-    temp.map {|k, v| "{id:'#{k.last}',text:'#{k.last}',weight:'#{v/max}'}"}.join(',')
+    ret = []
+    temp.each_slice(55) {|collection| ret << collection.map {|k, v| "{id:'#{k.last}',text:'#{k.last}',weight:'#{v/max}'}"}.join(',') }
+    ret
+    #temp.map {|k, v| "{id:'#{k.last}',text:'#{k.last}',weight:'#{v/max}'}"}.join(',')
   end
 end
