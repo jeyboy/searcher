@@ -72,7 +72,7 @@ table.CodeRay td { padding: 2px 4px; vertical-align: top; }
  .doc-string { color:#D42; font-weight:bold }
  .escape  { color:#666; font-weight:bold }
  .entity { color:#800; font-weight:bold }
- .error { color:#F00; background-color:#FAA }
+ .error {  }
  .exception { color:#C00; font-weight:bold }
  .filename { color:#099; }
  .function { color:#900; font-weight:bold }

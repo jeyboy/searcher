@@ -14,7 +14,7 @@ class Syntaxer
           </div>
           #{(if LANGUAGES.include?(lang.to_s.to_sym)
             res = res.gsub(/<br.*?>/, "\r\n").gsub(/<(.*?|\/.*?)>/, "").gsub(/&nbsp;/, " ")
-            res = CGI::unescapeHTML(res)
+            #res = CGI::unescapeHTML(res)
             CodeRay.scan(res, lang).div(:line_numbers => :table)
           end || "<pre class='fl'>#{res}</pre>")}
         </div>

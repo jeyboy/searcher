@@ -4,7 +4,7 @@
   var tags_list = #{@tags.inspect};
 
   $(document).ready(function() {
-    $('#tagger').keydown(function(event) {
+    $('#tagger').keyup(function(event) {
       if(event.keyCode == '13') {
         var elem = $(this);
         var val = elem.val().replace(/[^\w|\-|а-яА-Я]/g,"");
