@@ -28,5 +28,5 @@
     #search.pull-right
       = form_for :search, :url => search_posts_path, :html => {:method => :get} do |f|
         = f.text_field :search
-        = f.submit '>>', :class => 'btn'
+        = f.submit '>>', :class => 'btn btn-primary'
   .cb

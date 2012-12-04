@@ -58,3 +58,7 @@ li.mark {
 .list {width:14.9%;}
 
 .list span { margin-left: 48%;}
+
+.post_left_column {
+    width: 46%;
+}

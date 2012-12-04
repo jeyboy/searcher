@@ -4,6 +4,10 @@ textarea, .redactor_box {
     max-width:99%;
 }
 
+.submit {
+    padding: 20px 0 0 0;
+}
+
 .paginate .page.current{
     color: red;
     font-weight: bold;
