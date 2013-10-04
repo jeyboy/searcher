@@ -3,12 +3,16 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'coderay'
 
-gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'acts-as-taggable-on'#, '~> 2.3.1'
 
 gem 'haml-rails'
 gem 'nokogiri'
 
 gem 'kaminari'
+
+gem 'redactor-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'meta_search'
 # Bundle edge Rails instead:
@@ -35,6 +39,3 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
