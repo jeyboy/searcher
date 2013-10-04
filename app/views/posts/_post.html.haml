@@ -1,7 +1,7 @@
 .post.bar[post]
-  = render :partial => "posts/post_header", :locals => {:post => post, :show_topic => true}
+  = render :partial => 'posts/post_header', :locals => {:post => post, :show_topic => true}
   .bar.vtiny
     != post.pretty_preview
 
-  = render :partial => "tags/tag_list", :locals => {:post => post}
+  = render :partial => 'tags/tag_list', :locals => {:post => post}
 

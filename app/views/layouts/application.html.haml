@@ -2,17 +2,17 @@
 %html
   %head
     %title Searcher
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "main/application"
+    = stylesheet_link_tag    'application', :media => 'all'
+    = javascript_include_tag 'main/application'
     = csrf_meta_tags
 
   %body
     #page
       #wrap
-        = render :partial => "layouts/navigation"
+        = render 'layouts/navigation'
         .htiny.vtiny
           = yield
 
     #footer.bar
-      = "Created by craaaaaaazy (O_o)"
-      = Time.now.year == 2012 ? Time.now.year : "2012 - #{Time.now.year}"
+      = 'Created by BigBug (O_o)'
+      = "2012 - #{Time.now.year}"

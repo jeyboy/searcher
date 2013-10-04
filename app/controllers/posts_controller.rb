@@ -114,6 +114,6 @@ protected
 
   def preinit
     @post = Post.find_by_id(params[:id])
-    redirect_to :root, :alert => "Access denied" if @post.nil?
+    redirect_to :root, :alert => 'Access denied' if @post.nil?
   end
 end
