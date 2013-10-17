@@ -1,30 +1,53 @@
-= simple_form_for @post, defaults: {input_html: {class: 'full_length', rows: 20}} do |f|
+= simple_form_for @post, defaults: {input_html: {rows: 20}} do |f|
   = render 'shared/errors', object: @post
 
   .container-fluid
     .row-fluid
       .span3
         .well
-          = f.input :category_id, collection: Category.all
+          = f.label :category
+          = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
+
+          span.controls
+            = link_to '#', class: 'add_category' do
+              i class='icon-plus-sign icon-large'
+
+            = link_to '#modal_category', 'data-toggle' => 'modal' do
+              i class='icon-cog icon-large'
 
         .well
           = f.label :tags
+          = collection_select :tags, :tag_id, Tag.all, :id, :name, id: 'category', prompt: 'Select...'
+
+          span.controls
+            = link_to '#', 'data-toggle' => 'modal' do
+              i class='icon-plus-sign icon-large'
+
+            = link_to '#modal_tag', 'data-toggle' => 'modal' do
+              i class='icon-cog icon-large'
 
           = render 'tags/tags', object: @post
-
-          = link_to '#', class: '' do
-            = image_tag 'buttons/add.png'
-
-          .tag_form.hide
-            = render 'tags/form'
 
         .well
           .actions
             = link_to 'Cancel', root_path, class: 'btn btn-warning'
-            = f.submit 'Proceed', class: 'btn btn-success'
+            = f.submit 'Proceed', class: 'btn btn-info'
       .span9
-        .well
+        .well.full_length
 
           = f.input :name
 
           = f.input :body
+
+
+///////////////////////modals
+
+= render layout: 'shared/modal_box', locals: {:@header => 'New Category', :@id => 'modal_category'} do
+  = render 'categories/form'
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit'
+
+= render layout: 'shared/modal_box', locals: {:@header => 'New Tag', :@id => 'modal_tag'} do
+  = render 'tags/form'
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit'

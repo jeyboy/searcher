@@ -54,9 +54,11 @@ body {
 }
 
 .full_length {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
+  input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
 
 p, ol, ul, td {
@@ -119,4 +121,9 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.controls > * {
+  margin-left: 2px;
+  vertical-align: super;
 }

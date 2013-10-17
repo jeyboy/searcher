@@ -1,9 +1,8 @@
 span.tag
-  = link_to_if !@static, tag.tag.name, tags_path(tag.tag), :class => "tag_name"
-/  -if as_text
-/    %span.tag_name= tag_name
-/  - else
-/    = link_to tag_name, index_by_tags_posts_path(:tags => [tag_name]), :class => "tag_name"
-/  - if controls
-/    %span
-/      = link_to image_tag('buttons/close.png', :size => "22x22"), "#", :onclick => "deleteTag(this); return false;", :rel => (post_id rescue nil)
+  - if defined?(:tag)
+    = tag.name
+    = link_to image_tag('buttons/close.png'), '#', class: 'remove_tag', 'data-id' =>  tag.id
+    = hidden_field_tag :tag_id, tag.id
+  - else
+    = name
+    = hidden_field_tag :tag_id,

@@ -1,0 +1,14 @@
+.modal.fade id="#{@id || 'modal'}"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+        h4 class="modal-title"= @header
+
+      .modal-body
+        = yield
+
+  - if (footer_content = content_for?(:modal_footer) ? yield(:modal_footer) : @footer)
+    .modal-footer
+      = footer_content
+      button type="button" class="btn btn-default" data-dismiss="modal" Close

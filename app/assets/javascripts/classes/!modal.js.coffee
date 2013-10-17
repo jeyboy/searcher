@@ -1,7 +1,7 @@
-window.modal = ->
+window.modal_window =
   modal_block_name: 'modal_block'
 
-  modal_block: "##{modal.modal_block_name}"
+  modal_block: "##{@modal_block_name}"
 
   close_button: (classes = '', id = '', text = undefined, tag = 'a') ->
     "<#{tag} class='#{classes}' id='#{id}' data-dismiss='modal'>#{text || "×"}</#{tag}>"
@@ -9,7 +9,7 @@ window.modal = ->
   build_header: (data) ->
     $header = $('<div class="modal-header"></div>')
     $header
-      .append(modal.close_button('close'))
+      .append(modal_window.close_button('close'))
       .append("<div>#{data}</div>")
 
   build_body: (data) ->
@@ -21,15 +21,15 @@ window.modal = ->
   template: (header, body, footer)->
     $base = $('<div class="modal"></div>')
     $base
-      .append(modal.build_header(header))
-      .append(modal.build_body(body))
-      .append(modal.build_footer(footer))
+      .append(modal_window.build_header(header))
+      .append(modal_window.build_body(body))
+      .append(modal_window.build_footer(footer))
 
   show: (template, container_selector) ->
-    $block = $(container_selector || modal.modal_block)
+    $block = $(container_selector || modal_window.modal_block)
 
     if $block.length == 0
-      $block = $("<div class='hide' id='#{modal.modal_block_name}'>#{template}</div>")
+      $block = $("<div class='fade' id='#{modal_window.modal_block_name}'>#{template}</div>")
       $('body').append($block)
     else
       $block.html(template)

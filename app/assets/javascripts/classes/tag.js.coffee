@@ -15,15 +15,13 @@ window.tag =
       data: form_data
 
   register_actions: ->
-    $('body').on 'click', '.add_tag', ->
+    $('body').on 'submit', tag.form_block, ->
       tag.send_form()
-
 
     $('body').on 'click', '.remove_tag', ->
       uid = $(@).data('id')
       if uid
         $tag_obj = $(tag.tag_container, @)
-        $body = $('body')
         $.ajax
           method: 'delete'
           url: "/taggables/#{uid}"

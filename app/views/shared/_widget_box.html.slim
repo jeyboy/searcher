@@ -1,9 +1,12 @@
 .box-widget class="#{@widget_class}"
   .box-widget-head
     .pull-left
-      i class="#{@icon_class || 'icon-new-charts'}"
-      '&nbsp;
-      = @header
+      - if content_for?(:header)
+        = yield :header
+      - else
+        i class="#{@icon_class || 'icon-new-charts'}"
+        '&nbsp;
+        = @header
 
     .pull-right.btn-group.sharp
       - ['icon-chevron-down', 'icon-chevron-up', 'icon-remove'].each do |ico|
@@ -14,6 +17,7 @@
     .row-fluid
       = yield
 
+  - @footer ||= yield(:footer)
   - if @footer
     br/
     .box-widget-footer
