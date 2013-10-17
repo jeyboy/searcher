@@ -8,10 +8,9 @@ window.tag =
     form_data = $form.serialize();
     form_action = $form.attr('action')
     form_method = $form.attr('method')
-    $('body').trigger('tag_add')    # not checked
 
     $.ajax
-      method: form_method
+      type: form_method
       url: form_action
       data: form_data
 
@@ -31,4 +30,3 @@ window.tag =
           success: (response)->
             if response
               $tag_obj.remove()
-              $body.trigger('tag_remove')   # not checked

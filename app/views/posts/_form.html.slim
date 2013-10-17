@@ -9,8 +9,14 @@
 
         .well
           = f.label :tags
-          /- @post.tags.each do |tag|
-          /  = f.simple_form_for :tags_attributes, tag do |tag_f|
+
+          = render 'tags/tags', object: @post
+
+          = link_to '#', class: '' do
+            = image_tag 'buttons/add.png'
+
+          .tag_form.hide
+            = render 'tags/form'
 
         .well
           .actions

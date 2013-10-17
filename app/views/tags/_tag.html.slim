@@ -1,4 +1,5 @@
-/%p.tag.fl
+span.tag
+  = link_to_if !@static, tag.tag.name, tags_path(tag.tag), :class => "tag_name"
 /  -if as_text
 /    %span.tag_name= tag_name
 /  - else
