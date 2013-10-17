@@ -1,0 +1,24 @@
+= simple_form_for @post, defaults: {input_html: {class: 'full_length', rows: 20}} do |f|
+  = render 'shared/errors', object: @post
+
+  .container-fluid
+    .row-fluid
+      .span3
+        .well
+          = f.input :category_id, collection: Category.all
+
+        .well
+          = f.label :tags
+          /- @post.tags.each do |tag|
+          /  = f.simple_form_for :tags_attributes, tag do |tag_f|
+
+        .well
+          .actions
+            = link_to 'Cancel', root_path, class: 'btn btn-warning'
+            = f.submit 'Proceed', class: 'btn btn-success'
+      .span9
+        .well
+
+          = f.input :name
+
+          = f.input :body

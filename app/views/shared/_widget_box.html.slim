@@ -1,0 +1,20 @@
+.box-widget class="#{@widget_class}"
+  .box-widget-head
+    .pull-left
+      i class="#{@icon_class || 'icon-new-charts'}"
+      '&nbsp;
+      = @header
+
+    .pull-right.btn-group.sharp
+      - ['icon-chevron-down', 'icon-chevron-up', 'icon-remove'].each do |ico|
+        button.btn.btn-mini.noGR
+          i class="#{ico}"
+
+  .box-widget-body
+    .row-fluid
+      = yield
+
+  - if @footer
+    br/
+    .box-widget-footer
+      = @footer
