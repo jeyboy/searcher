@@ -1,27 +1,31 @@
 class @FlowSelect
-  constructor: (@select, @form, @nested_name, @create_link, @add_link, @add_block, @add_template) ->
+  constructor: (@solo_behaviour, @select, @form, @nested_name, @add_link, @add_block, @add_template) ->
 
     if @add_link
-      $('body').on 'click', @add_link, ->
+      $('body').on 'click', @add_link, =>
         option = $(':selected', @select)
         if option.length > 0
           $(add_block).append(@add_template(option.val(), option.text()))
 
 
-    if @create_link
-      $('body').on 'click', @create_link, ->
-        @send_form()
+    $('body').on 'submit', @form, (e) =>
+      e.preventDefault()
+      e.stopPropagation()
+      @send_form()
 
   template: (id, text) ->
     "<option value='#{id}' selected>#{text}</option>"
 
-  input_template: (val) ->
-    "<input type='hidden' value='#{val}' name='#{@nested_name}'>"
+  input_template: (val, piece_name) ->
+    "<input type='hidden' value='#{val}' name='#{@nested_name}[#{piece_name}]'>"
 
   proceed: (id, text) ->
     $('option', @select).attr('selected', false)
+    console.log(@select)
+    console.log(@template(id, text))
     $(@select).append(@template(id, text))
-    $(@input_template(text)).insertAfter(@select)
+    unless @solo_behaviour
+      $(@input_template(text)).insertAfter(@select)
 
   send_form: ->
     $form = $(@form)
@@ -31,8 +35,8 @@ class @FlowSelect
 
     $.ajax
       type: form_method
-      url: form_action
+      url: "#{form_action}.json"
       data: form_data
-      success: (response) ->
+      success: (response) =>
         if response.status
           @proceed(response.id, response.text)

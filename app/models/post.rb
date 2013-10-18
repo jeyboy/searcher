@@ -4,4 +4,5 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :taggables
 
   accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :category
 end

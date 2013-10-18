@@ -9,7 +9,7 @@
 
 $ ->
   $('body').on 'click', '.modal_submit', ->
-    $('form', $(@).closest('#modal')).submit()
+    $('form', $(@).closest('.modal')).submit()
 
 #  $('body').on 'click', '.toggle', ->
 #    $target = $($(@).attr('href'))

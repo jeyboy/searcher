@@ -6,7 +6,7 @@
       .span3
         .well
           = f.label :category
-          = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
+          = collection_select :categories, :category_id, Category.all, :id, :name, {}, id: 'category', prompt: 'Select...'
 
           span.controls
             /= link_to '#', class: 'add_category' do
@@ -17,7 +17,7 @@
 
         .well
           = f.label :tags
-          = collection_select :tags, :tag_id, Tag.all, :id, :name, id: 'category', prompt: 'Select...'
+          = collection_select :tags, :tag_id, Tag.all, :id, :name, {}, id: 'tag', prompt: 'Select...'
 
           span.controls
             = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
@@ -45,9 +45,9 @@
 = render layout: 'shared/modal_box', locals: {:@header => 'New Category', :@id => 'modal_category'} do
   = render 'categories/form'
   = content_for :modal_footer, flush: true do
-    = link_to 'Proceed', '#', class: 'btn modal_submit'
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'
 
 = render layout: 'shared/modal_box', locals: {:@header => 'New Tag', :@id => 'modal_tag'} do
   = render 'tags/form'
   = content_for :modal_footer, flush: true do
-    = link_to 'Proceed', '#', class: 'btn modal_submit'
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'
