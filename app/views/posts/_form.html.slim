@@ -1,5 +1,5 @@
 javascript:
-  window.tag_template = "#{j render('tags/tag', name: '$2', id: '$1') }"
+  window.tag_template = "#{j render('tags/tag', name: '$3', text: '$2', id: '$1') }"
 
 = simple_form_for @post, defaults: {input_html: {rows: 20}} do |f|
   = render 'shared/errors', object: @post

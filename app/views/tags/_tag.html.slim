@@ -1,6 +1,6 @@
 span.tag.btn-info
-  = (tag_obj.name rescue name)
+  = (tag_obj.name rescue text)
   = link_to '#', class: 'remove_tag', 'data-id' =>  (tag_obj.id rescue '') do
     i class='icon-remove-sign tag-icon'
 
-  = hidden_field_tag :tag_id, (tag_obj.id rescue id)
+  = hidden_field_tag :tag_id, (tag_obj.id rescue id), name: name
