@@ -1,7 +1,15 @@
-p
-  strong= @post.category.name
-  span ***
-  strong= @post.name
+.inline_group
+  .date
+    .day= @post.created_at.day
+    .month= @post.created_at.month
+    .year= @post.created_at.year
 
+  .title.ml10
+    p.head
+      strong= @post.category.name
+    p.subhead
+      strong= @post.name
+
+hr
 p
   = @post.body
