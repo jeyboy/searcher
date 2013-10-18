@@ -6,22 +6,24 @@
       .span3
         .well
           = f.label :category
-          = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
+          .inline_pair
+            = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
 
-          span.controls
-            = link_to '#modal_category', 'data-toggle' => 'modal' do
-              i class='icon-cog icon-large'
+            div.controls
+              = link_to '#modal_category', 'data-toggle' => 'modal' do
+                i class='icon-cog icon-large'
 
         .well
           = f.label :tags
-          = collection_select :tags, :tag_id, Tag.all, :id, :name, {prompt: 'Select...'}, id: 'tag'
+          .inline_pair
+            = collection_select :tags, :tag_id, Tag.all, :id, :name, {prompt: 'Select...'}, id: 'tag'
 
-          span.controls
-            = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
-              i class='icon-plus-sign icon-large'
+            div.controls
+              = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
+                i class='icon-plus-sign icon-large'
 
-            = link_to '#modal_tag', 'data-toggle' => 'modal' do
-              i class='icon-cog icon-large'
+              = link_to '#modal_tag', 'data-toggle' => 'modal' do
+                i class='icon-cog icon-large'
 
           = render 'tags/tags', object: @post
 

@@ -27,16 +27,17 @@ html lang="en"
           = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
           = javascript_include_tag "application"
   body
-    = render 'layouts/navbar'
+    .content
+      = render 'layouts/navbar'
 
-    .container-fluid
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            = render 'layouts/sidebar'
-        .span9
-          .well
-            = bootstrap_flash
-            = yield
+      .container-fluid
+        .row-fluid
+          .span3
+            .well.sidebar-nav
+              = render 'layouts/sidebar'
+          .span9
+            .well
+              = bootstrap_flash
+              = yield
 
     = render 'layouts/footer'

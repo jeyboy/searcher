@@ -1,9 +1,40 @@
 /*
- *= require_self
  *= require_tree ./libraries
  *= require_directory ./classes
  *= require_tree ./application
+ *= require_self
  */
+
+/////////////////////////////////////////////////
+
+@mixin bradius($radius) {
+  -moz-border-radius: $radius; /* Firefox */
+  -webkit-border-radius: $radius; /* Safari, Chrome */
+  -khtml-border-radius: $radius; /* KHTML */
+  border-radius: $radius; /* CSS3 */
+}
+
+////////////////doc structure/////////////////////
+html, body {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  margin-bottom: -32px;
+  min-height: 100%;
+  height: 100%;
+}
+
+footer {
+  line-height: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #E3E3E3;
+  @include bradius(4px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+
+}
+//////////////////////////////////////////////////
 
 .clearfix {
   zoom:1;
@@ -16,13 +47,6 @@
   &:after {
     clear: both;
   }
-}
-
-@mixin bradius($radius) {
-  -moz-border-radius: $radius; /* Firefox */
-  -webkit-border-radius: $radius; /* Safari, Chrome */
-  -khtml-border-radius: $radius; /* KHTML */
-  border-radius: $radius; /* CSS3 */
 }
 
 body {
@@ -84,8 +108,6 @@ input.string { height: 30px; }
   }
 }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; }
-
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -142,14 +164,24 @@ div {
   }
 }
 
-.controls > * {
-  margin-left: 2px;
-  vertical-align: super;
-}
-
 .inline_group {
   @extend .clearfix;
   > * { float: left; }
+}
+
+/////////////////controls////////////////////
+
+.controls {
+  margin-top: 3px;
+  > * {
+    vertical-align: super;
+    margin: 0 2px;
+  }
+}
+
+.inline_pair {
+  @extend .inline_group;
+  select { width: 75% }
 }
 
 /////////////post date///////////////
