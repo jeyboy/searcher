@@ -5,8 +5,9 @@ class @FlowSelect
       $('body').on 'click', @add_link, =>
         $option = $(':selected', @select)
         if $option.length > 0 && $option.val() != ''
-          $(add_block).append(@add_template($option.val(), $option.text(), @nested_name))
-
+          $block = $(add_block)
+          if $("input[value=\"#{$option.val()}\"]", $block).length == 0
+            $block.append(@add_template($option.val(), $option.text(), @nested_name))
 
     $('body').on 'submit', @form, (e) =>
       e.preventDefault()
