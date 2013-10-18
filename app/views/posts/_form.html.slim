@@ -9,8 +9,8 @@
           = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
 
           span.controls
-            = link_to '#', class: 'add_category' do
-              i class='icon-plus-sign icon-large'
+            /= link_to '#', class: 'add_category' do
+            /  i class='icon-plus-sign icon-large'
 
             = link_to '#modal_category', 'data-toggle' => 'modal' do
               i class='icon-cog icon-large'
@@ -20,7 +20,7 @@
           = collection_select :tags, :tag_id, Tag.all, :id, :name, id: 'category', prompt: 'Select...'
 
           span.controls
-            = link_to '#', 'data-toggle' => 'modal' do
+            = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
               i class='icon-plus-sign icon-large'
 
             = link_to '#modal_tag', 'data-toggle' => 'modal' do

@@ -1,5 +1,16 @@
-class FlowSelect
-  constructor: (@select, @form, @nested_name) ->
+class @FlowSelect
+  constructor: (@select, @form, @nested_name, @create_link, @add_link, @add_block, @add_template) ->
+
+    if @add_link
+      $('body').on 'click', @add_link, ->
+        option = $(':selected', @select)
+        if option.length > 0
+          $(add_block).append(@add_template(option.val(), option.text()))
+
+
+    if @create_link
+      $('body').on 'click', @create_link, ->
+        @send_form()
 
   template: (id, text) ->
     "<option value='#{id}' selected>#{text}</option>"

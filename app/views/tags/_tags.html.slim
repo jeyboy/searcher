@@ -1,5 +1,6 @@
-- if defined? object
-  - object.taggables.each do |taggable|
-    = render 'tags/tag', tag: taggable.tag
-- else
-  ' Add realisation
+.tags_block
+  - if defined? object
+    - object.taggables.each do |taggable|
+      = render 'tags/tag', tag: taggable.tag
+  - else
+    ' Add realisation
