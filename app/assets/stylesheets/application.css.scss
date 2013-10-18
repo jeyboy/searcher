@@ -5,14 +5,7 @@
  *= require_self
  */
 
-/////////////////////////////////////////////////
-
-@mixin bradius($radius) {
-  -moz-border-radius: $radius; /* Firefox */
-  -webkit-border-radius: $radius; /* Safari, Chrome */
-  -khtml-border-radius: $radius; /* KHTML */
-  border-radius: $radius; /* CSS3 */
-}
+@import 'mixins';
 
 ////////////////doc structure/////////////////////
 html, body {
@@ -26,13 +19,18 @@ html, body {
   height: 100%;
 }
 
-footer {
+.push {
+  clear: both;
   line-height: 30px;
+  height: 30px;
+}
+
+footer {
+  @extend .push;
   background-color: #F5F5F5;
   border: 1px solid #E3E3E3;
   @include bradius(4px);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-
 }
 //////////////////////////////////////////////////
 

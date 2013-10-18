@@ -1,23 +1,38 @@
-//.tag {
-//  -moz-border-radius: 8px; /* Firefox */
-//  -webkit-border-radius: 8px; /* Safari, Chrome */
-//  -khtml-border-radius: 8px; /* KHTML */
-//  border-radius: 8px; /* CSS3 */
-//
-//  padding: 2px 4px;
-//  margin: 4px;
-//  background-image: url(tag_background.png);
-//  font-weight: bold;
-//  min-width: 30px;
-//  text-align: center;
-//  color: white;
+@import 'mixins';
+
+//.tags_block {
+//  -o-text-overflow: ellipsis;   /* Opera */
+//  text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+//  overflow: hidden;              /* don't show excess chars */
+//  white-space: nowrap;           /* force single line */
+//  width: inherited;
 //}
-//
+
+.tag {
+  @include bradius(6px);
+
+  padding: 2px 4px 5px;
+  margin-right: 4px;
+
+  min-width: 30px;
+  min-height: 20px;
+
+  font-weight: bold;
+  //text-align: center;
+  //color: white;
+  text-decoration: none;
+  border: 2px solid #B0C4DE;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.tag-icon {
+  font-size: 1.4em;
+  vertical-align: middle;
+  color: white;
+  margin: 2px;
+}
+
 //.tag a:hover {
 //  color: black !important;
-//}
-//
-//.tag a,.paginate a, .tag span  {
-//  text-decoration: none;
-//  color: white;
 //}

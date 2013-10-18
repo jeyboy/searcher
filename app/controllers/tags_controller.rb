@@ -1,8 +1,8 @@
 class TagsController < ApplicationController
   def create
-    @tag = Category.new(tag_params)
+    @tag = Tag.new(tag_params)
 
-    render json: {status: @tag.save}
+    render json: {status: @tag.save, id: @tag.id, text: @tag.name}
   end
 
   private

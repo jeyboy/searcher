@@ -1,0 +1,6 @@
+@mixin bradius($radius) {
+  -moz-border-radius: $radius; /* Firefox */
+  -webkit-border-radius: $radius; /* Safari, Chrome */
+  -khtml-border-radius: $radius; /* KHTML */
+  border-radius: $radius; /* CSS3 */
+}

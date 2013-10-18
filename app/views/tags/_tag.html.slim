@@ -1,8 +1,6 @@
-span.tag
-  - if defined?(:tag)
-    = tag.name
-    = link_to image_tag('buttons/close.png'), '#', class: 'remove_tag', 'data-id' =>  tag.id
-    = hidden_field_tag :tag_id, tag.id
-  - else
-    = name
-    = hidden_field_tag :tag_id,
+span.tag.btn-info
+  = (tag_obj.name rescue name)
+  = link_to '#', class: 'remove_tag', 'data-id' =>  (tag_obj.id rescue '') do
+    i class='icon-remove-sign tag-icon'
+
+  = hidden_field_tag :tag_id, (tag_obj.id rescue id)

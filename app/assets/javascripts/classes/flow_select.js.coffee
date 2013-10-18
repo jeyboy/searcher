@@ -3,9 +3,9 @@ class @FlowSelect
 
     if @add_link
       $('body').on 'click', @add_link, =>
-        option = $(':selected', @select)
-        if option.length > 0
-          $(add_block).append(@add_template(option.val(), option.text()))
+        $option = $(':selected', @select)
+        if $option.length > 0 && $option.val() != ''
+          $(add_block).append(@add_template($option.val(), $option.text()))
 
 
     $('body').on 'submit', @form, (e) =>
@@ -21,8 +21,6 @@ class @FlowSelect
 
   proceed: (id, text) ->
     $('option', @select).attr('selected', false)
-    console.log(@select)
-    console.log(@template(id, text))
     $(@select).append(@template(id, text))
     unless @solo_behaviour
       $(@input_template(text)).insertAfter(@select)
