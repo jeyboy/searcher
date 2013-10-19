@@ -3,7 +3,7 @@
 #= require twitter/bootstrap
 
 #= require ./libraries/index
-#= require_directory ./classes
+#= require ./classes/index
 #= require_tree ./application
 #= require_self
 
