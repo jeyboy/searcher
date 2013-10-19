@@ -4,6 +4,8 @@ class Tag < ActiveRecord::Base
 
   before_validation :to_lowercase
 
+  validates :name, presence: true, uniqueness: true
+
   protected
 
   def to_lowercase

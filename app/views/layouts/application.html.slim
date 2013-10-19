@@ -36,9 +36,8 @@ html lang="en"
             .well.sidebar-nav
               = render 'layouts/sidebar'
           .span9
-            .well
-              = bootstrap_flash
-              = yield
+            = bootstrap_flash
+            = yield
       .push
 
     = render 'layouts/footer'

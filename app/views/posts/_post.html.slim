@@ -1,0 +1,8 @@
+= render layout: 'shared/widget_box', locals: {:@widget_class => "p#{post.id} span4", :@icon_class => nil, :@header => post.name} do
+  == post.body
+
+  - if post.taggables.present?
+    hr
+      = render post.taggables
+  = content_for :widget_footer, flush: true do
+    = link_to 'More...', post, class: 'btn btn-info'
