@@ -82,7 +82,14 @@ input.string { height: 30px; }
 
   hr {
     border-color: #999999;
-    margin-top: 2px;
+    margin: 10px 0 8px 0;
+
+  }
+
+  p { margin-bottom: 0 }
+  p + p {
+    text-indent: 1.5em;
+    margin-top: 0
   }
 }
 

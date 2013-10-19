@@ -18,3 +18,14 @@ $ ->
 
   $('body').on 'click', '.remove_tag', ->
     $(@).closest('.tag').remove()
+
+  $('body').on 'click', '.remove_taggable', ->
+    $tag = $(@).closest('.tag')
+    uid = $(@).data('target')
+
+    $.ajax
+      url: "/taggables/#{uid}"
+      type: 'DELETE'
+      success: (response) ->
+        if response
+          $tag.remove()

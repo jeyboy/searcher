@@ -3,7 +3,9 @@ Searcher2::Application.routes.draw do
 
   resources :categories
 
-  resources :tags, only: :create
+  resources :tags, only: :create do
+    get 'posts', on: :member
+  end
 
   resources :taggables, only: :destroy
 

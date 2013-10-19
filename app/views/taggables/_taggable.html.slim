@@ -1,0 +1,5 @@
+- static = defined?('static')
+= link_to_if static, taggable.tag.name, posts_tag_path(taggable.tag), class: 'tag btn-info'
+- unless static
+  = link_to '#', 'data-target' => taggable.id, class: 'remove_taggable' do
+    i class='icon-remove-sign tag-icon'

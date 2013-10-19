@@ -1,5 +1,0 @@
-span.tag
-  = link_to_if !@static, taggable.tag.name, tags_path(taggable.tag)
-  - unless @static
-    = link_to '#', 'data-target' => taggable.id do
-      = image_tag('buttons/close.png')

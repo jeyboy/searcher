@@ -11,5 +11,10 @@
       strong= @post.name
 
 hr
+
 p
   = @post.body
+
+hr
+
+= render @post.taggables, static: true
