@@ -4,13 +4,15 @@
       .pull-left
         i class="#{@icon_class || 'icon-file'}"
         '&nbsp;
-
       .pull-right.btn-group.sharp
-        - ['icon-chevron-down', 'icon-chevron-up', 'icon-remove'].each do |ico|
-          button.btn.btn-mini.noGR
-            i class="#{ico}"
+        .btn-group
+          == @header
+        .btn-group
+          - ['icon-chevron-down', 'icon-chevron-up', 'icon-remove'].each do |ico|
+            button.btn.btn-mini.noGR
+              i class="#{ico}"
 
-    span= @header
+    span= @title
 
   .box-widget-body
     .row-fluid

@@ -38,11 +38,20 @@
 
     .btn-group {
       padding-top: 3px;
-      //.btn {
-      //  border:none;
-      //  background:none;
-      //  box-shadow:none;
-      //}
+      .btn {
+        padding: 2px 4px;
+        //  border:none;
+        //  background:none;
+        //  box-shadow:none;
+      }
+    }
+
+    .btn.btn-info, .btn.btn-success {
+      padding: 3px 6px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      line-height: 10px;
     }
   }
 
@@ -57,8 +66,6 @@
 
   .box-widget-body {
     @extend .box_sizing;
-
-    hr {margin: 8px 0}
 
     padding: 10px;
     color: #666;
