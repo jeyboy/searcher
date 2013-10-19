@@ -29,6 +29,7 @@ javascript:
                 i class='icon-cog icon-large'
 
           = render 'tags/tags', object: @post
+          /= render @post.taggables, static: false
 
         .well
           .actions
