@@ -1,3 +1,6 @@
+= content_for :post
+  = menu_item @post.name, post_path(@post), class: 'reverse'
+
 .inline_group
   .date
     .day= @post.created_at.day

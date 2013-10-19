@@ -66,6 +66,10 @@ input.string { height: 30px; }
       @include bradius(25px 10px 10px 10px);
       border: 1px solid lightgray;
     }
+
+    a.reverse {
+      @include bradius(10px 25px 10px 10px);
+    }
   }
 
   //.nav {
@@ -86,7 +90,6 @@ input.string { height: 30px; }
 
   }
 
-  p { margin-bottom: 0 }
   p + p {
     text-indent: 1.5em;
     margin-top: 0
