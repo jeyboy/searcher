@@ -3,4 +3,4 @@ span.tag.btn-info
   = link_to '#', class: 'remove_tag', 'data-id' =>  (tag_obj.id rescue '') do
     i class='icon-remove-sign tag-icon'
 
-  = hidden_field_tag :tag_id, (tag_obj.id rescue id), defined?(name) ? {name: name} : {}
+  = hidden_field_tag :tag_id, (tag_obj.id rescue id), name: defined?(name) ? name : 'post[tag_ids][]'

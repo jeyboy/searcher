@@ -18,8 +18,8 @@
     .row-fluid
       = yield
 
-  - @footer ||= yield(:widget_footer)
-  - if @footer
+  - footer = @footer || yield(:widget_footer)
+  - if footer.present?
     .box-widget-footer
-      = @footer
+      = footer
 
