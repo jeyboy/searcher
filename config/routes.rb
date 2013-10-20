@@ -1,7 +1,7 @@
 Searcher2::Application.routes.draw do
   resources :posts
 
-  resources :categories
+  resources :categories, except: :index
 
   resources :tags, only: :create do
     get 'posts', on: :member

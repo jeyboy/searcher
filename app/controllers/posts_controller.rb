@@ -7,7 +7,9 @@ class PostsController < ApplicationController
     @posts = Post.includes(taggables: :tag).all
   end
 
-  def show;  end
+  def show
+    init_sidebar
+  end
 
   def new
     @post = Post.new
