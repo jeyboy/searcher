@@ -133,8 +133,8 @@ a {
   color: #000;
   &:visited { color: #666; }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    //color: #fff;
+    //background-color: #000;
   }
 }
 
@@ -219,4 +219,10 @@ p.head {
 }
 p.subhead {
   font-size: 16px;
+}
+
+.vblock {
+  min-height: 5%;
+  max-height: 42%;
+  overflow-y: auto;
 }
