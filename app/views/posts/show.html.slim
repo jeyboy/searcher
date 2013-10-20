@@ -12,6 +12,8 @@
       strong= @post.category.name
     p.subhead
       strong= @post.name
+      = link_to [:edit, @post] do
+        i class='icon-pencil icon-large'
 
 hr
 
