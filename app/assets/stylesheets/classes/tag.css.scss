@@ -26,14 +26,18 @@
   border: 2px solid #B0C4DE;
   text-overflow: ellipsis;
   word-wrap: break-word;
+
+  .tag-icon {
+    font-size: 1.4em;
+    vertical-align: middle;
+    margin: 2px;
+  }
+
+  &, a, .tag_icon {
+    color: white;
+  }
 }
 
-.tag-icon {
-  font-size: 1.4em;
-  vertical-align: middle;
-  color: white;
-  margin: 2px;
-}
 
 //.tag a:hover {
 //  color: black !important;

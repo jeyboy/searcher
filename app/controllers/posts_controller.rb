@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(taggables: :tag).all
   end
 
   def show;  end
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.includes(taggables: :tag).find(params[:id])
     end
 
     def post_params

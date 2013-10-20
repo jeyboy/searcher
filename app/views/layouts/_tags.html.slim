@@ -1,0 +1,8 @@
+- if @tags.present?
+  ul
+    - @tags.each do |k, v|
+      li
+        = link_to k, '#'
+        ul
+          - v.each do |tag|
+            = link_to tag.name, posts_tag_path(tag)

@@ -9,7 +9,6 @@ class TagsController < ApplicationController
     @tag = Tag.where(id: params[:id]).first
     if @tag
       @posts = @tag.posts
-      render template: 'posts/index'
     else
       redirect_to :back, alert: 'Tag not found'
     end

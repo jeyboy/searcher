@@ -33,8 +33,13 @@ html lang="en"
       .container-fluid
         .row-fluid
           .span3
-            .well.sidebar-nav
-              = render 'layouts/sidebar'
+            .vblock
+              .well.sidebar-nav
+                = render 'layouts/sidebar'
+            .vblock
+              .well.sidebar-nav
+                = render 'layouts/tags'
+
           .span9
             = bootstrap_flash
             = yield
