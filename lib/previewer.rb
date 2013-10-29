@@ -8,18 +8,18 @@ module Previewer
   end
 
   def prepare_preview
-    self.body.gsub!(/>\r\n/, '>')
+    #self.body.gsub!(/>\r\n/, '>')
     self.body.gsub!(/<pre>|<\/pre>/, '')
     return if self.body.length < max_length
 
-    doc = Nokogiri::HTML(self.body.gsub(/\r\n/, '<br>'))
+    doc = Nokogiri::HTML(self.body)#.gsub(/\r\n/, '<br>'))
     self.preview = html_iterator_wrapper(doc.css('body'))
   end
 
 private
   def html_iterator_wrapper(block)
     html_iterator(block)
-    block.inner_html.gsub(/<br>/, "\r\n")
+    block.inner_html#.gsub(/<br>/, "\r\n")
   end
 
   def html_iterator(block, counter = 0, lock = false)
