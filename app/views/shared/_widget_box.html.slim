@@ -8,9 +8,14 @@
         .btn-group
           == @header
         .btn-group
-          - ['icon-chevron-down', 'icon-chevron-up', 'icon-remove'].each do |ico|
-            button.btn.btn-mini.noGR
-              i class="#{ico}"
+          button.btn.btn-mini.noGR
+            i class="icon-chevron-down"
+
+          button.btn.btn-norm.noGR
+            i class="icon-chevron-up"
+
+          button.btn.btn-close.noGR
+            i class="icon-remove"
 
     span= @title
 

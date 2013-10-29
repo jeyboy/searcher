@@ -4,8 +4,8 @@ window.box_widget =
 #    margin = $boxes.attr('margin-left')
 
   register_actions: ->
-    $("body").on "click", ".box-widget-head .mini", ->
+    $("body").on "click", ".box-widget-head .btn-mini", ->
 
-    $("body").on "click", ".box-widget-head .norm", ->
+    $("body").on "click", ".box-widget-head .btn-norm", ->
 
-    $("body").on "click", ".box-widget-head .maxi", ->
+    $("body").on "click", ".box-widget-head .btn-close", ->
