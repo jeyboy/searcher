@@ -1,5 +1,6 @@
 #= require ./bootstrap
 #= require ./summernote.min
+#= require ./highlight.pack
 #= require_self
 
 $ ->

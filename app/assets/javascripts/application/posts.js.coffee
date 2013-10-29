@@ -33,5 +33,5 @@ $ ->
 
 #  summernote patch
   $('body').on 'submit', '#new_post', ->
-    code_text = $('#editor').code()
+    code_text = escape($('#editor').code())
     $(@).append("<input type='hidden' value='#{code_text}' name='post[body]'>")
