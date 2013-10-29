@@ -3,7 +3,7 @@ module Previewer
   mattr_accessor :max_length
 
   def self.included(base)
-    self.max_length = 150
+    self.max_length = 250
     base.after_validation :prepare_preview
   end
 
