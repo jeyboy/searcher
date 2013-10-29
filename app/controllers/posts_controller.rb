@@ -53,7 +53,8 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.includes(taggables: :tag).find(params[:id])
+      @post = Post.includes(taggables: :tag).where(id: params[:id]).first
+      redirect_to(:root, alert: 'Post not exist') unless @post
     end
 
     def post_params

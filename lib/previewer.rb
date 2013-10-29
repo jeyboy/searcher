@@ -8,12 +8,12 @@ module Previewer
   end
 
   def prepare_preview
-    #self.body.gsub!(/>\r\n/, '>')
-    self.body.gsub!(/<pre>|<\/pre>/, '')
-    return if self.body.length < max_length
-
-    doc = Nokogiri::HTML(self.body)#.gsub(/\r\n/, '<br>'))
-    self.preview = html_iterator_wrapper(doc.css('body'))
+    if self.body.length < max_length
+      self.preview = self.body
+    else
+      doc = Nokogiri::HTML(self.body)
+      self.preview = html_iterator_wrapper(doc.css('body'))
+    end
   end
 
 private

@@ -6,6 +6,7 @@ class Syntaxer
   require 'coderay'
 
   def self.prepare_html(text)
+    text.gsub!(/<pre>|<\/pre>/, '')
     text.gsub(/<code.*?>(.*?)<\/code>/mix) do |res|
       lang = res[/<code\s*class="(?<lang>\w*)"/,1].to_s.split('_code').first
 
@@ -28,10 +29,10 @@ class Syntaxer
   def self.spec_chars_convert(text, extra = false)
     res = text.gsub('&quot;', '"')
     res = res.gsub('&apos;', "'")
-    res = res.gsub('&amp;', '&')
     res = res.gsub('&lt;', '<')
     res = res.gsub('&gt;', '>')
     res = res.gsub('&nbsp;', ' ')
+    res = res.gsub('&amp;', '&')
 
     (extra_spec_chars_convert(res) if extra) || res
   end
