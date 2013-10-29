@@ -1,6 +1,7 @@
 require 'previewer'
 require 'syntaxer'
 
+# todo: update not work
 class Post < ActiveRecord::Base
   include ::Previewer
 
@@ -10,11 +11,12 @@ class Post < ActiveRecord::Base
 
   validates :name, :body, presence: true
 
-  before_validation :unescape, on: :create
+  before_validation :unescape
 
   private
 
   def unescape
-    self.body = ::Syntaxer.prepare_html(CGI.unescape(body))
+    self.body = CGI.unescape(body)
+    self.body = ::Syntaxer.prepare_html(body) unless self.id
   end
 end

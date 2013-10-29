@@ -12,9 +12,15 @@ class Syntaxer
 
       <<-MAIN
         <div class='oa clearfix'>
-          <div class='lang_sign'>
-            <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
-          </div>
+          #{
+            if lang
+              "
+                <div class='lang_sign'>
+                            <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
+                </div>
+              "
+            end
+          }
           #{(if LANGUAGES.include?(lang.to_s.to_sym)
           #  res = res.gsub(/<br.*?>/, "\r\n").gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
             res = spec_chars_convert(res.gsub(/<(.*?|\/.*?)>/, ''))
