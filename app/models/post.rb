@@ -1,4 +1,5 @@
 require 'previewer'
+require 'syntaxer'
 
 class Post < ActiveRecord::Base
   include ::Previewer
@@ -12,7 +13,7 @@ class Post < ActiveRecord::Base
   before_validation :unescape
 
   def prepare_content(val)
-    Syntaxer.prepare_html(val.dup)
+    ::Syntaxer.prepare_html(val.dup)
   end
 
   def pretty_body
