@@ -8,17 +8,15 @@ class Syntaxer
       lang = res[/<code\s*class="(?<lang>\w*)"/,1].to_s.split('_code').first
 
       <<-MAIN
-        <div class='oa'>
+        <div class='oa clearfix'>
           <div class='lang_sign fl'>
             <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
           </div>
           #{(if LANGUAGES.include?(lang.to_s.to_sym)
             res = res.gsub(/<br.*?>/, "\r\n").gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
-            #res = CGI::unescapeHTML(res)
             CodeRay.scan(res, lang).div(line_numbers: :table)
-          end || "<pre class='fl'>#{res}</pre>")}
+          end || "<pre>#{res}</pre>")}
         </div>
-        <div class='cb'></div>
       MAIN
 
     end

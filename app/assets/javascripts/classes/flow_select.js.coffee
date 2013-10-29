@@ -11,8 +11,8 @@ class @FlowSelect
 
     $('body').on 'submit', @form, (e) =>
       e.preventDefault()
-      e.stopPropagation()
       @send_form()
+
 
   template: (id, text) ->
     "<option value='#{id}' selected>#{text}</option>"

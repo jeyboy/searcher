@@ -5,11 +5,11 @@ module Previewer
   def self.included(base)
     self.max_length = 150
     base.after_validation :prepare_preview
-    #base.extend(ClassMethods)
   end
 
   def prepare_preview
     self.body.gsub!(/>\r\n/, '>')
+    self.body.gsub!(/<pre>|<\/pre>/, '')
     return if self.body.length < max_length
 
     doc = Nokogiri::HTML(self.body.gsub(/\r\n/, '<br>'))
