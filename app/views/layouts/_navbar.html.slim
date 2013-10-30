@@ -17,3 +17,8 @@
   /      = f.email_field :email, placeholder: 'Email', label: false
   /      = f.password_field :password, placeholder: 'Password', label: false
   /      = f.submit 'Sign in', class: 'btn'
+
+  = menu_group pull: :right do
+    = simple_form_for :search, url: search_path, html: {class: 'form-search'} do |f|
+      = f.text_field :value, class: 'search-query'
+      = f.submit 'Find', class: 'search-btn btn-info'

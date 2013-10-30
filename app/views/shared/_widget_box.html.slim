@@ -8,18 +8,18 @@
         .btn-group
           == @header
         .btn-group
-          button.btn.btn-mini.noGR
-            i class="icon-chevron-down"
-
-          button.btn.btn-norm.noGR
-            i class="icon-chevron-up"
+          /button.btn.btn-norm.noGR
+          /  i class="icon-chevron-down"
+          /
+          /button.btn.btn-mini.noGR
+          /  i class="icon-chevron-up"
 
           button.btn.btn-close.noGR
             i class="icon-remove"
 
     span= @title
 
-  .box-widget-body
+  .box-widget-body class="#{'hide' if @closed}"
     .row-fluid
       = yield
 

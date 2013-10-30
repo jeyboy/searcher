@@ -1,0 +1,4 @@
+= content_for :temp
+  = menu_item "By search of phrase '#{@phrase}'", search_path, class: 'reverse', disabled: true
+
+= render template: 'posts/index'

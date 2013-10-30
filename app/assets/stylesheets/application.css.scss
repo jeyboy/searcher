@@ -72,6 +72,21 @@ input.string { height: 30px; }
     }
   }
 
+  .form-search {
+    margin: 15px 0;
+
+    .search-query {
+      height: 28px;
+    }
+
+    .search-btn {
+      @include bradius(10px);
+      padding: 2px 8px;
+      margin-left: 2px;
+      font-weight: bold;
+    }
+  }
+
   //.nav {
   //  > .active {
   //    > a,  > a:hover,  > a:focus {

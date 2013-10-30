@@ -13,6 +13,10 @@ class Post < ActiveRecord::Base
 
   before_validation :unescape
 
+  def preview
+    super.gsub(/<img[^>]*>/, '')
+  end
+
   private
 
   def unescape

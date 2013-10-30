@@ -9,6 +9,8 @@ Searcher2::Application.routes.draw do
 
   resources :taggables, only: :destroy
 
+  resource :search, only: :create, controller: 'search'
+
   resource :dashboard, controller: 'dashboard', only: [:show]
 
   root to: 'dashboard#show'
