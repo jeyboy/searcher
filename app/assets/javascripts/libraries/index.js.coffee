@@ -5,22 +5,28 @@
 
 $ ->
   $('#editor').summernote(
-    height: '55%'
-#    oninit: function() {
-#      // Add "open" - "save" buttons
-#      var openBtn = '<button id="openFileBtn" type="button" class="btn btn-default btn-sm btn-small" title="Open file" data-event="something" tabindex="-1"><i class="icon-edit"></i></button>';
-#      var saveBtn = '<button id="saveFileBtn" type="button" class="btn btn-default btn-sm btn-small" title="Save Template" data-event="something" tabindex="-1"><i class="icon-download-alt"></i></button>';
-#      var fileGroup = '<div class="note-file btn-group">' + openBtn + saveBtn + '</div>';
-#      $(fileGroup).prependTo($('.note-toolbar'));
-#      // Button tooltips
-#      $('#openFileBtn').tooltip({container: 'body', placement: 'bottom'});
-#      $('#saveFileBtn').tooltip({container: 'body', placement: 'bottom'});
-#      // Button events
-#      $('#openFileBtn').click(function(event) {
-#      loadContent(editor);
-#      });
-#      $('#saveFileBtn').click(function(event) {
-#      saveContent(editor);
-#      });
-#    }
+    height: '300'
+    oninit: ->
+#      $additional_tools = $('<div class="additional-toolbar"></div>')
+#
+#      $.each(['code', 'bash', 'coffeescript', 'css', 'erb', 'haml',
+#              'html', 'javascript', 'json', 'ruby', 'sql', 'xml', 'yaml'], (i, lang) ->
+#        $("<div class='note-style btn-group'><button id='#{lang}Btn' type='button' class='btn btn-default btn-sm btn-small' title='#{lang}' data-event='something' tabindex='-1'><img src='/assets/languages/#{lang}.png'></button></div>").appendTo($additional_tools)
+#      )
+#
+##      r = $('#editor').summernoteInner().range.create()
+##      r.insertNode($('<span id="notate">' + r.toString() + '</span>')[0])
+#
+#
+#      $('body').on 'click', '#codeBtn', ->
+#        editor.formatBlock(makeLayoutInfo.editable(), 'code');
+#
+#      $.each(['bash', 'coffeescript', 'css', 'erb', 'haml',
+#              'html', 'javascript', 'json', 'ruby', 'sql', 'xml', 'yaml'], (i, lang) ->
+#        $('body').on 'click', "##{lang}Btn", ->
+#          "<code class='bash'>" + this.getSelectedHTML() + "</code>"
+#      )
+#
+#
+#      $additional_tools.appendTo($('.note-toolbar'));
   );
