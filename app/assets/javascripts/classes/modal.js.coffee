@@ -30,10 +30,7 @@ window.modal_window =
     $("<div class='modal-body'>#{data}</div>")
 
   build_footer: (data) ->
-    if data
-      $("<div class='modal-footer'>#{data}</div>")
-    else
-      ''
+    $("<div class='modal-footer'>#{data || '&nbsp;'}</div>")
 
   template: (header, body, footer, id)->
     $base = $("<div class='modal fade' id='#{id || modal_window.modal_block_name}'></div>")
