@@ -1,4 +1,6 @@
 $ ->
+#########################post form###############################
+
   new FlowSelect(
     true
     '#category'
@@ -35,3 +37,19 @@ $ ->
   $('body').on 'submit', '.new_post, .edit_post', ->
     code_text = encodeURIComponent($('#editor').code())
     $(@).append("<input type='hidden' value='#{code_text}' name='post[body]'>")
+#########################m###############################
+
+
+#########################indexm###############################
+
+  $('body').on 'click', '.box-widget-body', ->
+    $url = $(@).closest('.box-widget').data('url')
+    console.log($url)
+    $.ajax
+      url: $url
+      success: (response) ->
+        if response.status
+          template = modal_window.template(response.title, response.body)
+          modal_window.show(template, true)
+
+#########################m###############################
