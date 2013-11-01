@@ -57,3 +57,6 @@ window.modal_window =
       $block.removeClass('full-screen')
 
     $block.modal('show')
+
+  hide: (selector) ->
+    $(selector || '.modal').modal('hide')

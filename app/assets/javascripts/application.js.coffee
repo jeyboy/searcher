@@ -11,10 +11,8 @@ $ ->
   $('body').on 'click', '.modal_submit', ->
     $('form', $(@).closest('.modal')).submit()
 
-#  $('body').on 'click', '.toggle', ->
-#    $target = $($(@).attr('href'))
-#
-#    if $target.is(':visible')
-#      $target.hide()
-#    else
-#      $target.show()
+  $(document).on 'keypress', (e) ->
+    code = parseInt(if e.keyCode then e.keyCode else e.which)
+    switch code
+      when 27 # ESC
+        window.modal_window.hide()
