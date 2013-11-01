@@ -1,10 +1,10 @@
 .box-widget class="#{@widget_class}" data-url="#{@url}"
-  .box-widget-head.row-fluid
+  .box-widget-up-head.row-fluid
     .clearfix
       .pull-left
         i class="#{@icon_class || 'icon-file'}"
           '&nbsp;&nbsp;&nbsp;&nbsp;
-        '&nbsp;
+
       .pull-right.btn-group.sharp
         .btn-group
           == @header
@@ -18,7 +18,16 @@
           button.btn.btn-close.noGR
             i class="icon-remove"
 
-    span= @title
+  .box-widget-head.row-fluid
+
+    .inline_group
+      .date
+        .day= @date.day
+        .month= @date.month
+        .year= @date.year
+
+      .title.ml10
+        span= @title
 
   .box-widget-body class="#{'hide' if @closed}"
     .row-fluid

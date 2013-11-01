@@ -24,7 +24,7 @@
   border: 1px rgb(235,235,235) solid;
   //font-family:"OpenSansRegular";
 
-  .box-widget-head {
+  .box-widget-up-head {
     @extend .box_sizing;
     @include background_gradient(rgb(246,246,246), rgb(240,240,240));
 
@@ -32,7 +32,6 @@
     background-color: rgb(248,248,248);
     padding: 3px 6px;
     font-size: 14px;
-    border-bottom: 1px rgb(220,220,220) solid;
 
     i {
       opacity: 0.6;
@@ -56,6 +55,17 @@
       color: white;
       line-height: 10px;
     }
+  }
+
+  .box-widget-head {
+    @extend .box_sizing;
+    @include background_gradient(rgb(246,246,246), rgb(240,240,240));
+
+    min-height: 28px;
+    background-color: rgb(248,248,248);
+    padding: 3px 6px;
+    font-size: 14px;
+    border-bottom: 1px rgb(220,220,220) solid;
   }
 
   &:hover .box-widget-head {
