@@ -23,8 +23,9 @@ class @FlowSelect
   proceed: (id, text) ->
     $('option', @select).attr('selected', false)
     $(@select).append(@template(id, text))
-    unless @solo_behaviour
-      $(@input_template(text)).insertAfter(@select)
+#    todo: добвление тега в список при создании нового
+#    unless @solo_behaviour
+#      $(@input_template(id)).insertAfter(@select)
 
   send_form: ->
     $form = $(@form)
