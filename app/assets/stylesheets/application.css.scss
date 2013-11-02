@@ -210,7 +210,7 @@ div {
 
 /////////////post date///////////////
 .date {
-  background: url('/assets/date.png') no-repeat 0 50%;
+  background: url('/assets/date2.png') no-repeat 0 50%;
   width: 50px;
 
   > * {
@@ -226,6 +226,25 @@ div {
   }
   .month { font-weight: bold; }
   .year { font-size: 12px; }
+}
+
+.sdate {
+  background: url('/assets/date.png') no-repeat 0 50%;
+  width: 42px;
+
+  > * {
+    text-align: center;
+    line-height: 15px;
+    font-weight: bold;
+  }
+
+  .day {
+    color: #fff;
+    line-height: 17px;
+    font-size: 14px;
+  }
+  .month {  }
+  .year { font-size: 11px; }
 }
 ////////////////////////////
 
