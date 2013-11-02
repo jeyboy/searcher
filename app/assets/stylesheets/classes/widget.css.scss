@@ -85,6 +85,7 @@
   .box-widget-body {
     @extend .box_sizing;
 
+    cursor: pointer;
     word-wrap: break-word;
     padding: 10px;
     color: #666;
