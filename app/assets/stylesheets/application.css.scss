@@ -210,7 +210,7 @@ div {
 
 /////////////post date///////////////
 .date {
-  background-image: url('/assets/date.png');
+  background: url('/assets/date.png') no-repeat 0 50%;
   width: 50px;
 
   > * {
