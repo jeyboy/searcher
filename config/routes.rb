@@ -13,6 +13,8 @@ Searcher2::Application.routes.draw do
 
   resource :search, only: :create, controller: 'search'
 
+  resources :invites, only: [:new, :create]
+
   resource :dashboard, controller: 'dashboard', only: [:show]
 
   root to: 'dashboard#show'

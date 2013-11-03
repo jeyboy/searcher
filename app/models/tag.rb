@@ -1,4 +1,6 @@
 class Tag < ActiveRecord::Base
+  has_paper_trail
+
   has_many :taggables, dependent: :destroy
   has_many :posts, through: :taggables, source_type: 'Post', source: :tagged
   #has_many :categories, through: :taggables, source_type: 'Category', source: :tagged

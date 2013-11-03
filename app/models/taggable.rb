@@ -1,4 +1,6 @@
 class Taggable < ActiveRecord::Base
+  has_paper_trail
+
   belongs_to :tagged, polymorphic: true
   belongs_to :tag
 
