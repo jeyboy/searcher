@@ -71,7 +71,7 @@ body {
   }
 
   .form-search {
-    margin: 15px 0;
+    margin: 6px 0;
 
     .search-query {
       height: 28px;
@@ -276,5 +276,6 @@ form.simple_form {
     @extend .inline_group;
 
     input { margin-right: 5px; }
+    label {line-height: 33px; }
   }
 }

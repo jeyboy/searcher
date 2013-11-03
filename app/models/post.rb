@@ -1,5 +1,6 @@
 require 'previewer'
 require 'syntaxer'
+require 'cleaner'
 
 # todo: update not work
 class Post < ActiveRecord::Base
@@ -24,6 +25,6 @@ class Post < ActiveRecord::Base
 
   def unescape
     self.body = CGI.unescape(body)
-    self.body = ::Syntaxer.prepare_html(body) unless self.id
+    self.body = ::Cleaner.prepare_body(::Syntaxer.prepare_html(body)) unless self.id
   end
 end

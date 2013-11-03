@@ -36,7 +36,7 @@ $ ->
 #  summernote patch
   $('body').on 'submit', '.new_post, .edit_post', ->
     code_text = encodeURIComponent($('#editor').code())
-    $(@).append("<input type='hidden' value='#{code_text}' name='post[body]'>")
+    $(@).append("<textarea style='display: none' name='post[body]'>#{code_text}</textarea>")
 #########################m###############################
 
 

@@ -8,12 +8,14 @@ module Previewer
   end
 
   def prepare_preview
-    if self.body.length < max_length
-      self.preview = self.body
-    else
-      doc = Nokogiri::HTML(self.body)
-      self.preview = html_iterator_wrapper(doc.css('body'))
-    end
+    doc = Nokogiri::HTML(self.body)
+
+    self.preview =
+      if self.body.length < max_length
+        doc.css('body')
+      else
+        html_iterator_wrapper(doc.css('body'))
+      end
   end
 
 private
