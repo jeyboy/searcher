@@ -2,7 +2,7 @@
   .row-fluid
     h1 Send invite
 
-    = simple_form_for :invite, url: invite_path do |f|
+    = simple_form_for :invite, url: invites_path do |f|
       = f.input :email, as: :email
 
       = f.submit 'Send'

@@ -5,6 +5,7 @@ class InvitesController < ApplicationController
 
   def create
     User.invite!(email: params[:invite][:email])
+    redirect_to :root, notice: 'Invite send successfully'
   end
 
   private

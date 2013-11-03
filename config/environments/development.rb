@@ -1,3 +1,8 @@
+Rails.application.routes.default_url_options.reverse_merge!(
+    host: 'localhost',
+    port: 3000,
+)
+
 Searcher2::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
