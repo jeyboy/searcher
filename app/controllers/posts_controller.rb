@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(taggables: :tag).all
+    render template: 'posts/alt_index'
   end
 
   def show
