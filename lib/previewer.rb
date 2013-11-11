@@ -12,7 +12,7 @@ module Previewer
 
     self.preview =
       if self.body.length < max_length
-        doc.css('body')
+        doc.css('body').inner_html
       else
         html_iterator_wrapper(doc.css('body'))
       end
