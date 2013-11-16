@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131103124920) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "preview"
-    t.string   "author_id"
+    t.integer  "author_id"
     t.string   "author_name"
   end
 

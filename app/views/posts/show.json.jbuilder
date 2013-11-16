@@ -1,3 +1,3 @@
 json.status @post.present?
-json.title 'Hu'
+json.title @post.name
 json.body @post.body

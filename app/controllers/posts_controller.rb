@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def edit;  end
 
   def create
+    params[:post][:author_name] = current_user.email
     @post = current_user.posts.new(post_params)
 
     respond_to do |format|
@@ -59,7 +60,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:name, :category_id, :body, tag_ids: [])
+      params.require(:post).permit(:name, :author_name, :category_id, :body, tag_ids: [])
     end
 
   def current_layout

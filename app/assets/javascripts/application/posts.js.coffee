@@ -44,7 +44,6 @@ $ ->
 
   $('body').on 'click', '.box-widget-body', ->
     $url = $(@).closest('.box-widget').data('url')
-    console.log($url)
     $.ajax
       url: $url
       success: (response) ->
