@@ -388,9 +388,15 @@ window.selection = function() {
             };
         };
 
-        this.wrap = function(tag, paramStr) {
-            this.replace('<'+tag + ' ' + paramStr +'>' + this.toString() + '</'+tag+'>')
+        this.wrap = function(node) {
+            var nativeRng = nativeRange();
+            nativeRng.surroundContents(node);
         }
+
+//        this.wrap = function(tag, paramStr) {
+//            var nativeRng = nativeRange();
+//            this.replace('<'+tag + ' ' + paramStr +'>' + this.toString() + '</'+tag+'>')
+//        }
 
         this.replace = function(html) {
             if (typeof window.getSelection != "undefined") {

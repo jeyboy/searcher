@@ -8,6 +8,7 @@ $ ->
   $('#editor').summernote(
     height: '300'
     oninit: ->
+      codeNode = document.createElement('code');
       $additional_tools = $('<div class="additional-toolbar"></div>')
 
       $.each(['code', 'bash', 'coffeescript', 'css', 'erb', 'haml',
@@ -16,12 +17,14 @@ $ ->
       )
 
       $('body').on 'click', '#codeBtn', ->
-        selection.create().wrap('code')
+        selection.create().wrap(codeNode.cloneNode(true))
 
       $.each(['bash', 'coffeescript', 'css', 'erb', 'haml',
               'html', 'javascript', 'json', 'ruby', 'sql', 'xml', 'yaml'], (i, lang) ->
         $('body').on 'click', "##{lang}Btn", ->
-          selection.create().wrap('code', "class='"+lang+"'")
+          node = codeNode.cloneNode(true);
+          node.setAttribute('class', lang);
+          selection.create().wrap(node)
       )
 
       $additional_tools.appendTo($('.note-toolbar'));
