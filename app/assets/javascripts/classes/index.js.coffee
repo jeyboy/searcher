@@ -1,6 +1,7 @@
 #= require ./widget
 #= require ./modal
 #= require ./flow_select
+#= require ./selection
 #= require_self
 
 $ ->
