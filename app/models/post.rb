@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   has_many :taggables, as: :tagged
   has_many :tags, through: :taggables
 
-  validates :name, :body, presence: true
+  validates :name, :body, :category_id, presence: true
 
   before_validation :unescape
 

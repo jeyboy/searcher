@@ -24,7 +24,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html {
+          if params['btn-continue']
+            redirect_to :new_post
+          else
+            redirect_to @post, notice: 'Post was successfully created.'
+          end
+        }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -64,7 +70,7 @@ class PostsController < ApplicationController
     end
 
   def current_layout
-    if %w(new edit).include?(params[:action])
+    if %w(new edit create).include?(params[:action])
       'simple'
     else
       'application'

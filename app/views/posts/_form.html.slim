@@ -34,7 +34,8 @@ javascript:
         .well
           .actions
             = link_to 'Cancel', root_path, class: 'btn btn-warning'
-            = f.submit 'Proceed', class: 'btn btn-info'
+            = f.submit 'Proceed', class: 'btn btn-info', name: 'btn-finish'
+            =(f.submit 'Proceed and continue', class: 'btn btn-info', name: 'btn-continue') if @post.new_record?
       .span9
         .well.full_length
 
