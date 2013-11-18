@@ -6,8 +6,8 @@ class Syntaxer
   require 'coderay'
 
   def self.prepare_html(text)
-    text.gsub!(/<pre>|<\/pre>/, '')
-    text.gsub(/<code.*?>(.*?)<\/code>/mix) do |res|
+    #text.gsub!(/<pre>|<\/pre>/, '')
+    text.gsub(/<pre.*?><code.*?>(.*?)<\/code><\/pre>/mix) do |res|
       lang = res[/<code\s*class="(?<lang>\w*)"/,1].to_s.split('_code').first
 
       <<-MAIN
