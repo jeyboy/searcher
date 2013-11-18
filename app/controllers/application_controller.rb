@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from 'ActionController::RedirectBackError', with: ->{ redirect_to :root }
 
   def init_sidebar
-    @categories = Category.joins(:posts).uniq.all.sort
-    @tags = Tag.joins(:posts).uniq.all.sort.group_by{|v| v.name.first}
+    @categories = Category.joins(:posts).uniq.order('name').all
+    @tags = Tag.joins(:posts).uniq.order('name').all.group_by{|v| v.name.first}
   end
 end
