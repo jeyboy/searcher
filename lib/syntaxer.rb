@@ -36,7 +36,7 @@ class Syntaxer
 
               ret = CodeRay.scan(res, lang)
               (ret.div(line_numbers: :table) if line_numbers) || ret.div(line_numbers: false)
-            end || "<pre>#{res}</pre>"
+            end || res
           }
         </div>
       MAIN
