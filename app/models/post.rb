@@ -18,10 +18,10 @@ class Post < ActiveRecord::Base
 
   def unescape
     self.body = CGI.unescape(self.body)
+    doc = Nokogiri::HTML(self.body)
+    self.preview = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(Previewer.prepare_preview(doc.dup, self.body.length)).gsub(/<img[^>]*>/, ''), false)
 
     unless self.id
-      doc = Nokogiri::HTML(self.body)
-      self.preview = Cleaner.prepare_nokogiri(Previewer.prepare_preview(doc.dup, self.body.length)).gsub(/<img[^>]*>/, '')
       self.body = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(doc))
     end
   end

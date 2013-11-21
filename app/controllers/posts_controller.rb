@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    init_sidebar
     @posts = Post.includes(taggables: :tag).all
     render template: 'posts/alt_index'
   end

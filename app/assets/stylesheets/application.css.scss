@@ -250,7 +250,11 @@ p.head {
 p.subhead {
   font-size: 16px;
 
-  i { margin-left: 20px; }
+  i { text-indent: 8px; }
+
+  strong {
+    margin-right: 10px;
+  }
 }
 
 .vblock {
