@@ -1,31 +1,25 @@
 module Previewer
   require 'nokogiri'
   mattr_accessor :max_length
+  self.max_length = 250
 
-  def self.included(base)
-    self.max_length = 250
-    base.after_validation :prepare_preview
-  end
-
-  def prepare_preview
-    doc = Nokogiri::HTML(self.body)
-
-    self.preview =
-      if self.body.length < max_length
-        doc.css('body').inner_html
-      else
-        html_iterator_wrapper(doc.css('body'))
-      end
+  def self.prepare_preview(doc, length = 9999)
+    if length < max_length
+      doc#.css('body').inner_html
+    else
+      html_iterator_wrapper(doc.css('body'))
+    end
   end
 
 private
-  def html_iterator_wrapper(block)
+  def self.html_iterator_wrapper(block)
     html_iterator(block)
-    block.inner_html#.gsub(/<br>/, "\r\n")
+    block
+    #block.inner_html
   end
 
-  def html_iterator(block, counter = 0, lock = false)
-    block.children().each do |child|
+  def self.html_iterator(block, counter = 0, lock = false)
+    block.children.each do |child|
       if lock
         child.remove
       else

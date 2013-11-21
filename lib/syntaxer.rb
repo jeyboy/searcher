@@ -14,16 +14,24 @@ class Syntaxer
         <div class='oa clearfix'>
           #{
             if lang
-              "
-                <div class='lang_sign'>
-                            <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
-                </div>
-              "
+              "<div class='lang_sign'>
+                <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
+                </div>"
             end
           }
           #{(if LANGUAGES.include?(lang.to_s.to_sym)
-          #  res = res.gsub(/<br.*?>/, "\r\n").gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
-            res = spec_chars_convert(res.gsub(/<(.*?|\/.*?)>/, ''))
+          #  res = res.gsub(/<br.*?>/, "\r\n")
+            res = res.gsub(/<(br.*?|\/[^>]+?)>/, "\r\n")
+            res = res.gsub(/<.*?>/, '')
+
+            res = res.lines.to_a.delete_if { |e| e.empty? || e == "\r\n" }
+            res[res.length - 1] = res.last.gsub("\r\n", '')
+
+            #res = res.gsub(/<(.*?|\/.*?)>/, '')
+            res = spec_chars_convert(res.join)
+
+          #  res = spec_chars_convert(fix_struct(res).gsub(/<(.*?|\/.*?)>/, ''))
+            #res = res.gsub(/<br.*?>/, "\r\n")#.gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
 
             CodeRay.scan(res, lang).div(line_numbers: :table)
           end || "<pre>#{res}</pre>")}

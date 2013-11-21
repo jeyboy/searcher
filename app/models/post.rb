@@ -2,10 +2,7 @@ require 'previewer'
 require 'syntaxer'
 require 'cleaner'
 
-# todo: update not work
 class Post < ActiveRecord::Base
-  include ::Previewer
-
   has_paper_trail
 
   belongs_to :category
@@ -17,14 +14,15 @@ class Post < ActiveRecord::Base
 
   before_validation :unescape
 
-  def preview
-    super.gsub(/<img[^>]*>/, '')
-  end
-
   private
 
   def unescape
-    self.body = CGI.unescape(body)
-    self.body = ::Cleaner.prepare_body(::Syntaxer.prepare_html(body)) unless self.id
+    self.body = CGI.unescape(self.body)
+
+    unless self.id
+      doc = Nokogiri::HTML(self.body)
+      self.preview = Cleaner.prepare_nokogiri(Previewer.prepare_preview(doc.dup, self.body.length)).gsub(/<img[^>]*>/, '')
+      self.body = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(doc))
+    end
   end
 end
