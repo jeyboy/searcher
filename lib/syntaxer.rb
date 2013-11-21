@@ -35,7 +35,7 @@ class Syntaxer
               #res = res.gsub(/<br.*?>/, "\r\n")#.gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
 
               ret = CodeRay.scan(res, lang)
-              (ret.div(line_numbers: :table) if line_numbers) || ret
+              (ret.div(line_numbers: :table) if line_numbers) || ret.div(line_numbers: false)
             end || "<pre>#{res}</pre>"
           }
         </div>
