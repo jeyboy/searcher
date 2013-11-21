@@ -10,6 +10,8 @@ set_parent = (node, parent_node) ->
   parent_node.appendChild(node)
 
 $ ->
+  hljs.initHighlightingOnLoad()
+
   $('#editor').summernote(
     height: '300'
     oninit: ->
