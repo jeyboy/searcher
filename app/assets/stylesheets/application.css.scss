@@ -34,6 +34,13 @@ footer {
 }
 //////////////////////////////////////////////////
 
+.posts_body {
+  overflow-y: auto;
+  margin-bottom: -110px;
+  min-height: 84%;
+  height: 84%;
+}
+
 .clearfix {
   zoom:1;
   &:before, &:after {
@@ -260,12 +267,6 @@ p.subhead {
 .vblock {
   min-height: 5%;
   max-height: 42%;
-  overflow-y: auto;
-}
-
-.mvblock {
-  min-height: 5%;
-  max-height: 85%;
   overflow-y: auto;
 }
 
