@@ -12,17 +12,20 @@ class Post < ActiveRecord::Base
 
   validates :name, :body, :category_id, presence: true
 
-  before_validation :unescape
+  after_validation :unescape
 
   private
 
   def unescape
     self.body = CGI.unescape(self.body)
-    doc = Nokogiri::HTML(self.body)
-    self.preview = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(Previewer.prepare_preview(doc.dup, self.body.length)).gsub(/<img[^>]*>/, ''), false)
 
-    unless self.id
-      self.body = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(doc))
+    if errors.empty?
+      doc = Nokogiri::HTML(self.body)
+      self.preview = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(Previewer.prepare_preview(doc.dup, self.body.length)).gsub(/<img[^>]*>/, ''), false)
+
+      unless self.id
+        self.body = Syntaxer.prepare_html(Cleaner.prepare_nokogiri(doc))
+      end
     end
   end
 end
