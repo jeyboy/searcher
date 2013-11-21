@@ -42,8 +42,8 @@ $ ->
 
 #########################indexm###############################
 
-  $('body').on 'click', '.box-widget-body', ->
-    $url = $(@).closest('.box-widget').data('url')
+  $('body').on 'click', '.box-widget-body, .post_body', ->
+    $url = $(@).closest('.box-widget, .well').data('url')
     $.ajax
       url: $url
       success: (response) ->
