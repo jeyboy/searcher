@@ -388,15 +388,15 @@ window.selection = function() {
             };
         };
 
-        this.wrap = function(node) {
-            var nativeRng = nativeRange();
-            nativeRng.surroundContents(node);
-        }
-
-//        this.wrap = function(tag, paramStr) {
+//        this.wrap = function(node) {
 //            var nativeRng = nativeRange();
-//            this.replace('<'+tag + ' ' + paramStr +'>' + this.toString() + '</'+tag+'>')
+//            nativeRng.surroundContents(node);
 //        }
+
+        this.wrap = function(new_html) {
+            var nativeRng = nativeRange();
+            this.replace(new_html)
+        }
 
         this.replace = function(html) {
             if (typeof window.getSelection != "undefined") {
