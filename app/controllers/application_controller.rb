@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
   def init_sidebar
     @categories = Category.joins(:posts).uniq.all.sort
-    @tags = Tag.joins(:posts).all.sort.group_by{|v| v.name.first}
+    @tags = Tag.joins(:posts).uniq.all.sort.group_by{|v| v.name.first}
   end
 end
