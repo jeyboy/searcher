@@ -380,14 +380,6 @@ window.selection = function() {
             }
         };
 
-        //bookmark: offsetPath bookmark
-        this.bookmark = function(elEditable) {
-            return {
-                s: { path: dom.makeOffsetPath(elEditable, sc), offset: so },
-                e: { path: dom.makeOffsetPath(elEditable, ec), offset: eo }
-            };
-        };
-
         this.wrap = function(node) {
             var nativeRng = nativeRange();
             nativeRng.surroundContents(node);
@@ -455,14 +447,6 @@ window.selection = function() {
             } else if (arguments.length === 2) { //collapsed
                 ec = sc; eo = so;
             }
-            return new WrappedRange(sc, so, ec, eo);
-        },
-        // createFromBookmark
-        createFromBookmark : function(elEditable, bookmark) {
-            var sc = dom.fromOffsetPath(elEditable, bookmark.s.path);
-            var so = bookmark.s.offset;
-            var ec = dom.fromOffsetPath(elEditable, bookmark.e.path);
-            var eo = bookmark.e.offset;
             return new WrappedRange(sc, so, ec, eo);
         }
     };
