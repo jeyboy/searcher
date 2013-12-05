@@ -10,7 +10,9 @@ set_parent = (node, parent_node) ->
   parent_node.appendChild(node)
 
 $ ->
-  hljs.initHighlightingOnLoad()
+#  hljs.initHighlightingOnLoad()
+  $('.posts_body pre code').each((i, e)-> hljs.highlightBlock(e))
+
 
   $('#editor').summernote(
     height: '300'
@@ -40,5 +42,10 @@ $ ->
           set_parent(codeNode, document.createElement('pre'))
       )
 
+#      .appendTo($additional_tools)
+
       $additional_tools.appendTo($('.note-toolbar'));
+
+#      preview_block = '<div id="preview"></div>'
+#      $(preview_block).insertAfter('.note-editor')
   );

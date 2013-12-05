@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 class Syntaxer
+  require 'coderay'
+
   #LANGUAGES = [:ruby, :haml, :css, :html, :php, :c, :cplusplus, :json, :javascript, :sql, :yaml, :erb, :xml]
   LANGUAGES = [:ruby, :haml, :css, :html, :json, :javascript, :sql, :yaml, :erb, :xml, :sass, :python, :delphi, :clojure, :c, :cpp]
-  require 'coderay'
 
   def self.prepare_html(text, line_numbers = true)
     #text.gsub!(/<pre>|<\/pre>/, '')
@@ -25,7 +26,7 @@ class Syntaxer
               res = res.gsub(/<(br.*?|\/[^>]+?)>/, "\r\n")
               res = res.gsub(/<.*?>/, '')
 
-              res = res.lines.to_a.delete_if { |e| e.empty? || e == "\r\n" }
+              res = res.lines.to_a.delete_if { |e| e.empty? || e.strip == "\r\n" }
               res[res.length - 1] = res.last.gsub("\r\n", '')
 
               #res = res.gsub(/<(.*?|\/.*?)>/, '')

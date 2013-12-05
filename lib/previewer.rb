@@ -3,10 +3,11 @@ module Previewer
   mattr_accessor :max_length
   self.max_length = 250
 
-  def self.prepare_preview(doc, length = 9999)
-    if length < max_length
-      doc#.css('body').inner_html
+  def self.prepare_preview(html)
+    if html.length < max_length
+      html
     else
+      doc = Nokogiri::HTML(html)
       html_iterator_wrapper(doc.css('body'))
     end
   end
@@ -14,8 +15,7 @@ module Previewer
 private
   def self.html_iterator_wrapper(block)
     html_iterator(block)
-    block
-    #block.inner_html
+    block.inner_html
   end
 
   def self.html_iterator(block, counter = 0, lock = false)
