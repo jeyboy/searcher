@@ -2,31 +2,31 @@ body pre code {
   padding: 21px 0;
 }
 
-.note-editable {
+.note-editable, .widget-icon {
 
-  .bash { background: url('/assets/languages/bash.png') no-repeat;}
+  &.bash, & .bash { background: url('/assets/languages/bash.png') no-repeat;}
 
-  .coffeescript { background: url('/assets/languages/coffeescript.png') no-repeat;}
+  &.coffeescript, & .coffeescript { background: url('/assets/languages/coffeescript.png') no-repeat;}
 
-  .css { background: url('/assets/languages/css.png') no-repeat;}
+  &.css, & .css { background: url('/assets/languages/css.png') no-repeat;}
 
-  .erb { background: url('/assets/languages/erb.png') no-repeat;}
+  &.erb, & .erb { background: url('/assets/languages/erb.png') no-repeat;}
 
-  .haml { background: url('/assets/languages/haml.png') no-repeat;}
+  &.haml, & .haml { background: url('/assets/languages/haml.png') no-repeat;}
 
-  .html { background: url('/assets/languages/html.png') no-repeat;}
+  &.html, & .html { background: url('/assets/languages/html.png') no-repeat;}
 
-  .javascript { background: url('/assets/languages/javascript.png') no-repeat;}
+  &.javascript, & .javascript { background: url('/assets/languages/javascript.png') no-repeat;}
 
-  .json { background: url('/assets/languages/json.png') no-repeat;}
+  &.json, & .json { background: url('/assets/languages/json.png') no-repeat;}
 
-  .ruby { background: url('/assets/languages/ruby.png') no-repeat;}
+  &.ruby, & .ruby { background: url('/assets/languages/ruby.png') no-repeat;}
 
-  .sql { background: url('/assets/languages/sql.png') no-repeat;}
+  &.sql, & .sql { background: url('/assets/languages/sql.png') no-repeat;}
 
-  .xml { background: url('/assets/languages/xml.png') no-repeat;}
+  &.xml, & .xml { background: url('/assets/languages/xml.png') no-repeat;}
 
-  .yaml { background: url('/assets/languages/yaml.png') no-repeat;}
+  &.yaml, & .yaml { background: url('/assets/languages/yaml.png') no-repeat;}
 
 
   pre { margin-top: 10px;}
