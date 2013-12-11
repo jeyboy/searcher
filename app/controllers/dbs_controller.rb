@@ -2,7 +2,7 @@ require 'backuper'
 
 class DbsController < ApplicationController
   def create
-    ::Backuper.dump(ActiveRecord::Base.connection)
+    ::Backuper.dump(ActiveRecord::Base.connection) unless File.exist?(::Backuper.file_path)
     send_file(::Backuper.file_path)
   end
 

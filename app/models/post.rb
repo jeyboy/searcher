@@ -3,8 +3,6 @@ require 'syntaxer'
 require 'cleaner'
 
 class Post < ActiveRecord::Base
-  has_paper_trail
-
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :taggables, as: :tagged
