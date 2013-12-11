@@ -1,13 +1,13 @@
-require 'backuper'
+require 'dumper'
 
 class DbsController < ApplicationController
   def create
-    ::Backuper.dump(ActiveRecord::Base.connection) unless File.exist?(::Backuper.file_path)
-    send_file(::Backuper.file_path)
+    ::Dumper.dump(ActiveRecord::Base.connection) unless File.exist?(::Dumper.file_path)
+    send_file(::Dumper.file_path)
   end
 
   def update
     file = params[:db][:file].tempfile.path
-    ::Backuper.restore(file)
+    ::Dumper.restore(file)
   end
 end

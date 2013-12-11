@@ -1,4 +1,4 @@
-class Backuper
+class Dumper
   require 'yaml'
 
   class << self
@@ -34,7 +34,7 @@ class Backuper
     end
 
     def file_path
-      Rails.root.join('db', 'dump.yml')
+      Rails.root.join('public', 'dump.yml')
     end
 
     protected
