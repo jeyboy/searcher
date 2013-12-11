@@ -9,6 +9,9 @@
 
     - if current_user.is_admin
       = menu_divider
+      = menu_item 'Dump db', dump_posts_path, method: :post
+
+      = menu_divider
       = menu_item 'Send invite', new_invite_path
 
     = yield :temp

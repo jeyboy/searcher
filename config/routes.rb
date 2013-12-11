@@ -1,7 +1,9 @@
 Searcher2::Application.routes.draw do
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    post 'dump', on: :collection
+  end
 
   resources :categories, except: :index
 
