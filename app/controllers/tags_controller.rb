@@ -9,6 +9,7 @@ class TagsController < ApplicationController
     @tag = Tag.where(id: params[:id]).first
     if @tag
       @posts = @tag.posts
+      init_sidebar
     else
       redirect_to :back, alert: 'Tag not found'
     end
