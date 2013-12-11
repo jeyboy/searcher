@@ -52,7 +52,10 @@ class Backuper
 
         while iter < count
           res = connection.execute(request(table, iter += offset, offset))
-          file << {table => res.to_a}.to_yaml if res.present?
+          if res.present?
+            file << {table => res.to_a}.to_yaml
+            sleep(1)
+          end
         end
       end
 

@@ -9,7 +9,12 @@
 
     - if current_user.is_admin
       = menu_divider
-      = menu_item 'Dump db', dump_posts_path, method: :post
+      = menu_item 'Dump db', db_path, method: :post
+
+      = menu_item 'Restore db', '#', class: 'restore_form_button'
+      li.hide
+        = simple_form_for :db, url: db_path, html: {class: 'restore_form', method: :put, multipart: true} do |f|
+          = f.file_field :file
 
       = menu_divider
       = menu_item 'Send invite', new_invite_path

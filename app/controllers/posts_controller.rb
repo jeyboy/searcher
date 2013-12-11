@@ -60,12 +60,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def dump
-    require 'backuper'
-    ::Backuper.dump(ActiveRecord::Base.connection)
-    send_file(::Backuper.file_path)
-  end
-
   private
     def set_post
       @post = Post.includes(taggables: :tag).where(id: params[:id]).first

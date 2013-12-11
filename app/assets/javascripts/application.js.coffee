@@ -8,6 +8,12 @@
 #= require_self
 
 $ ->
+  $('body').on 'click', '.restore_form_button', ->
+    $('.restore_form input[type=file]').click()
+
+  $('body').on 'change', '.restore_form input[type=file]', ->
+    $(@).closest('form').submit()
+
   $('body').on 'click', '.modal_submit', ->
     $('form', $(@).closest('.modal')).submit()
 
