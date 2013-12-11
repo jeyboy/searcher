@@ -47,7 +47,7 @@ class Backuper
       end
 
       def dump_table(connection, table, file, offset = 100)
-        count = connection.execute(count_request(table)).first.first.last
+        count = connection.execute(count_request(table)).to_a.first.first.last.to_i
         iter = - offset
 
         while iter < count
