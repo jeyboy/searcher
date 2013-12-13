@@ -21,15 +21,19 @@ class Dumper
 
     def restore(path = nil)
       YAML.load_stream(open(path || file_path)).each do |document|
-        ActiveRecord::Base.transaction {
+        #ActiveRecord::Base.transaction {
           table = document.first.first
           hashes = document.first.last
           hashes.each do |hash|
-            ActiveRecord::Base.connection.execute(
-                "INSERT INTO '#{table}' (\"#{hash.keys.join('","')}\") VALUES (\"#{hash.values.join('","')}\")"
-            )
+            begin
+              ActiveRecord::Base.connection.execute(
+                  "INSERT INTO '#{table}' (\"#{hash.keys.join('","')}\") VALUES (\"#{hash.values.join('","')}\")"
+              )
+            rescue
+
+            end
           end
-        }
+        #}
       end
     end
 
