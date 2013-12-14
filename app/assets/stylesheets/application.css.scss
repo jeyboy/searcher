@@ -135,8 +135,10 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited { color: #666; }
+
+  code { color: #0088CC; }
+//  color: #000;
+//  &:visited { color: #666; }
   &:hover {
     //color: #fff;
     //background-color: #000;
