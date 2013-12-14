@@ -38,7 +38,7 @@
   }
 }
 
-.box-widget-footer {
+.box-widget-footer, .post_footer {
   @extend .clearfix;
 
   .fl { float: left; }
