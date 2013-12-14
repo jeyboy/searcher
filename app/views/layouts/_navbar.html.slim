@@ -11,7 +11,7 @@
       = menu_divider
       = menu_item 'Dump db', db_path, method: :post
 
-      = menu_item 'Restore db', '#', class: 'restore_form_button'
+      /= menu_item 'Restore db', '#', class: 'restore_form_button'
       li.hide
         = simple_form_for :db, url: db_path, html: {class: 'restore_form', method: :put, multipart: true} do |f|
           = f.file_field :file
