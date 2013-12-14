@@ -92,6 +92,16 @@ body {
   padding: 10px;
   word-wrap: break-word;
 
+  &.sidebar-nav {
+    padding: 5px;
+    margin: 0;
+
+    h3 {
+      margin: 0;
+      padding: 2px;
+    }
+  }
+
   hr {
     border-color: #999999;
     margin: 10px 0 8px 0;
