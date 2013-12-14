@@ -1,0 +1,29 @@
+ul.off-canvas-list
+  li= link_to 'Home', root_path
+  - current_user
+    li
+      label Posts
+    li= link_to 'Create', new_post_path
+    li.container
+      = simple_form_for :search, url: search_path, html: {class: 'form-search'} do |f|
+        = f.text_field :value, class: 'search-query'
+        = f.submit 'Find', class: 'search-btn btn-info'
+    - if current_user.is_admin
+      li= link_to 'Dump', db_path, method: :post
+    /= menu_item 'Restore db', '#', class: 'restore_form_button'
+      li.hide
+        = simple_form_for :db, url: db_path, html: {class: 'restore_form', method: :put, multipart: true} do |f|
+          = f.file_field :file
+
+
+    li
+      label Categories
+      /        .vblock
+      /          .well.sidebar-nav
+      /            = render 'layouts/categories'
+
+    li
+      label Tags
+      /        .vblock
+      /          .well.sidebar-nav
+      /            = render 'layouts/tags'

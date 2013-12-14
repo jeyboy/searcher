@@ -11,5 +11,3 @@ window.box_widget =
 
     $("body").on "click", ".box-widget-head .btn-close", ->
       $(@).closest('.box-widget').remove()
-      $('.js-masonry').masonry('reloadItems')
-      $('.js-masonry').masonry()

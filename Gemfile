@@ -33,8 +33,6 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
 gem 'slim-rails'
 
 gem 'simple_form'
@@ -47,6 +45,8 @@ gem 'devise'
 gem 'devise_invitable'
 
 gem 'seed_dump'
+
+gem 'foundation-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

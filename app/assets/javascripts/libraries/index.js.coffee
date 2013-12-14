@@ -1,7 +1,27 @@
-#= require ./bootstrap
+#= require jquery
+#= require jquery_ujs
+
+# require foundation
+# Temp inclusion - fix - remove after gem bumped to 5.03
+#= require ./foundation.5.0.3
+#= require foundation/foundation.abide
+#= require foundation/foundation.accordion
+#= require foundation/foundation.alert
+#= require foundation/foundation.clearing
+#= require foundation/foundation.dropdown
+#= require foundation/foundation.interchange
+#= require foundation/foundation.joyride
+#= require foundation/foundation.magellan
+#= require foundation/foundation.offcanvas
+#= require foundation/foundation.orbit
+#= require foundation/foundation.reveal
+#= require foundation/foundation.tab
+#= require foundation/foundation.tooltip
+#= require foundation/foundation.topbar
+
+
 #= require ./summernote.min
 #= require ./highlight.pack
-#= require ./masonry.min
 #= require_self
 
 set_parent = (node, parent_node) ->
@@ -10,6 +30,8 @@ set_parent = (node, parent_node) ->
   parent_node.appendChild(node)
 
 $ ->
+  $(document).foundation()
+
 #  hljs.initHighlightingOnLoad()
   $('.posts_body pre code').each((i, e)-> hljs.highlightBlock(e))
 

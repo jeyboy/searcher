@@ -1,19 +1,3 @@
-#.modal.fade id="#{@id || 'modal'}"
-#  .modal-dialog
-#    .modal-content
-#      .modal-header
-#        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
-#        h4 class="modal-title"= @header
-#
-#      .modal-body
-#        = yield
-#
-#  .modal-footer
-#    = footer_content
-#    button type="button" class="btn btn-default" data-dismiss="modal" Close
-#
-#
-
 window.modal_window =
   modal_block_name: 'modal_block'
 
