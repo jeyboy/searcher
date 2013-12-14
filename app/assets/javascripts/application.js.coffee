@@ -36,8 +36,8 @@ $ ->
       viewPortHeight = document.getElementsByTagName("body")[0].clientHeight
     [viewPortWidth, viewPortHeight]
 
-#  get_elem_facing = ($elem) ->
-#    if $elem
+  get_elem_facing = ($elem) ->
+    $elem.outerHeight(true) - $elem.height()
 #      parseInt($elem.css('padding-top')) + parseInt($elem.css('padding-bottom')) + parseInt($elem.css('margin-bottom')) + parseInt($elem.css('margin-top'))
 
   resizeContent = (height) ->
@@ -46,13 +46,33 @@ $ ->
 
 
   resizeSidebar = (height) ->
-    height -= 20 #get_elem_facing($sidebar)
-    resize_values.sidebar_elem.css('height', height)
+#    height -= 20 #get_elem_facing($sidebar)
+#    resize_values.sidebar_elem.css('height', height)
 
 #    $blocks = $('.sidebar .vblock')
-#    height -= get_elem_facing($blocks * $blocks.length)
+#    height -= (get_elem_facing($blocks) * $blocks.length) + 20
 #    block_height = height / $blocks.length
-#    $.each($blocks, -> $(@).css('height', block_height))
+#    $.each($blocks, ->
+#      $(@).css('height', block_height)
+#    )
+
+    $blocks = $('.sidebar .vblock')
+    height -= (get_elem_facing($blocks) * $blocks.length) + 20
+    block_height = height / $blocks.length
+
+    a_height = $blocks.first().height()
+    b_height = $blocks.last().height()
+
+    a_rel = a_height >= block_height
+    b_rel = b_height >= block_height
+
+    if a_rel && b_rel
+      $blocks.css('height', block_height)
+    else if a_rel
+      $blocks.first().css('height', block_height + block_height - b_height)
+    else
+      $blocks.last().css('height', block_height + block_height - a_height)
+
 
   $(window).resize ->
     navbar_height = resize_values.navbar_elem.outerHeight(true)
