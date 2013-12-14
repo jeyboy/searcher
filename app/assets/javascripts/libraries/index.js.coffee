@@ -33,7 +33,7 @@ $ ->
   $(document).foundation()
 
 #  hljs.initHighlightingOnLoad()
-  $('.posts_body pre code').each((i, e)-> hljs.highlightBlock(e))
+  $('.posts pre code').each((i, e)-> hljs.highlightBlock(e))
 
 
   $('#editor').summernote(

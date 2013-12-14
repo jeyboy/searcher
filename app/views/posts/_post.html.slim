@@ -1,24 +1,27 @@
-.well data-url="#{polymorphic_url(post, format: :json)}"
-  .post_head
-    .inline_group
-      .date
-        .day= post.created_at.day
-        .month= post.created_at.month
-        .year= post.created_at.year
+.row
+  .small-12.columns.well data-url="#{polymorphic_url(post, format: :json)}"
+    .post_head
+      .inline_group
+        .date
+          .day= post.created_at.day
+          .month= post.created_at.month
+          .year= post.created_at.year
 
-      .title.ml10
-        p.head
-          strong= post.category.name
-        p.subhead
-          strong= post.name
-          = link_to [:edit, post] do
-            i class='icon-pencil icon-large'
+        .title.ml10
+          p.head
+            strong= post.category.name
+          p.subhead
+            strong= post.name
+            = link_to [:edit, post] do
+              i class='icon-pencil icon-large'
 
-          = link_to post, method: :delete do
-            i class='icon-remove-sign icon-large'
+            = link_to post, method: :delete do
+              i class='icon-remove-sign icon-large'
+    hr
 
-  .post_body== post.pretty_preview
+    .post_body== post.pretty_preview
 
-  - if post.taggables.present?
-    .post_footer
-      = render post.taggables
+    - if post.taggables.present?
+      hr
+      .post_footer
+        = render post.taggables
