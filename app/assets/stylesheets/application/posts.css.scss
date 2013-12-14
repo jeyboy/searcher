@@ -32,6 +32,18 @@ body pre code {
   pre { margin-top: 10px;}
 }
 
-.post_body { cursor: pointer; }
+.post_body, .box-widget-body {
+  cursor: pointer;
+
+  pre {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+  }
+
+  code {
+    white-space: inherit;
+  }
+}
 
 .mt7 { margin-top: 7px; }
