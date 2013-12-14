@@ -258,6 +258,8 @@ p.subhead {
   max-height: 42%;
 //  height: 42%;
   overflow-y: auto;
+
+  & + .vblock { margin-top: 10px}
 }
 
 ////////////////forms/////////////////////

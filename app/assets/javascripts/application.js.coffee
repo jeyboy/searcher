@@ -57,7 +57,7 @@ $ ->
 #    )
 
     $blocks = $('.sidebar .vblock')
-    height -= (get_elem_facing($blocks) * $blocks.length) + 20
+    height -= (get_elem_facing($blocks) * $blocks.length) + 20 + 10 # 10 is a margin
     block_height = height / $blocks.length
 
     a_height = $blocks.first().height()
