@@ -28,12 +28,8 @@ html lang="en"
           = javascript_include_tag 'application'
   body
     .content
-      = render 'layouts/navbar'
-
       .container-fluid
         .row-fluid
           .span12
             = yield
       .push
-
-    = render 'layouts/footer'

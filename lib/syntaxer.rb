@@ -11,36 +11,49 @@ class Syntaxer
     text.gsub(/<pre.*?><code.*?>(.*?)<\/code><\/pre>/mix) do |res|
       lang = res[/<code\s*class="(?<lang>\w*)"/,1].to_s.split('_code').first
 
-      <<-MAIN
-        <div class='oa clearfix'>
-          #{
-            if lang
-              "<div class='lang_sign'>
-                <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
-              </div>"
-            end
-          }
-          #{
-            if LANGUAGES.include?(lang.to_s.to_sym)
-            #  res = res.gsub(/<br.*?>/, "\r\n")
-              res = res.gsub(/<(br.*?|\/[^>]+?)>/, "\r\n")
-              res = res.gsub(/<.*?>/, '')
+      if LANGUAGES.include?(lang.to_s.to_sym)
+        res = res.gsub(/<(br.*?|\/[^>]+?)>/, "\r\n")
+        res = res.gsub(/<.*?>/, '')
 
-              res = res.lines.to_a.delete_if { |e| e.empty? || e.strip == "\r\n" }
-              res[res.length - 1] = res.last.gsub("\r\n", '')
+        res = res.split("\r\n").delete_if { |e| e.strip.empty? }
+        res = spec_chars_convert(res.join("\r\n"))
 
-              #res = res.gsub(/<(.*?|\/.*?)>/, '')
-              res = spec_chars_convert(res.join)
+        ret = CodeRay.scan(res, lang)
+        res = (ret.div(line_numbers: :table) if line_numbers) || ret.div(line_numbers: false)
+        res.insert(12, lang + ' ')
+      end || res
 
-            #  res = spec_chars_convert(fix_struct(res).gsub(/<(.*?|\/.*?)>/, ''))
-              #res = res.gsub(/<br.*?>/, "\r\n")#.gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
 
-              ret = CodeRay.scan(res, lang)
-              (ret.div(line_numbers: :table) if line_numbers) || ret.div(line_numbers: false)
-            end || res
-          }
-        </div>
-      MAIN
+      #<<-MAIN
+      #  <div class='oa clearfix'>
+      #    #{
+      #      if lang
+      #        "<div class='lang_sign'>
+      #          <img src='/assets/languages/#{lang}.png' alt='#{lang}'/>
+      #        </div>"
+      #      end
+      #    }
+      #    #{
+      #      if LANGUAGES.include?(lang.to_s.to_sym)
+      #      #  res = res.gsub(/<br.*?>/, "\r\n")
+      #        res = res.gsub(/<(br.*?|\/[^>]+?)>/, "\r\n")
+      #        res = res.gsub(/<.*?>/, '')
+      #
+      #        res = res.lines.to_a.delete_if { |e| e.empty? || e.strip == "\r\n" }
+      #        res[res.length - 1] = res.last.gsub("\r\n", '')
+      #
+      #        #res = res.gsub(/<(.*?|\/.*?)>/, '')
+      #        res = spec_chars_convert(res.join)
+      #
+      #      #  res = spec_chars_convert(fix_struct(res).gsub(/<(.*?|\/.*?)>/, ''))
+      #        #res = res.gsub(/<br.*?>/, "\r\n")#.gsub(/<(.*?|\/.*?)>/, '').gsub(/&nbsp;/, ' ')
+      #
+      #        ret = CodeRay.scan(res, lang)
+      #        (ret.div(line_numbers: :table) if line_numbers) || ret.div(line_numbers: false)
+      #      end || res
+      #    }
+      #  </div>
+      #MAIN
     end
   end
 

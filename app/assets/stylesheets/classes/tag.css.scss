@@ -1,33 +1,36 @@
 @import 'mixins';
 
 .tag {
-//  @include bradius(6px);
-//
-//  line-height: 30px;
-//
-//  padding: 2px 4px 3px;
-//  margin-right: 4px;
-//
-//  min-width: 30px;
-//  min-height: 20px;
-//
-//  font-weight: bold;
-//  //text-align: center;
-//  //color: white;
-//  text-decoration: none;
-//  border: 2px solid #B0C4DE;
-//  //text-overflow: ellipsis;
-//  //word-wrap: break-word;
-//
-//  .tag-icon {
-//    font-size: 1.4em;
-//    vertical-align: middle;
-//    margin: 2px;
-//  }
-//
-//  &, a, .tag_icon, i {
-//    color: white;
-//  }
+  @include bradius(6px);
+  background-color: #49AFCD;
+
+  line-height: 30px;
+
+  padding: 2px 4px 3px;
+  margin-right: 4px;
+
+  min-width: 30px;
+  min-height: 20px;
+
+  font-weight: bold;
+  //text-align: center;
+  //color: white;
+  text-decoration: none;
+  border: 2px solid #B0C4DE;
+  //text-overflow: ellipsis;
+  //word-wrap: break-word;
+
+  .tag-icon {
+    font-size: 1.4em;
+    vertical-align: middle;
+    margin: 2px;
+  }
+
+  &, a, .tag_icon, i {
+    color: white;
+  }
+
+  &:hover { background-color: #fff; }
 }
 
 .post_footer {
