@@ -38,6 +38,12 @@
   }
 }
 
+.box-widget-footer {
+  @extend .clearfix;
+
+  .fl { float: left; }
+}
+
 
 //.tag a:hover {
 //  color: black !important;
