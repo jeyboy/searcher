@@ -1,13 +1,13 @@
 ul.off-canvas-list
   li= link_to 'Home', root_path
-  - current_user
+  - if current_user
     li
       label Posts
-    li= link_to 'Create', new_post_path
-    li.container
+    li.container.clearfix
       = simple_form_for :search, url: search_path, html: {class: 'form-search'} do |f|
         = f.text_field :value, class: 'search-query'
-        = f.submit 'Find', class: 'search-btn btn-info'
+        = f.submit 'Find', class: 'button right'
+    li= link_to 'Create', new_post_path
     - if current_user.is_admin
       li= link_to 'Dump', db_path, method: :post
     /= menu_item 'Restore db', '#', class: 'restore_form_button'
