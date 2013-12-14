@@ -51,10 +51,8 @@ $ ->
     height -= (get_elem_facing($blocks) * $blocks.length) + 20 + 10 # 10 is a margin
     block_height = height / $blocks.length
 
-    console.log(block_height, height)
-
-    a_height = $blocks.first().height()
-    b_height = $blocks.last().height()
+    a_height = $blocks.first().prop('scrollHeight') #height()
+    b_height = $blocks.last().prop('scrollHeight') #height()
 
     a_rel = a_height >= block_height
     b_rel = b_height >= block_height
@@ -63,8 +61,10 @@ $ ->
       $blocks.css('height', block_height)
     else if a_rel
       $blocks.first().css('height', block_height + block_height - b_height)
+      $blocks.last().css('height', 'inherit')
     else
       $blocks.last().css('height', block_height + block_height - a_height)
+      $blocks.first().css('height', 'inherit')
 
 
   $(window).resize ->
