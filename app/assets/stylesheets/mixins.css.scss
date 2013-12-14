@@ -1,3 +1,9 @@
+@mixin text-overflow($type) {
+  -ms-text-overflow: $type;
+  -o-text-overflow: $type;   /* Opera */
+  text-overflow:    $type;   /* IE, Safari (WebKit) */
+}
+
 @mixin bradius($radius) {
   -moz-border-radius: $radius; /* Firefox */
   -webkit-border-radius: $radius; /* Safari, Chrome */
