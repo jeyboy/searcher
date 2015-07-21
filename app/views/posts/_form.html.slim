@@ -19,7 +19,7 @@ javascript:
         .well
           = f.label :tags
           .inline_pair
-            = collection_select :tags, :tag_id, Tag.all, :id, :name, {prompt: 'Select...'}, id: 'tag'
+            = collection_select :tags, :tag_id, Tag.all.order(:name), :id, :name, {prompt: 'Select...'}, id: 'tag'
 
             div.controls
               = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
