@@ -1,4 +1,16 @@
 class TagsController < ApplicationController
+  def edit
+    @tag = Tag.where(id: params[:id]).first
+    render json: {content: render_to_string('tags/_form', locals: {:@tag => @tag}, layout: false)}
+  end
+
+  def update
+    @tag = Tag.where(id: params[:id]).first
+    if @tag
+      render(json: {status: @tag.update_attributes(params[:tag]), id: @tag.id, text: @tag.name})
+    end || render(json: {status: @tag.save, id: @tag.id, text: @tag.name})
+  end
+
   def create
     @tag = Tag.new(tag_params)
 

@@ -1,5 +1,5 @@
 javascript:
-  window.tag_template = "#{j render('tags/tag', name: '$3', text: '$2', id: '$1') }"
+  window.tag_template = "#{j render('tags/tag', name: '$3', text: '$2', id: '$1') }";
 
 = simple_form_for @post, defaults: {input_html: {rows: 20}} do |f|
   = render 'shared/errors', object: @post
@@ -13,6 +13,9 @@ javascript:
             = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
 
             div.controls
+              = link_to '#edit_category', class: 'hide edit_category' do
+                i class='icon-pencil icon-large'
+
               = link_to '#modal_category', 'data-toggle' => 'modal' do
                 i class='icon-cog icon-large'
 
@@ -24,6 +27,9 @@ javascript:
             div.controls
               = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
                 i class='icon-plus-sign icon-large'
+
+              = link_to '#edit_tag', class: 'hide edit_tag_btn' do
+                i class='icon-pencil icon-large'
 
               = link_to '#modal_tag', 'data-toggle' => 'modal' do
                 i class='icon-cog icon-large'
@@ -56,5 +62,9 @@ javascript:
 
 = render layout: 'shared/modal_box', locals: {:@header => 'New Tag', :@id => 'modal_tag'} do
   = render 'tags/form'
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'
+
+= render layout: 'shared/modal_box', locals: {:@header => 'Edit Tag', :@id => 'edit_tag_modal'} do
   = content_for :modal_footer, flush: true do
     = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'

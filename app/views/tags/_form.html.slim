@@ -1,4 +1,4 @@
-= simple_form_for @tag ||= Tag.new, url: tags_path, html: {id: 'tag_form'} do |f|
+= simple_form_for (@tag ||= Tag.new), html: {id: "#{'edit_' if @tag.persisted?}tag_form", remote: true} do |f|
   = f.input :name
 
-  /= f.submit :create, class: 'btn'
+  = f.submit :proceed, class: 'btn hide'

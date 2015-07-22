@@ -1,4 +1,4 @@
-= simple_form_for @category ||= Category.new, url: categories_path, html: {id: 'category_form'} do |f|
+= simple_form_for @category ||= Category.new, url: categories_path, html: {id: "#{'edit_' if @category.persisted?}category_form"} do |f|
   = render 'shared/errors', object: @post
 
   = f.input :name

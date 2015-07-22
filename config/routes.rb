@@ -7,7 +7,7 @@ Searcher2::Application.routes.draw do
 
   resources :categories, except: :index
 
-  resources :tags, only: :create do
+  resources :tags, only: [:create, :edit, :update] do
     get 'posts', on: :member
   end
 
