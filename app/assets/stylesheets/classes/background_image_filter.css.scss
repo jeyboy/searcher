@@ -1,29 +1,25 @@
-.big_logo {
-  background: url('/assets/ruby_medium.png') no-repeat 50% 50%;
+.filter_content {
+  position: relative;
+  display: block;
   width: 100%;
-  height: 80%;
-}
+  min-height: 200px;
+  z-index: 1;
 
-
-//.filtered_wrapper {
-//  position: relative;
-//  background-color: #fff;
-//  //min-height: 500px;
-//}
-//
-//.filter_content {
-//  position: relative;
-//  left: 20px;
-//  top: 20px;
-//  right: 20px;
-//  bottom: 20px;
-//}
-
-.filter {
-  -khtml-opacity:.08;
-  -moz-opacity:.08;
-  -ms-filter:"alpha(opacity=8)";
-  filter:alpha(opacity=8);
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.08);
-  opacity:.08;
+  &::before {
+    content: "";
+    background: url('/assets/ruby_medium.png') no-repeat 50% 50%;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    -khtml-opacity:.08;
+    -moz-opacity:.08;
+    -ms-filter:"alpha(opacity=8)";
+    filter:alpha(opacity=8);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.08);
+    opacity:.08;
+  }
 }
