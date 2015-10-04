@@ -210,6 +210,13 @@ div {
   select { width: 75% }
 }
 
+.btn.btn-close {
+  border: 1px solid blue;
+  font-weight: bold;
+  line-height: 12px;
+  width: 30px;
+}
+
 /////////////post date///////////////
 .date {
   background: url('/assets/date2.png') no-repeat 0 50%;
