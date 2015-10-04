@@ -1,0 +1,10 @@
+h3 Tags
+- if @tags.present?
+  ul.nav.nav-list
+    - @tags.each do |k, v|
+      li.nav-header
+        = link_to k, '#'
+      li
+        ol.nav.nav-list
+          - v.each do |tag|
+            li= link_to tag.name, posts_tag_path(tag)

@@ -1,0 +1,25 @@
+= content_for :temp
+  = menu_item @post.name, post_path(@post), class: 'reverse'
+
+.inline_group
+  .date
+    .day= @post.created_at.day
+    .month= @post.created_at.month
+    .year= @post.created_at.year
+
+  .title.ml10
+    p.head
+      strong= @post.category.name
+    p.subhead
+      strong= @post.name
+      = link_to [:edit, @post] do
+        i class='icon-pencil icon-large'
+
+hr
+
+p
+  == @post.pretty_body
+
+hr
+
+= render @post.taggables, static: true

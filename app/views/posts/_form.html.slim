@@ -1,0 +1,70 @@
+javascript:
+  window.tag_template = "#{j render('tags/tag', name: '$3', text: '$2', id: '$1') }";
+
+= simple_form_for @post, defaults: {input_html: {rows: 20}} do |f|
+  = render 'shared/errors', object: @post
+
+  .container-fluid
+    .row-fluid
+      .span3
+        .well
+          = f.label :category
+          .inline_pair
+            = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
+
+            div.controls
+              = link_to '#edit_category', class: 'hide edit_category' do
+                i class='icon-pencil icon-large'
+
+              = link_to '#modal_category', 'data-toggle' => 'modal' do
+                i class='icon-cog icon-large'
+
+        .well
+          = f.label :tags
+          .inline_pair
+            = collection_select :tags, :tag_id, Tag.all.order(:name), :id, :name, {prompt: 'Select...'}, id: 'tag'
+
+            div.controls
+              = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
+                i class='icon-plus-sign icon-large'
+
+              = link_to '#edit_tag', class: 'hide edit_tag_btn' do
+                i class='icon-pencil icon-large'
+
+              = link_to '#modal_tag', 'data-toggle' => 'modal' do
+                i class='icon-cog icon-large'
+
+          = render 'tags/tags', object: @post
+          /= render @post.taggables, static: false
+
+        .well
+          .actions
+            = link_to 'Cancel', root_path, class: 'btn btn-warning'
+            = f.submit 'Proceed', class: 'btn btn-info', name: 'btn-finish'
+            =(f.submit 'Proceed and continue', class: 'btn btn-info', name: 'btn-continue') if @post.new_record?
+      .span9
+        .well.full_length
+
+          = f.input :name
+
+          /= f.input :body
+
+          #editor
+            == f.object.body
+
+
+///////////////////////modals
+
+= render layout: 'shared/modal_box', locals: {:@header => 'New Category', :@id => 'modal_category'} do
+  = render 'categories/form'
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'
+
+= render layout: 'shared/modal_box', locals: {:@header => 'New Tag', :@id => 'modal_tag'} do
+  = render 'tags/form'
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'
+
+= render layout: 'shared/modal_box', locals: {:@header => 'Edit Tag', :@id => 'edit_tag_modal'} do
+  = content_for :modal_footer, flush: true do
+    = link_to 'Proceed', '#', class: 'btn modal_submit', 'data-dismiss' => 'modal'

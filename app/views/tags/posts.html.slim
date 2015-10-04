@@ -1,0 +1,4 @@
+= content_for :temp
+  = menu_item "By tag '#{@tag.name}'", posts_tag_path(@tag), class: 'reverse'
+
+= render template: 'posts/index'

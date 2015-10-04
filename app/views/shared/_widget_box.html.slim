@@ -1,0 +1,35 @@
+.box-widget class="#{@widget_class}" data-url="#{@url}"
+  i class="#{@icon_class || 'icon-file'} widget-icon"
+
+  .box-widget-head.row-fluid
+    .clearfix
+      .pull-right.btn-group.sharp
+        .btn-group
+          == @header
+        .btn-group
+          /button.btn.btn-norm.noGR
+          /  i class="icon-chevron-down"
+          /
+          /button.btn.btn-mini.noGR
+          /  i class="icon-chevron-up"
+
+          button.btn.btn-close.noGR
+            i class="icon-remove"
+
+      .pull-left
+        .sdate
+          .day= @date.day
+          .month= @date.month
+          .year= @date.year
+
+    p.title.ml10= @title
+
+  .box-widget-body class="#{'hide' if @closed}"
+    .row-fluid
+      = yield
+
+  - footer = @footer || yield(:widget_footer)
+  - if footer.present?
+    .box-widget-footer
+      = footer
+

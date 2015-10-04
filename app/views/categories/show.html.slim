@@ -1,0 +1,4 @@
+= content_for :temp
+  = menu_item "By category '#{@category.name}'", category_path(@category), class: 'reverse'
+
+= render template: 'posts/index'
