@@ -2,16 +2,13 @@ class PostsController < ApplicationController
   layout :current_layout
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :init_sidebar, only: [:index, :show]
 
   def index
-    init_sidebar
     @posts = Post.includes(taggables: :tag).all
-    render template: 'posts/alt_index'
   end
 
-  def show
-    init_sidebar
-  end
+  def show; end
 
   def new
     @post = Post.new
