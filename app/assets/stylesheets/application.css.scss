@@ -1,13 +1,23 @@
 /*
- *= require_tree ./libraries
+ *= require_directory ./libraries
  *= require_directory ./classes
- *= require_tree ./application
+ *= require_directory ./application
  *= require_self
  */
 
 @import 'mixins';
 
-.fullwidth { width: 100%; }
+.fullwidth { width: 100%; } // in use
+
+.full_length {
+  input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+$def-border: 1px solid lightgray;
 
 ////////////////doc structure/////////////////////
 
@@ -39,12 +49,7 @@ footer {
 }
 //////////////////////////////////////////////////
 
-.posts_body {
-  overflow-y: auto;
-  margin-bottom: -110px;
-  min-height: 84%;
-  height: 84%;
-}
+.posts_body { overflow-y: auto; }
 
 body {
   background-color: #fff;
@@ -55,13 +60,14 @@ body {
 }
 
 .navbar {
-  .brand { padding: 2px 10px; }
+  .navbar-brand { padding: 2px 10px; }
   li {
-    margin-top: 7px;
+    padding: 7px 5px;
 
     a {
       @include bradius(25px 10px 10px 10px);
-      border: 1px solid lightgray;
+      border: $def-border;
+      padding: 10px;
     }
 
     a.reverse {
@@ -74,6 +80,10 @@ body {
 
     .search-query {
       height: 28px;
+      @include bradius(10px);
+      border: $def-border;
+      width: calc(100% - 50px);
+      padding: 0 8px;
     }
 
     .search-btn {
@@ -81,6 +91,7 @@ body {
       padding: 2px 8px;
       margin-left: 2px;
       font-weight: bold;
+      max-width: 50px;
     }
   }
 }
@@ -119,14 +130,6 @@ body {
   text-align: center;
 
   > * { margin:  2px 5px; }
-}
-
-.full_length {
-  input, select, textarea {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-  }
 }
 
 p, ol, ul, td {
@@ -262,8 +265,6 @@ p.subhead {
 
 .vblock {
   min-height: 50px;
-//  max-height: 42%;
-//  height: 42%;
   overflow-y: auto;
 
   & + .vblock { margin-top: 10px}

@@ -4,11 +4,9 @@
     /= menu_divider
     /= drop_down_with_submenu 'Settings' do
     /  = menu_item 'Download certificate', user_configurations_path
-    = menu_divider
     = menu_item 'Create post', new_post_path
 
     - if current_user.is_admin
-      = menu_divider
       = menu_item 'Dump db', db_path, method: :post
 
       /= menu_item 'Restore db', '#', class: 'restore_form_button'
@@ -16,7 +14,6 @@
         = simple_form_for :db, url: db_path, html: {class: 'restore_form', method: :put, multipart: true} do |f|
           = f.file_field :file
 
-      = menu_divider
       = menu_item 'Send invite', new_invite_path
 
     = yield :temp
@@ -36,5 +33,4 @@
         = f.text_field :value, class: 'search-query'
         = f.submit 'Find', class: 'search-btn btn-info'
 
-    = menu_divider
     = menu_item 'Log out', destroy_user_session_path, method: :delete

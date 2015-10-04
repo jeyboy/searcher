@@ -3,9 +3,7 @@ $ ->
     sidebar_elem: $('.sidebar')
     posts_elem: $('.posts_body')
     navbar_elem: $('.navbar')
-    footer_elem: $('footer')
   }
-
 
   getViewport = ->
     viewPortWidth = undefined
@@ -32,23 +30,13 @@ $ ->
   #      parseInt($elem.css('padding-top')) + parseInt($elem.css('padding-bottom')) + parseInt($elem.css('margin-bottom')) + parseInt($elem.css('margin-top'))
 
   resizeContent = (height) ->
-    height -= 20 #get_elem_facing($posts_body)
+    height -= 10
     resize_values.posts_elem.css('height', height)
 
 
   resizeSidebar = (height) ->
-#    height -= 20 #get_elem_facing($sidebar)
-#    resize_values.sidebar_elem.css('height', height)
-
-#    $blocks = $('.sidebar .vblock')
-#    height -= (get_elem_facing($blocks) * $blocks.length) + 20
-#    block_height = height / $blocks.length
-#    $.each($blocks, ->
-#      $(@).css('height', block_height)
-#    )
-
     $blocks = $('.sidebar .vblock')
-    height -= (get_elem_facing($blocks) * $blocks.length) + 20 + 10 # 10 is a margin
+    height -= (get_elem_facing($blocks) * $blocks.length) + 20 # 10 is a margin * 2
     block_height = height / $blocks.length
 
     a_height = $blocks.first().prop('scrollHeight') #height()
@@ -69,8 +57,7 @@ $ ->
 
   $(window).resize ->
     navbar_height = resize_values.navbar_elem.outerHeight(true)
-    footer_height = resize_values.footer_elem.outerHeight(true)
-    fact_height = getViewport()[1] - navbar_height - footer_height
+    fact_height = getViewport()[1] - navbar_height
     resizeSidebar(fact_height)
     resizeContent(fact_height)
 

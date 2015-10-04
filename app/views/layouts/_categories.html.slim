@@ -2,5 +2,4 @@ h3 Categories
 - if @categories.present?
   ul.nav.nav-list
     - @categories.each do |k|
-      li
-        = link_to k.name, k
+      li= link_to k.name, k

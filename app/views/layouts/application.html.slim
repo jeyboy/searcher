@@ -8,7 +8,7 @@ html lang="en"
 
       .container-fluid
         .row-fluid
-          .span3.sidebar
+          .col-xs-3.sidebar
             .vblock
               .well.sidebar-nav
                 = render 'layouts/categories'
@@ -16,7 +16,7 @@ html lang="en"
               .well.sidebar-nav
                 = render 'layouts/tags'
 
-          .span9.posts_body
+          .col-xs-9.posts_body
             = bootstrap_flash
             = yield
 
