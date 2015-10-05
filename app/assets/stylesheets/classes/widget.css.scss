@@ -1,37 +1,54 @@
-.box_sizing {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
+@import 'mixins';
 
-@mixin background_gradient($from, $to) {
-  background-image: -ms-linear-gradient(top, $from, $to);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($from), to($to));
-  background-image: -webkit-linear-gradient(top, $from, $to);
-  background-image: -o-linear-gradient(top, $from, $to);
-  background-image: linear-gradient(top, $from, $to);
-  background-image: -moz-linear-gradient(top, $from, $to);
+.box_wrapper {
+  width: calc(33% - 10px);
+  margin: 0 0 10px 10px;
 }
 
 .box-widget {
-  width: 30%;
-  margin: 0 1.5% 20px 1.5%;
+  @include bradius(10px);
 
   background-color: rgb(251,251,251);
   height: auto;
   border: 1px rgb(235,235,235) solid;
-  //font-family:"OpenSansRegular";
 
   .widget-icon {
     line-height: 0;
-    margin: -10px;
-    opacity: 0.8;
+    opacity: 0.6;
     padding-right: 16px;
   }
 
   .box-widget-head {
+    .date {
+      div {
+        padding: 0 2px;
+        font-weight: bold;
+      }
+
+      .year {
+        background-color: gold;
+        font-size: 14px;
+      }
+
+      .month {
+        font-size: 12px;
+      }
+    }
+
+    .p0 { padding: 0; }
+
+    .top {
+      button, .btn {
+        height: 40px;
+        width: 44px;
+        font-size: 19px;
+      }
+
+      a.btn {
+        line-height: 26px;
+      }
+    }
+
     @extend .box_sizing;
     @include background_gradient(rgb(246,246,246), rgb(240,240,240));
 
@@ -42,32 +59,30 @@
     border-bottom: 1px rgb(220,220,220) solid;
 
     .btn-group {
-      //padding-top: 3px;
       .btn {
         padding: 2px 4px;
-        //  border:none;
-        //  background:none;
-        //  box-shadow:none;
       }
     }
 
-    .btn.btn-info, .btn.btn-success, .btn.btn-danger {
-      padding: 3px 6px;
-      font-size: 12px;
-      font-weight: bold;
-      color: white;
-      line-height: 10px;
-    }
+    //.btn.btn-info, .btn.btn-success, .btn.btn-danger {
+    //  padding: 3px 6px;
+    //  font-size: 12px;
+    //  font-weight: bold;
+    //  color: white;
+    //  line-height: 10px;
+    //}
+    //
+    //.btn-close {
+    //  border: 1px solid blue;
+    //  font-weight: bold;
+    //  line-height: 12px;
+    //}
 
     .title {
-      margin: -25px 0 0;
       //text-indent: 10px;
       font-weight: bold;
       font-size: 15px;
-    }
-
-    .sdate {
-      padding: 0 5px 0 0;
+      margin: 4px 0;
     }
   }
 
@@ -91,7 +106,7 @@
     p { font-size: 13px; }
 
     ol {
-      margin: 6px 0px;
+      margin: 6px 0;
       list-style: decimal;
       list-style-position: inside;
 

@@ -1,10 +1,29 @@
-= render layout: 'shared/widget_box', locals: { :@date => post.created_at, :@url => polymorphic_url(post, format: :json), :@widget_class => "p#{post.id}", :@icon_class => post.category.icon, \
-  :@title => post.name, :@header => "#{"#{link_to('edit', [:edit, post], class: 'btn btn-success')} #{link_to('del', post, method: :delete, class: 'btn btn-danger')}" if current_user.is_admin || current_user.id == post.author_id}"} do
-  /:@title => post.name, :@header => "#{link_to('read', post, class: 'btn btn-info')} #{link_to('edit', [:edit, post], class: 'btn btn-success')}"} do
-  == post.pretty_preview
+.box_wrapper
+  .box-widget class="p#{post.id}" data-url=polymorphic_url(post, format: :json)
+    .box-widget-head
+      .top
+        button class='btn btn-default p0 date'
+          .year= post.created_at.year
+          .month= post.created_at.strftime('%m/%d')
 
-  = content_for :widget_footer, flush: true do
+        button class='btn btn-default'
+          span class="glyphicon #{post.category.icon} widget-icon"
+
+        = link_to post, class: 'btn btn-info' do
+          span class='fa fa-eye'
+
+        = link_to [:edit, post], class: 'btn btn-success' do
+          span class='fa fa-pencil'
+
+        button type='button' class='btn btn-danger btn-close'
+          span class='fa fa-times'
+
+      p.title= post.name
+
+    .box-widget-body class="#{'hide' if @closed}"
+      .row-fluid
+        == post.pretty_preview
+
     - if post.taggables.present?
-      = render post.taggables
-    - else
-      = nil
+      .box-widget-footer
+        = render post.taggables

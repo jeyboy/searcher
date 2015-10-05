@@ -11,6 +11,23 @@
   border-radius: $radius; /* CSS3 */
 }
 
+@mixin background_gradient($from, $to) {
+  background-image: -ms-linear-gradient(top, $from, $to);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+}
+
+.box_sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .clearfix {
   zoom:1;
   &:before, &:after {

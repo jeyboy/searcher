@@ -27,16 +27,14 @@ $ ->
 
   get_elem_facing = ($elem) ->
     $elem.outerHeight(true) - $elem.height()
-  #      parseInt($elem.css('padding-top')) + parseInt($elem.css('padding-bottom')) + parseInt($elem.css('margin-bottom')) + parseInt($elem.css('margin-top'))
 
   resizeContent = (height) ->
-    height -= 10
     resize_values.posts_elem.css('height', height)
 
 
   resizeSidebar = (height) ->
     $blocks = $('.sidebar .vblock')
-    height -= (get_elem_facing($blocks) * $blocks.length) + 20 # 10 is a margin * 2
+    height -= (get_elem_facing($blocks) * $blocks.length) + 10 # 10 is a margin
     block_height = height / $blocks.length
 
     a_height = $blocks.first().prop('scrollHeight') #height()

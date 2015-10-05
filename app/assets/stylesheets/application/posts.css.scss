@@ -1,7 +1,12 @@
 @import 'mixins';
 
-body pre code {
-  padding: 21px 0;
+//body pre code {
+//  padding: 21px 0;
+//}
+
+.widget-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .note-editable, .widget-icon {
@@ -30,8 +35,7 @@ body pre code {
 
   &.yaml, & .yaml { background: url('/assets/languages/yaml.png') no-repeat;}
 
-
-  pre { margin-top: 10px;}
+  //pre { margin-top: 10px;}
 }
 
 .post_body, .box-widget-body {
@@ -47,5 +51,3 @@ body pre code {
     white-space: inherit;
   }
 }
-
-.mt7 { margin-top: 7px; }

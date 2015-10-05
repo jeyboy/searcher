@@ -25,7 +25,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should show post" do
-    get :show, id: @post
+    get :|, id: @post
     assert_response :success
   end
 
