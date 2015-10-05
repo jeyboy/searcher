@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   layout :current_layout
 
-  before_action :set_post, only: [:|, :edit, :update, :destroy]
-  before_action :init_sidebar, only: [:index, :|]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :init_sidebar, only: [:index, :show]
 
   def index
     @posts = Post.includes(taggables: :tag).all

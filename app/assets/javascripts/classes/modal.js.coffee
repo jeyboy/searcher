@@ -33,7 +33,7 @@ window.modal_window =
     $("<div class='modal-footer'>#{data || '&nbsp;'}</div>")
 
   template: (header, body, footer, id)->
-    $base = $("<div class='modal fade' id='#{id || modal_window.modal_block_name}'></div>")
+    $base = $("<div class='modal fade' id='#{id || modal_window.modal_block_name}' role='dialog'></div>")
     $base
       .append(modal_window.build_header(header))
       .append(modal_window.build_body(body))
