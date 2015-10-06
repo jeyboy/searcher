@@ -4,52 +4,59 @@ javascript:
 = simple_form_for @post, defaults: {input_html: {rows: 20}} do |f|
   = render 'shared/errors', object: @post
 
-  .container-fluid
-    .row-fluid
-      .span3
-        .well
-          = f.label :category
-          .inline_pair
-            = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
+  .row
+    .col-xs-12.col-sm-3
+      .well
+        = f.label :category
+        .inline_pair
+          = f.input_field :category_id, collection: Category.all, id: 'category', prompt: 'Select...'
 
-            div.controls
-              = link_to '#edit_category', class: 'hide edit_category' do
-                i class='icon-pencil icon-large'
+          div.controls
+            = link_to '#edit_category', class: 'hide edit_category' do
+              i class='icon-pencil icon-large'
 
-              = link_to '#modal_category', 'data-toggle' => 'modal' do
-                i class='icon-cog icon-large'
+            = link_to '#modal_category', 'data-toggle' => 'modal' do
+              i class='icon-cog icon-large'
 
-        .well
-          = f.label :tags
-          .inline_pair
-            = collection_select :tags, :tag_id, Tag.all.order(:name), :id, :name, {prompt: 'Select...'}, id: 'tag'
+      .well
+        = f.label :tags
+        .inline_pair
+          = collection_select :tags, :tag_id, Tag.all.order(:name), :id, :name, {prompt: 'Select...'}, id: 'tag'
 
-            div.controls
-              = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
-                i class='icon-plus-sign icon-large'
+          div.controls
+            = link_to '#', 'data-toggle' => 'modal', class: 'add_tag' do
+              i class='icon-plus-sign icon-large'
 
-              = link_to '#edit_tag', class: 'hide edit_tag_btn' do
-                i class='icon-pencil icon-large'
+            = link_to '#edit_tag', class: 'hide edit_tag_btn' do
+              i class='icon-pencil icon-large'
 
-              = link_to '#modal_tag', 'data-toggle' => 'modal' do
-                i class='icon-cog icon-large'
+            = link_to '#modal_tag', 'data-toggle' => 'modal' do
+              i class='icon-cog icon-large'
 
-          = render 'tags/tags', object: @post
-          /= render @post.taggables, static: false
+        = render 'tags/tags', object: @post
+        /= render @post.taggables, static: false
 
-        .well
-          = link_to 'Cancel', root_path, class: 'btn btn-warning'
-          = f.submit 'Proceed', class: 'btn btn-info', name: 'btn-finish'
-          =(f.submit 'Proceed and continue', class: 'btn btn-info', name: 'btn-continue') if @post.new_record?
-      .span9
-        .well.full_length
+      .well
+        = link_to 'Cancel', root_path, class: 'btn btn-warning'
+        = f.submit 'Proceed', class: 'btn btn-info', name: 'btn-finish'
+        =(f.submit 'Proceed and continue', class: 'btn btn-info', name: 'btn-continue') if @post.new_record?
+    .col-xs-12.col-sm-9
+      .well.fullwidth
 
-          = f.input :name
+        = f.input :name, input_html: {class: 'fullwidth'}
 
-          /= f.input :body
+        /= f.input :body
 
-          #editor
-            == f.object.body
+        .with_panel_block
+          .panel_btns
+            button class='btn btn-default'
+              span class="fa fa-eye"
+
+            button type='button' class='btn btn-danger btn-close'
+              span class='fa fa-times'
+          .linked_content
+            #editor
+              == f.object.body
 
 
 ///////////////////////modals

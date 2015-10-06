@@ -7,9 +7,7 @@ html lang="en"
       = render 'layouts/navbar'
 
       .container-fluid
-        .row-fluid
-          .col-xs-12
-            = bootstrap_flash
-            = yield
+        = bootstrap_flash
+        = yield
 
     = render 'layouts/footer'

@@ -7,15 +7,7 @@
 
 @import 'mixins';
 
-.fullwidth { width: 100%; } // in use
-
-//.full_length {
-//  input, select, textarea {
-//    width: 100%;
-//    max-width: 100%;
-//    min-width: 100%;
-//  }
-//}
+.fullwidth { width: 100%; }
 
 .inline_group {
   @extend .clearfix;
@@ -23,6 +15,27 @@
 }
 
 $def-border: 1px solid lightgray;
+
+/////////////////////////////////////////////////
+
+.with_panel_block {
+  $panel-width: 45px;
+
+  @extend .clearfix;
+
+  .panel_btns {
+    float: left;
+    width: $panel-width;
+
+    .btn {
+      width: $panel-width - 5px;
+    }
+  }
+
+  .linked_content {
+    margin-left: $panel-width;
+  }
+}
 
 ////////////////doc structure/////////////////////
 
@@ -48,8 +61,8 @@ footer {
 
   position: absolute;
   bottom: 0;
-  /* Set the fixed height of the footer here */
   height: $footer-height;
+  line-height: $footer-height;
   background-color: #f5f5f5;
 }
 //////////////////////////////////////////////////
@@ -122,10 +135,6 @@ footer {
     margin-top: 0
   }
 }
-
-//.mr10 { margin-right: 10px; }
-//
-//.ml10 { margin-left: 10px; }
 
 //.actions {
 //  text-align: center;
