@@ -1,8 +1,12 @@
 @import 'mixins';
 
-//body pre code {
-//  padding: 21px 0;
-//}
+body pre {
+  overflow: visible;
+
+  code {
+    padding: 21px 0;
+  }
+}
 
 .widget-icon {
   width: 16px;
