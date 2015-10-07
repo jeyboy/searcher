@@ -11,9 +11,15 @@ body pre {
 .widget-icon {
   width: 16px;
   height: 16px;
+  padding-left: 16px;
 }
 
 .note-editable, .widget-icon {
+  &.textblock, & .textblock { @include lang-ico('textblock');}
+
+  &.code, & .code { @include lang-ico('code');}
+  &.codeblock, & .codeblock { @include lang-ico('codeblock');}
+
   &.bash, & .bash { @include lang-ico('bash');}
   &.coffeescript, & .coffeescript { @include lang-ico('coffeescript');}
   &.css, & .css { @include lang-ico('css');}

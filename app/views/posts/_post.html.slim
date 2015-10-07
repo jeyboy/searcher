@@ -7,7 +7,7 @@
           .month= post.created_at.strftime('%m/%d')
 
         button class='btn btn-default'
-          span class="glyphicon #{post.category.icon} widget-icon"
+          span class="#{post.category.icon} widget-icon"
 
         = link_to post, class: 'btn btn-info' do
           span class='fa fa-eye'

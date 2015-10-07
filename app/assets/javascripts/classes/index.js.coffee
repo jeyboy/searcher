@@ -3,6 +3,7 @@
 #= require ./flow_select
 #= require ./layout_resize
 #= require ./tag
+#= require ./wysiwyg
 #= require_self
 
 $ ->

@@ -2,7 +2,7 @@
 #= require ./summernote.min
 #= require ./highlight.pack
 #= require ./masonry.min
-#= require ./jqiery.selection
+#= require ./jquery.selection
 #= require_self
 
 set_parent = (node, parent_node) ->

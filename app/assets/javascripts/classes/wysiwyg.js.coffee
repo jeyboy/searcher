@@ -1,4 +1,4 @@
-class Wysiwyg
+class @Wysiwyg
   redactor: undefined
 
   root_container: '.with_panel_block'
@@ -8,13 +8,13 @@ class Wysiwyg
 
   inline_wrap: ['code']
 
-  langs: ['codeblock', 'bash', 'yaml', 'javascript', 'coffeescript',
+  langs: ['textblock', 'codeblock', 'bash', 'yaml', 'javascript', 'coffeescript',
           'css', 'json', 'erb', 'slim', 'haml', 'html', 'xml', 'ruby', 'sql'
   ]
 
 
   btn_template: (name, icon_classes) ->
-    "<button class='btn btn-default' alt='#{name}' title='#{name}'><span class='#{icon_classes}'></span></button>"
+    "<a class='btn btn-default' alt='#{name}' title='#{name}'><span class='#{icon_classes} widget-icon'></span></a>"
 
   frag_template_start: (name, classes) ->
     "<code class='#{name} #{classes}'>"
@@ -34,7 +34,6 @@ class Wysiwyg
 
   constructor: (@textarea) ->
     @render_langs()
-    @register_actions()
 
 
   render_langs: ->
@@ -44,20 +43,26 @@ class Wysiwyg
     for codeName in @inline_wrap
       codeact_name = "#{codeName}-act"
       $btn_panel.append(@btn_template(codeName, "#{codeName} #{codeact_name}"))
-      $body.on('click', ".#{codeact_name}", @wrap_block(codeName, @frag_template_start(codeName, @editable_block_class), @frag_template_end()))
+      $body.on('click', ".#{codeact_name}", ->
+        @wrap_block(codeName, @frag_template_start(codeName, @editable_block_class), @frag_template_end())
+      )
 
     for langName in @langs
       act_name = "#{langName}-act"
       $btn_panel.append(@btn_template(langName, "#{langName} #{act_name}"))
-      $body.on('click', ".#{act_name}", @insert_block(langName))
+      $body.on('click', ".#{act_name}", ->
+        @insert_block(langName)
+      )
 
 
   wrap_block: (classes, wrap_start, wrap_end) ->
+    console.log('wrap')
     $(@root_container)
       .selection('insert', {text: wrap_start, mode: 'before'})
       .selection('insert', {text: wrap_end, mode: 'after'});
 
   insert_block: (classes) ->
+    console.log('insert')
     if (String(@curr_selection()).length > 0)
       @wrap_block(classes, @block_template_start(classes, @editable_block_class), @block_template_end())
     else
