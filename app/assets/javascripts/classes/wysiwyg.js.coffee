@@ -8,13 +8,13 @@ class @Wysiwyg
 
   inline_wrap: ['code']
 
-  langs: ['textblock', 'codeblock', 'bash', 'yaml', 'javascript', 'coffeescript',
+  langs: ['codeblock', 'bash', 'yaml', 'javascript', 'coffeescript',
           'css', 'json', 'erb', 'slim', 'haml', 'html', 'xml', 'ruby', 'sql'
   ]
 
 
-  btn_template: (name, icon_classes) ->
-    "<a class='btn btn-default' alt='#{name}' title='#{name}'><span class='#{icon_classes} widget-icon'></span></a>"
+  btn_template: (name, wrap_classes, icon_classes) ->
+    "<a class='btn btn-default #{wrap_classes}' alt='#{name}' title='#{name}'><span class='#{icon_classes} widget-icon'></span></a>"
 
   frag_template_start: (name, classes) ->
     "<code class='#{name} #{classes}'>"
@@ -29,7 +29,7 @@ class @Wysiwyg
     "#{@frag_template_end()}</pre>"
 
   block_template: (name, classes) ->
-    @block_template_start(name, classes).append(@block_template_end())
+    @block_template_start(name, classes) + (@block_template_end())
 
 
   constructor: (@textarea) ->
@@ -38,37 +38,53 @@ class @Wysiwyg
 
   render_langs: ->
     $btn_panel = $(@button_panel, @root_container)
-    $body = $('body')
+
+    textact_name = "textblock-act"
+    $btn_panel.append(@btn_template('textblock', textact_name, 'textblock'))
+    $(".#{textact_name}").on('click', @, @insert_text)
 
     for codeName in @inline_wrap
       codeact_name = "#{codeName}-act"
-      $btn_panel.append(@btn_template(codeName, "#{codeName} #{codeact_name}"))
-      $body.on('click', ".#{codeact_name}", ->
-        @wrap_block(codeName, @frag_template_start(codeName, @editable_block_class), @frag_template_end())
-      )
+      $btn_panel.append(@btn_template(codeName, codeact_name, codeName))
+      $(".#{codeact_name}").on('click', @, @wrap_fragment)
 
     for langName in @langs
       act_name = "#{langName}-act"
-      $btn_panel.append(@btn_template(langName, "#{langName} #{act_name}"))
-      $body.on('click', ".#{act_name}", ->
-        @insert_block(langName)
-      )
+      $btn_panel.append(@btn_template(langName, act_name, langName))
+      $(".#{act_name}").on('click', @, @insert_block)
 
+
+  wrap_fragment: (e) ->
+    cName = $(@).attr('alt')
+    kl = e.data
+    kl.wrap_block(cName, kl.frag_template_start(cName), kl.frag_template_end())
 
   wrap_block: (classes, wrap_start, wrap_end) ->
-    console.log('wrap')
-    $(@root_container)
+    $area = $('textarea', @root_container) # selection worked only with textarea and inputs
+
+    $area
       .selection('insert', {text: wrap_start, mode: 'before'})
       .selection('insert', {text: wrap_end, mode: 'after'});
 
-  insert_block: (classes) ->
-    console.log('insert')
-    if (String(@curr_selection()).length > 0)
-      @wrap_block(classes, @block_template_start(classes, @editable_block_class), @block_template_end())
+    $area.focus()
+    
+
+  insert_text: (e) ->
+    kl = e.data
+    $(kl.content_panel, kl.root_container)
+      .append("<div class='#{kl.editable_block_class}'><p></p></div>")
+
+  insert_block: (e) ->
+    cName = $(@).attr('alt');
+    kl = e.data
+
+    console.log('insert', String(kl.curr_selection()).length)
+    if (String(kl.curr_selection()).length > 0)
+      kl.wrap_block(cName, kl.block_template_start(cName, kl.editable_block_class), kl.block_template_end())
     else
-      $(@content_panel, @root_container)
-        .append(@block_template(classes, @editable_block_class))
+      $(kl.content_panel, kl.root_container)
+        .append(kl.block_template(cName, kl.editable_block_class))
 
 
   curr_selection: () ->
-    $(@root_container).selection();
+    $(@root_container).selection()

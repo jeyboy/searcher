@@ -8,13 +8,17 @@ body pre {
   }
 }
 
+.linked_content code {
+  padding-left: 16px;
+}
+
 .widget-icon {
   width: 16px;
   height: 16px;
   padding-left: 16px;
 }
 
-.note-editable, .widget-icon {
+.linked_content, .widget-icon { // .note-editable
   &.textblock, & .textblock { @include lang-ico('textblock');}
 
   &.code, & .code { @include lang-ico('code');}
