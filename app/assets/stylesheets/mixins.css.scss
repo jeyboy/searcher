@@ -1,3 +1,7 @@
+@mixin lang-ico($name) {
+  background: url('/assets/languages/' + $name + '.png') no-repeat;
+}
+
 @mixin text-overflow($type) {
   -ms-text-overflow: $type;
   -o-text-overflow: $type;   /* Opera */

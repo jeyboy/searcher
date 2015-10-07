@@ -49,15 +49,14 @@ javascript:
 
         .with_panel_block
           .panel_btns
-            button class='btn btn-default'
-              span class="fa fa-eye"
 
-            button type='button' class='btn btn-danger btn-close'
-              span class='fa fa-times'
           .linked_content
-            #editor
-              == f.object.body
+            = f.input :body
+            /#editor
+            /  == f.object.body
 
+javascript:
+  new Wysiwyg();
 
 ///////////////////////modals
 
